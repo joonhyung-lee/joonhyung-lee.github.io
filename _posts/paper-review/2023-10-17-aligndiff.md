@@ -1,6 +1,8 @@
 ---
 title: "[paper-review] AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model"
 last_modified_at: 2023-10-17
+header-includes:
+   - \usepackage{bbm}
 categories:
   - paper-review
 tags:
@@ -14,12 +16,12 @@ excerpt: "DDIM 논문 리뷰"
 use_math: true
 classes: wide
 ---
-
 > Arxiv 2023. [[Paper](https://arxiv.org/pdf/2310.02054.pdf)] [[Project Page](https://aligndiff.github.io/)] [[Github](https://github.com/aligndiff/aligndiff.github.io)]
-> Zibin Dong<sup>1</sup>, Yifu Yuan<sup>1</sup>, Jianye Hao†<sup>1</sup>, Fei Ni<sup>1</sup>, Yao Mu<sup>3</sup>, Yan Zheng<sup>1</sup>, Yujing Hu<sup>2</sup>, Tangjie Lv<sup>2</sup> , Changjie Fan<sup>2</sup>, Zhipeng Hu<sup>2</sup>
-> <sup>1</sup>College of Intelligence and Computing, Tianjin University,
-<sup>2</sup>Fuxi AI Lab, Netease, Inc., Hangzhou, China, <sup>3</sup>The University of Hong Kong
-> 3 Oct 2023
+Zibin Dong<sup>1</sup>, Yifu Yuan<sup>1</sup>, Jianye Hao†<sup>1</sup>, Fei Ni<sup>1</sup>, Yao Mu<sup>3</sup>, Yan Zheng<sup>1</sup>, Yujing Hu<sup>2</sup>, Tangjie Lv<sup>2</sup> , Changjie Fan<sup>2</sup>, Zhipeng Hu<sup>2</sup>
+<sup>1</sup>College of Intelligence and Computing, Tianjin University,
+<sup>2</sup>Fuxi AI Lab, Netease, Inc., Hangzhou, China,
+<sup>3</sup>The University of Hong Kong
+3 Oct 2023
 
 ## 한 문장 요약
 요약: Human preference를 RLHF로 quantify 하였고, 이를 diffusion 모델로 잘 포착해보자.
