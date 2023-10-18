@@ -9,7 +9,7 @@ tags:
   - Computer Vision
   - AI
   - Arxiv
-  - 2023
+  - '2023'
 excerpt: "DDIM 논문 리뷰"
 use_math: true
 classes: wide
