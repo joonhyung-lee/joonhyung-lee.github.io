@@ -1,8 +1,8 @@
 ---
 title: "[paper-review] AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model"
 last_modified_at: 2023-10-17
-header-includes:
-   - \usepackage{bbm}
+# header-includes:
+#    - \usepackage{bbm}
 categories:
   - paper-review
 tags:
@@ -83,16 +83,16 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
         - $\mathrm{\alpha}=\{\alpha_{1},\cdots,\alpha_{k}\}$: a set of k predefined attributes used to characterize the agent’s behavior
             - 기 정의된 attribute에 대한 내용: ex) Speed, Jump height, Torso height, Stride length
         - $\mathrm{\tau}^{l}=\{s_{0},\cdots,s_{l-1} \}$: length l의 길이만큼 state $s$를 갖는 궤적에 대한 표현.
-        - $\zeta^{\alpha}(\tau^{l})=\bm{v}^{\alpha}=[v^{\alpha_{1}},\cdots,v^{\alpha_{k}}]\in [0,1]^{k}$: 궤적을 입력으로 받아, 해당 궤적이 각 attribute에 대해 얼마 만큼의 값을 가지는지 mapping 해주는 함수.
+        - $\zeta^{\alpha}(\tau^{l})=\boldsymbol{v}^{\alpha}=[v^{\alpha_{1}},\cdots,v^{\alpha_{k}}]\in [0,1]^{k}$: 궤적을 입력으로 받아, 해당 궤적이 각 attribute에 대해 얼마 만큼의 값을 가지는지 mapping 해주는 함수.
             - $v^{\alpha_{i}}$의 값이 클 수록 해당 Attribute $\alpha_{i}$를 잘 표방한다는 것이며, 작을 수록 그 반대의 의미.
-    - 저자는 Human preference를 $(\bm{v^{\alpha}}_{\text{targ}},\bm{m}^{\alpha})$의 쌍으로 정의함.
-        - $\bm{v^{\alpha}}_{\text{targ}}$: relative strength를 의미함.
-        - $\bm{m}^{\alpha}\in\{0,1\}^{k}$: binary masking 값을 의미함. 즉, 해당하는 interest of attribute를 뜻함.
+    - 저자는 Human preference를 $(\boldsymbol{v^{\alpha}}_{\text{targ}},\boldsymbol{m}^{\alpha})$의 쌍으로 정의함.
+        - $\boldsymbol{v^{\alpha}}_{\text{targ}}$: relative strength를 의미함.
+        - $\boldsymbol{m}^{\alpha}\in\{0,1\}^{k}$: binary masking 값을 의미함. 즉, 해당하는 interest of attribute를 뜻함.
     - Objective
-        - find a policy $a=\pi(\mathrm{s}|\bm{v^{\alpha}}_{\text{targ}},\bm{m^{\alpha}})$ that minimizes the L1 norm
+        - find a policy $a=\pi(\mathrm{s}|\boldsymbol{v^{\alpha}}_{\text{targ}},\boldsymbol{m^{\alpha}})$ that minimizes the L1 norm
         
         $$
-        ||(\bm{v^{\alpha}}_{\text{targ}}-\zeta^{\bm{\alpha}}(\mathop{\mathbb{E}_{\pi}}[\tau^{l}]))~\circ~\bm{m^{\alpha}}||_{1}
+        ||(\boldsymbol{v^{\alpha}}_{\text{targ}}-\zeta^{\boldsymbol{\alpha}}(\mathop{\mathbb{E}_{\pi}}[\tau^{l}]))~\circ~\boldsymbol{m^{\alpha}}||_{1}
         $$
 - PbRL
     - Bradley-Terry objective에 대한 서술.
@@ -123,40 +123,40 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
 2. Attribute Strength Model Training
     - 저자는 Bradley-Terry objective를 수정하여 제시함.
         - 기존의 수식에서 달라진 점은 reward(=feature) mapping function 뿐이다.
-            - $r(\xi(\tau_1))$ → $\hat{\zeta}^{\bm{\alpha}}_{\theta,i}(\tau_1)$
+            - $r(\xi(\tau_1))$ → $\hat{\zeta}^{\boldsymbol{\alpha}}_{\theta,i}(\tau_1)$
     
     $$
-    P^{\alpha_{i}}[\tau_{1}\succ\tau_{2}]=\frac{\exp \hat{\zeta}^{\bm{\alpha}}_{\theta,i}(\tau_1)}{\sum_{j\in\{1,2\}}\exp\hat{\zeta}^{\bm{\alpha}}_{\theta,i}(\tau_{j})}
+    P^{\alpha_{i}}[\tau_{1}\succ\tau_{2}]=\frac{\exp \hat{\zeta}^{\boldsymbol{\alpha}}_{\theta,i}(\tau_1)}{\sum_{j\in\{1,2\}}\exp\hat{\zeta}^{\boldsymbol{\alpha}}_{\theta,i}(\tau_{j})}
     $$
     
     - 해당 수식이 의미하는 바는, attribute $\alpha_{i}$를 기준으로 궤적 1이 더 적합한 경우에 대한 수식.
     - Loss objective: **Relative Attribute Strength Network(model)**
         $$
         \begin{equation*}
-        \mathcal{L}(\hat{\zeta}^{\bm{\alpha}}_{\theta}) = -\sum_{(\tau_{1},\tau_{2},y_{\text{attr}})\in D_p} \sum_{i=1}^{k} y_{i}(1)\log P^{\alpha_{i}}[\tau_{1} \succ \tau_{2}] + y_{i}(2)\log P^{\alpha_{i}}[\tau_{2} \succ \tau_{1}]
+        \mathcal{L}(\hat{\zeta}^{\boldsymbol{\alpha}}_{\theta}) = -\sum_{(\tau_{1},\tau_{2},y_{\text{attr}})\in D_p} \sum_{i=1}^{k} y_{i}(1)\log P^{\alpha_{i}}[\tau_{1} \succ \tau_{2}] + y_{i}(2)\log P^{\alpha_{i}}[\tau_{2} \succ \tau_{1}]
         \end{equation*}
         $$        
         - 저자도 언급하길, 이거는 단순히 Bradley-Terry objective에서의 Mapping 함수를 바꿔준 정도라고만 함.
         - Introduction에서 언급한 single-step에 대해서만 추정하는 한계점을 $\zeta$ 라는 mapping 함수를 통해 variable-length trajectory input에 대해서 적용할 수 있다는 점을 언급함.
-            - 이를 Transformer 구조로 학습하며, learnable embedding을 추가해 relative strength vector $\bm{v^{\alpha}}$를 학습하는 것을 목표로 함. (입력은 state-only 궤적을 받음.)
-                - Transformer를 거친 후에, 마지막 layer에는 linear layer를 통해 $\bm{v^{\alpha}}$를 얻음.
-        - 학습이 수행된 이후에는 $\hat{\zeta}^{\bm{\alpha}}_{\theta,i}(\cdot)$을 통해 annotated dataset $D_{G}=\{(\tau^{H},\bm{v^{\alpha}})\}$을 얻음.
+            - 이를 Transformer 구조로 학습하며, learnable embedding을 추가해 relative strength vector $\boldsymbol{v^{\alpha}}$를 학습하는 것을 목표로 함. (입력은 state-only 궤적을 받음.)
+                - Transformer를 거친 후에, 마지막 layer에는 linear layer를 통해 $\boldsymbol{v^{\alpha}}$를 얻음.
+        - 학습이 수행된 이후에는 $\hat{\zeta}^{\boldsymbol{\alpha}}_{\theta,i}(\cdot)$을 통해 annotated dataset $D_{G}=\{(\tau^{H},\boldsymbol{v^{\alpha}})\}$을 얻음.
             - 주의할 점은, 여기서 저장되는 trajectory는 모두 고정된 length $H$를 가짐. 위 데이터셋 $D_{G}$을 통해 diffusion training이 이루어짐. Attribute-Conditioning을 위해 수행한 과정.
 3. Diffusion Training 
 ![Diffusion Training Architecture](/assets/img/aligndiff/aligndiff_architecture.png)
-    - DDIM 구조에 condition으로 $\bm{v^{\alpha}},\bm{m^{\alpha}}$을 줌.
-      - [Conditioned / Unconditioned] noise predictor $[\epsilon_{\phi}(\bm{x}_{t},\bm{v^{\alpha}},\bm{m^{\alpha}})$ / $\epsilon_{\phi}(\bm{x}_{t})]$
-            - masking $\bm{m^{\alpha}}$가 conditioning을 관여하므로, 한 개의 network를 학습하면 된다.
+    - DDIM 구조에 condition으로 $\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}}$을 줌.
+      - [Conditioned / Unconditioned] noise predictor $[\epsilon_{\phi}(\boldsymbol{x}_{t},\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}})$ / $\epsilon_{\phi}(\boldsymbol{x}_{t})]$
+            - masking $\boldsymbol{m^{\alpha}}$가 conditioning을 관여하므로, 한 개의 network를 학습하면 된다.
     - Diffusion backbone으로는 U-Net 대신에 **DiT** 모델을 사용하였으며, 구조에는 일부 수정이 있음.
         - [Scalable Diffusion Models with Transformers (DiT)](https://github.com/facebookresearch/DiT)
             - Transformer-based Backbone.             
     - 이러한 condition을 잘 활용하기 위해 2개의 requirement가 있다고 함.
-        1. $\bm{m^{\alpha}}$ should **eliminate** the influence of nonrequested attributes on the model while preserving the effect of **the interested attributes**
+        1. $\boldsymbol{m^{\alpha}}$ should **eliminate** the influence of nonrequested attributes on the model while preserving the effect of **the interested attributes**
             * masking vector를 통해 attribute 별로 독립적으로 고려할 수 있게 하겠다의 의미?
-        2. $\bm{v^{\alpha}}$ cannot be simply multiplied with $\bm{m^{\alpha}}$ and fed into the network, as a value of $0$ in $\bm{v^{\alpha}}$ still carries specific meanings.
+        2. $\boldsymbol{v^{\alpha}}$ cannot be simply multiplied with $\boldsymbol{m^{\alpha}}$ and fed into the network, as a value of $0$ in $\boldsymbol{v^{\alpha}}$ still carries specific meanings.
             * 1의 속성으로 인해 masking vector와 단순 곱을 사용하게 되면 잘못된 의미가 된다?
         3. 이를 만족하기 위해 attribute-oriented encoder를 제안함.
-            * $\bm{v^{\alpha}}$를 $V$개의 selectable token으로 표현해주기 위함.
+            * $\boldsymbol{v^{\alpha}}$를 $V$개의 selectable token으로 표현해주기 위함.
             
             $$
             v^{\alpha_{i}}_{d}=[\text{clip}(v^{\alpha_{i}},0,1-\delta)~\cdot~V]+(i-1)V,~i=i,\cdots,k
@@ -164,29 +164,29 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
             
             - $\delta$: small slack variable.
                 - This ensures that each of the V possible cases for each attribute is assigned a unique token.
-                - 그렇게 임베딩을 거친 $\bm{v^{\alpha}}$는 both attribute category and strength의 정보를 포함하게 된다.
+                - 그렇게 임베딩을 거친 $\boldsymbol{v^{\alpha}}$는 both attribute category and strength의 정보를 포함하게 된다.
             - Loss objective: **Noise predictor loss of Diffusion mode**
                 $$
                 \begin{equation*}
-                \mathcal{L}(\phi) = \mathop{\mathbb{E}}_{(\bm{x}_{0},\bm{v}^{\alpha})\sim\mathcal{D}_{G},~t\sim\text{Uniform}(T),~\epsilon\sim\mathcal{N}(0,I),~\bm{m}^{\alpha}\sim\mathcal{B}(k,p)} \left\| \epsilon - \epsilon_{\phi}(\bm{x}_{t}, t, \bm{v}^{\alpha}, \bm{m}^{\alpha}) \right\|_{2}^{2}
+                \mathcal{L}(\phi) = \mathop{\mathbb{E}}_{(\boldsymbol{x}_{0},\boldsymbol{v}^{\alpha})\sim\mathcal{D}_{G},~t\sim\text{Uniform}(T),~\epsilon\sim\mathcal{N}(0,I),~\boldsymbol{m}^{\alpha}\sim\mathcal{B}(k,p)} \left\| \epsilon - \epsilon_{\phi}(\boldsymbol{x}_{t}, t, \boldsymbol{v}^{\alpha}, \boldsymbol{m}^{\alpha}) \right\|_{2}^{2}
                 \end{equation*}
                 $$
                 
   1. AlginDiff Inference
-      - 앞선 과정에서 구한 attribute strength model $\hat{\zeta}^{\bm{\alpha}}_{\theta}$와 noise predictor $\epsilon_{\phi}$를 통해 AlginDiff를 소개한다. 저자는 DDIM 모델을 사용했으며, Inpainting 방식처럼 $\kappa$를 length $S$ 내에서 반복적으로 candidate trajectory를 생성했다.
+      - 앞선 과정에서 구한 attribute strength model $\hat{\zeta}^{\boldsymbol{\alpha}}_{\theta}$와 noise predictor $\epsilon_{\phi}$를 통해 AlginDiff를 소개한다. 저자는 DDIM 모델을 사용했으며, Inpainting 방식처럼 $\kappa$를 length $S$ 내에서 반복적으로 candidate trajectory를 생성했다.
       $$
       \begin{equation*}
-      \bm{x}_{\kappa_{i-1}} = \sqrt{\xi_{\kappa_{i-1}}} \left( \frac{\bm{x}_{\kappa_{i}} - \sqrt{1 - \xi_{\kappa_{i}}} \tilde{\epsilon}_{\phi}(\bm{x}_{\kappa_{i}})}{\sqrt{\xi_{\kappa_{i}}}} \right) + \sqrt{1 - \xi_{\kappa_{i-1}} - \sigma^{2}}_{\kappa_{i-1}} \tilde{\epsilon}_{\phi}(\bm{x}_{\kappa_{i}}) + \sigma_{\kappa_{i}} \epsilon_{\kappa_{i}}
+      \boldsymbol{x}_{\kappa_{i-1}} = \sqrt{\xi_{\kappa_{i-1}}} \left( \frac{\boldsymbol{x}_{\kappa_{i}} - \sqrt{1 - \xi_{\kappa_{i}}} \tilde{\epsilon}_{\phi}(\boldsymbol{x}_{\kappa_{i}})}{\sqrt{\xi_{\kappa_{i}}}} \right) + \sqrt{1 - \xi_{\kappa_{i-1}} - \sigma^{2}}_{\kappa_{i-1}} \tilde{\epsilon}_{\phi}(\boldsymbol{x}_{\kappa_{i}}) + \sigma_{\kappa_{i}} \epsilon_{\kappa_{i}}
       \end{equation*}
       $$
       
 
   그렇게 최종 objective equation은 아래와 같다.
   $$
-  \mathcal{J}(\tau)=||(\bm{v^{\alpha}}-\hat\zeta^{\alpha}_{\theta}(\tau))\circ\bm{m^{\alpha}}||^{2}_{2}
+  \mathcal{J}(\tau)=||(\boldsymbol{v^{\alpha}}-\hat\zeta^{\alpha}_{\theta}(\tau))\circ\boldsymbol{m^{\alpha}}||^{2}_{2}
   $$
 
-  > Each $\tau$ in the candidate trajectories satisfies human preference $(\bm{v^{\alpha}},\bm{m^{\alpha}})$ a priori. Then we utilize $\hat{\zeta}^{\alpha}_{\theta}$ to criticize and select the most aligned one to maximize the following objective:
+  > Each $\tau$ in the candidate trajectories satisfies human preference $(\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}})$ a priori. Then we utilize $\hat{\zeta}^{\alpha}_{\theta}$ to criticize and select the most aligned one to maximize the following objective:
 <div align="center">
   <img src="/assets/img/aligndiff/aligndiff_inference.png" width="60%">
   <p>Inference Flowchart.</p>
@@ -226,7 +226,7 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
 
 - Track the changing target attributes:
 ![Diffusion Training Architecture](/assets/img/aligndiff/aligndiff_figure6.png)    
-    - 총 800번의 simulation step 중, target attribute $\bm{v^{\alpha}}_{\text{targ}}$을 $(0,200,400,600)$에서 수정을 함.
+    - 총 800번의 simulation step 중, target attribute $\boldsymbol{v^{\alpha}}_{\text{targ}}$을 $(0,200,400,600)$에서 수정을 함.
         - 빠르게 tracking 한다는 결과를 보여줌.
 
 - Covering attribute strength distribution:
