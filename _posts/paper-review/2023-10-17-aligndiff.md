@@ -20,11 +20,8 @@ classes: wide
 >
 > Zibin Dong<sup>1</sup>, Yifu Yuan<sup>1</sup>, Jianye Hao†<sup>1</sup>, Fei Ni<sup>1</sup>, Yao Mu<sup>3</sup>, Yan Zheng<sup>1</sup>, Yujing Hu<sup>2</sup>, Tangjie Lv<sup>2</sup> , Changjie Fan<sup>2</sup>, Zhipeng Hu<sup>2</sup>
 > <sup>1</sup>College of Intelligence and Computing, Tianjin University,
-> 
 > <sup>2</sup>Fuxi AI Lab, Netease, Inc., Hangzhou, China,
-> 
 > <sup>3</sup>The University of Hong Kong
-> 
 > 3 Oct 2023
 
 ## 한 문장 요약
