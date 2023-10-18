@@ -1,7 +1,7 @@
 ---
-title: "프로그래밍"
-permalink: /categories/프로그래밍/
+title: "programming"
+permalink: /categories/programming/
 layout: category
 author_profile: true
-taxonomy: 프로그래밍
+taxonomy: programming
 ---
