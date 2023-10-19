@@ -112,8 +112,6 @@ finally:
 ```
 
 위 코드를 수행하게 되면, 아래와 같이 RGB-D image를 얻을 수 있다.
-<details>
-  <summary>image plot code</summary>
 
 ```python
 import matplotlib.pyplot as plt
@@ -127,8 +125,6 @@ plt.colorbar()
 plt.axis('off')
 plt.show()
 ```
-</details>
-
 
 <div style="text-align:center">
   <img src="/assets/img/apriltag/realsense-rgbd.png" alt="Alignment Method Image" width="100%">
@@ -366,18 +362,19 @@ def detection_pose(self, detection, camera_params, tag_size=1, z_sign=1):
 
     return M, init_error.value, final_error.value
 ```
-코드를 보면 알 수 있듯이, camera의 `intrinsic parameter`와 검출된 `tag`의 `homography matrix` 정보 만으로 pose를 추정해낼 수 있다. `homography matrix`의 정의는 다음과 같다.
-<details>
-  <summary>How to get Homography matrix?</summary>
+코드를 보면 알 수 있듯이, camera의 `intrinsic parameter`와 검출된 `tag`의 `homography matrix` 정보 만으로 pose를 추정해낼 수 있다. `homography matrix`를 구하는 과정과 정의는 다음과 같다.
 
-  [논문](https://april.eecs.umich.edu/media/pdfs/olson2011tags.pdf)에서 밝히길, `Homography matrix`는 `Direct Linear Transform (DLT)` 방법론으로 구한다고 한다.
-  `DLT`란 Four point correspondences $x_{i}$, $x_{i}'$ ​ 가 주어질 때에. $H x_{i} = x_{i}'$ 이면, $x_{i}' \times H x_{i} = 0$ 이 성립한다는 것이다.
-</details>
-
+> **How to get Homography matrix?**
+>  * [논문](https://april.eecs.umich.edu/media/pdfs/olson2011tags.pdf)에서 밝히길, `Homography matrix`는 `Direct Linear Transform (DLT)` 방법론으로 구한다고 한다.
+>  * `DLT`란 Four point correspondences $x_{i}$, $x_{i}'$ ​ 가 주어질 때에. $H x_{i} = x_{i}'$ 이면, $x_{i}' \times H x_{i} = 0$ 이 성립한다는 것이다.
+>
+> **Definition of Homography matrix**
 > Briefly, the planar homography relates the transformation between two planes (up to a scale factor):
-\[
+$$
+\begin{equation*}
 s \begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \mathbf{H} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} h_{11} & h_{12} & h_{13} \\ h_{21} & h_{22} & h_{23} \\ h_{31} & h_{32} & h_{33} \end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
-\]
+\end{equation*}
+$$
 The homography matrix is a 3x3 matrix but with 8 DoF (degrees of freedom) as it is estimated up to a scale. It is generally normalized (see also 1) with $h_{33}=1$ or $h_{11}^2 + h_{12}^2 + h_{13}^2 + h_{21}^2 + h_{22}^2 + h_{23}^2 + h_{31}^2 + h_{32}^2 + h_{33}^2 = 1$
 <div style="text-align:center">
   <img src="/assets/img/apriltag/homography-matrix.png" alt="Alignment Method Image" width="50%">
@@ -418,34 +415,43 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
 위에서 구한 `Homography matrix`를 통해 상대적인 `pose [R|t]`를 구하기 위하여 `Singular Value Decomposition(SVD)`을 활용합니다. `SVD`는 행렬을 대학화하는 방법 중 하나이다.
 
 1. **Homogeneous Coordinates (동차 좌표계)**:
-   - 먼저, 카메라와 3D point 간의 관계를 표현하기 위해 `동차 좌표계`를 사용한다. 3D point는 \((X, Y, Z, 1)^T\)와 같이 표현되며, 2D image point는 \((x, y, 1)^T\)로 표현된다.
+   - 먼저, 카메라와 3D point 간의 관계를 표현하기 위해 `동차 좌표계`를 사용한다. 3D point는 $(X, Y, Z, 1)^T$와 같이 표현되며, 2D image point는 $(x, y, 1)^T$로 표현된다.
 
 2. **Homography Equation**:
    - Homography 행렬 H는 다음과 같은 관계를 나타낸다:
-      \[
+
+      $$
+      \begin{equation*}
       \begin{bmatrix} s \cdot x' \\ s \cdot y' \\ s \end{bmatrix} = s \begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \mathbf{H} \begin{bmatrix} X \\ Y \\ Z \\ 1 \end{bmatrix}
-      \]
-   - 여기서 \((x', y')\)는 image plane 상의 2D point이고 \((X, Y, Z)\)는 3D 공간 상의 3D point이다. \(s\)는 스케일 요소로, 일반적으로 1로 설정된다.
+      \end{equation*}
+      $$
+   - 여기서 $(x', y')$는 image plane 상의 2D point이고 $(X, Y, Z)$는 3D 공간 상의 3D point이다. $s$는 스케일 요소로, 일반적으로 1로 설정된다.
 
 3. **Homography Decomposition**:
    - `Homography matrix` $\mathrm{H}$의 분해는 rotational matrix $\mathrm{R}$과 translational vector $\text{tvec}$으로 이루어진다.
    - Decomposition 과정은 아래와 같이 수행된다.
-     \[
+    $$
+    \begin{equation*}
      \mathbf{H} = \mathbf{K} \left[ \begin{array}{ccc|c}
      r_{11} & r_{12} & r_{13} & t_x \\
      r_{21} & r_{22} & r_{23} & t_y \\
      r_{31} & r_{32} & r_{33} & t_z \\
      \end{array} \right]
-     \]
-     여기서 \(\mathbf{K}\)는 camera intrinsic matrix이고, \(r_{ij}\)는 회전 행렬 $\mathrm{R}$의 각 요소이다.
+    \end{equation*}
+    $$
+     여기서 $\mathbf{K}$는 camera intrinsic matrix이고, $r_{ij}$는 회전 행렬 $\mathrm{R}$의 각 요소이다.
 
 4. **Polar Decomposition**:
-   - 회전 행렬 $\mathrm{R}$에 대해 `polar decomposition`을 사용하여 `orthonormal matrix`로 분해합니다. `polar decomposition`는 $\mathrm{R}$을 `SVD` 과정으로 \(\mathrm{R} = \mathrm{U} \cdot \mathrm{V^T}\)로 분해한다.
-     - 특이값 분해에서 얻은 $\mathrm{U}$와 $\mathrm{V}$를 사용하여 보정된 $\mathrm{R}$을 계산하며, 보정된 회전 행렬 \(\mathrm{R'}\)은 다음과 같이 수행된다.
-     \[ \mathrm{R'} = \frac{1}{\text{det}(\mathrm{V^T})} \cdot \mathrm{U} \]
+   - 회전 행렬 $\mathrm{R}$에 대해 `polar decomposition`을 사용하여 `orthonormal matrix`로 분해합니다. `polar decomposition`는 $\mathrm{R}$을 `SVD` 과정으로 $\mathrm{R} = \mathrm{U} \cdot \mathrm{V^T}$로 분해한다.
+     - 특이값 분해에서 얻은 $\mathrm{U}$와 $\mathrm{V}$를 사용하여 보정된 $\mathrm{R}$을 계산하며, 보정된 회전 행렬 $\mathrm{R'}$은 다음과 같이 수행된다.
+    $$
+    \begin{equation*}
+      \mathrm{R'} = \frac{1}{\text{det}(\mathrm{V^T})} \cdot \mathrm{U}
+    \end{equation*}
+    $$
 
 5. **Get `rvec`**:
-   - 보정된 회전 행렬 \(\mathrm{R'}\)을 사용하여 `Rodrigues` 변환을 사용하여 회전 벡터 `rvec`로 변환한다..
+   - 보정된 회전 행렬 $\mathrm{R'}$을 사용하여 `Rodrigues` 변환을 사용하여 회전 벡터 `rvec`으로 변환한다.
 
 
 이렇게 긴 과정을 거쳐, `AprilTag`의 pose가 검출된다. 검출된 tag의 pose는 camera coordinate 기준이며, 이는 각자가 설정한 base(=world) coordinate로 transformation 과정을 마지막으로 수행해주면, tag의 pose를 얻어낼 수 있게 된다.
