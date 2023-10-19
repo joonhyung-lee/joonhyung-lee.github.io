@@ -128,7 +128,7 @@ plt.show()
 
 <div style="text-align:center">
   <img src="/assets/img/apriltag/realsense-rgbd.png" alt="Alignment Method Image" width="100%">
-  <p>RGBD image</p>
+  <p>Fig. 1: RGBD image</p>
 </div>
 
 
@@ -243,7 +243,7 @@ if key & 0xFF == ord('q') or key == 27:
   * 일반적으로 패턴을 검출할 때에는 인접 픽셀 값의 차이를 사용하는데, gray 채널은 픽셀 당 하나의 값을 가지므로 연산이 간단하고 빨라진다.
 <div style="text-align:center">
   <img src="/assets/img/apriltag/apriltag_algorithm.png" alt="Alignment Method Image" width="100%">
-  <p>Overall algorithm of AprilTag</p>
+  <p>Fig. 2: Overall algorithm of AprilTag</p>
 </div>
 
 검출된 `tag`에 대한 정보는 dictionary 형태로 얻어지며, 각 내용은 아래와 같다.
@@ -380,10 +380,41 @@ def detection_pose(self, detection, camera_params, tag_size=1, z_sign=1):
 > The homography matrix is a 3x3 matrix but with 8 DoF (degrees of freedom) as it is estimated up to a scale. It is generally normalized (see also 1) with $h_{33}=1$ or $h_{11}^2 + h_{12}^2 + h_{13}^2 + h_{21}^2 + h_{22}^2 + h_{23}^2 + h_{31}^2 + h_{32}^2 + h_{33}^2 = 1$
 <div style="text-align:center">
   <img src="/assets/img/apriltag/homography-matrix.png" alt="Alignment Method Image" width="50%">
-  <p>a planar surface and the image plane</p>
+  <p>Fig. 3: a planar surface and the image plane</p>
 </div>
 
-즉, `planar surface`와 `image plane`을 matching 해주는 matrix라고 생각하면 된다. 내가 사용한  `RealSense D435i` 카메라는 양안 렌즈이며, `rgb_camera`와 `depth_camera`의 `intrinsic parameter`가 개별적으로 설정되어 있다. 이는 `ros topic`으로부터 손쉽게 정보를 얻어올 수 있다. 그러기 위해서는 ROS로 D435i와 연결해주어야 하며, 해당하는 터미널 라인은 아래와 같다.
+즉, `planar surface`와 `image plane`을 matching 해주는 matrix라고 생각하면 된다. 내가 사용한  `RealSense D435i` 카메라는 양안 렌즈이며, `rgb_camera`와 `depth_camera`의 `intrinsic parameter`가 개별적으로 설정되어 있다. 이는 `pyrealsense2` module로 손쉽게 구할 수 있으며, 이에 해당하는 코드는 아래와 같다.
+```python
+import pyrealsense2 as rs
+import matplotlib.pyplot as plt
+import numpy as np
+import cv2
+import copy
+from utils.util import r2rpy, rpy2r, r2t, t2r, pr2t
+
+pipeline = rs.pipeline()
+config = rs.config()
+config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30) # Order: [H x W]
+config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30) # Order: [H x W]
+
+profile = pipeline.start(config)
+stream_depth = profile.get_stream(rs.stream.depth)
+
+### Camera Parameters
+intrinsic_matrix_depth = stream_depth.as_video_stream_profile().get_intrinsics()
+intrinsic_matrix_rgb = profile.get_stream(rs.stream.color).as_video_stream_profile().get_intrinsics()
+
+cam_params_depth = [intrinsic_matrix_depth.fx, intrinsic_matrix_depth.fy, intrinsic_matrix_depth.ppx, intrinsic_matrix_depth.ppy]
+cam_params_rgb = [intrinsic_matrix_rgb.fx, intrinsic_matrix_rgb.fy, intrinsic_matrix_rgb.ppx, intrinsic_matrix_rgb.ppy]
+cam_matrix_depth = np.array([[intrinsic_matrix_depth.fx, 0, intrinsic_matrix_depth.ppx],
+                        [0, intrinsic_matrix_depth.fy, intrinsic_matrix_depth.ppy],
+                        [0, 0, 1]])
+cam_matrix_rgb = np.array([[intrinsic_matrix_rgb.fx, 0, intrinsic_matrix_rgb.ppx],
+                        [0, intrinsic_matrix_rgb.fy, intrinsic_matrix_rgb.ppy],
+                        [0, 0, 1]])
+```
+
+`pyrealsense`를 사용하지 않고, `ros topic`로도 손쉽게 정보를 얻어올 수 있다. 그러기 위해서는 ROS로 D435i와 연결해주어야 하며, 해당하는 터미널 라인은 아래와 같다.
 ```terminal
 ros2 run realsense2_camera realsense2_camera_node
 ```
@@ -444,7 +475,7 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
      여기서 $\mathbf{K}$는 camera intrinsic matrix이고, $r_{ij}$는 회전 행렬 $\mathrm{R}$의 각 요소이다.
 
 4. **Polar Decomposition**:
-   - 회전 행렬 $\mathrm{R}$에 대해 `polar decomposition`을 사용하여 `orthonormal matrix`로 분해합니다. `polar decomposition`는 $\mathrm{R}$을 `SVD` 과정으로 $\mathrm{R} = \mathrm{U} \cdot \mathrm{V^T}$로 분해한다.
+   - 회전 행렬 $\mathrm{R}$에 대해 `polar decomposition`을 사용하여 `orthonormal matrix`로 분해한다. `polar decomposition`는 $\mathrm{R}$을 `SVD` 과정으로 $\mathrm{R} = \mathrm{U} \cdot \mathrm{V^T}$로 분해한다.
      - 특이값 분해에서 얻은 $\mathrm{U}$와 $\mathrm{V}$를 사용하여 보정된 $\mathrm{R}$을 계산하며, 보정된 회전 행렬 $\mathrm{R'}$은 다음과 같이 수행된다.
     $$
     \begin{equation*}
@@ -457,3 +488,30 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
 
 
 이렇게 긴 과정을 거쳐, `AprilTag`의 pose가 검출된다. 검출된 tag의 pose는 camera coordinate 기준이며, 이는 각자가 설정한 base(=world) coordinate로 transformation 과정을 마지막으로 수행해주면, tag의 pose를 얻어낼 수 있게 된다.
+
+<div style="text-align: center;">
+    <video src='/assets/vid/apriltag/apriltag-real-track.mp4' width="100%" controls></video>
+</div>
+
+검출된 `Tag`의 `center point`를 base(=world) coordinate 기준으로 계산된 $(x,y,z)_{\text{world}}$ 를 실시간으로 우측 상단에 배치하였다. 나는 MuJoCo의 coordination을 world coordinate로 삼았으며, 이는 아래와 같다.
+<div style="text-align:center">
+  <img src="/assets/img/apriltag/coordination.png" alt="Alignment Method Image" width="75%">
+  <p>Fig. 4: Coordination</p>
+</div>
+
+* Coordination of MuJoCo Engine
+   * $\mathrm{X}$: Out of the camera
+   * $\mathrm{Y}$: Left
+   * $\mathrm{Z}$ : Up
+ * Coodination of AprilTag
+   * $\mathrm{X}$: Right 
+   * $\mathrm{Y}$: Down
+   * $\mathrm{Z}$ : Into the Tag
+     * In the [official repository](https://github.com/AprilRobotics/apriltag#coordinate-system),
+       > The coordinate system has the origin at the camera center. The z-axis points from the camera center out the camera lens. The x-axis is to the right in the image taken by the camera, and y is down. The tag's coordinate frame is centered at the center of the tag, with x-axis to the right, y-axis down, and z-axis into the tag.
+
+잘 안 보이겠지만, 줄자로 길이를 가늠해보았을 때 실제 scale에 맞게 Translational 정보를 잘 추정하는 것을 알 수 있다.
+<div style="text-align:center">
+  <img src="/assets/img/apriltag/table-spec.png" alt="Alignment Method Image" width="50%">
+  <p>Fig. 5: Table configuration.</p>
+</div>

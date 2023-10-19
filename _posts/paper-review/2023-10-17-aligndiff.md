@@ -29,7 +29,7 @@ classes: wide
 
 Keyword: **Abstractness**, **Mutability**
 
-### Abstraction
+### Abstract
 Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해석하는 것이 어려웠음.
 
 1. 저자는 Abstractness를 RLHF로 해결하고,
