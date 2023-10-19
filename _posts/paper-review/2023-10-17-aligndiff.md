@@ -5,6 +5,7 @@ last_modified_at: 2023-10-17
 #    - \usepackage{bbm}
 categories:
   - paper-review
+  - paper-review/PBL
 tags:
   - Diffusion
   - Preference-Based Learning
