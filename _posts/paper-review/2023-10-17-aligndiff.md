@@ -7,9 +7,7 @@ categories:
   - paper-review
 tags:
   - Diffusion
-  - Image Generation
-  - Computer Vision
-  - AI
+  - Preference-Based Learning
   - Arxiv
   - '2023'
 excerpt: "paper review about AlignDiff"
