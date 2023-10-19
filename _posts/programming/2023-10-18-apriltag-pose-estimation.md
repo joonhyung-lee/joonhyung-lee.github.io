@@ -267,15 +267,63 @@ Detection(tag_family=b'tag36h11',
                          [539.82, 478.99]]))
 ```
 각각에 해당하는 용어 설명은 아래와 같다.
-| **Attribute**   	| **Explanation**|
-|-----------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `tag_family`      	| The family of the tag.|
-| `tag_id`          	| The decoded ID of the tag.
-| `hamming`         	| **How many error bits were corrected?** Note: accepting large numbers of corrected errors leads to greatly increased false positive rates. NOTE: As of this implementation, **the detector cannot detect tags with a Hamming distance greater than 3.**|
-| `decision_margin` 	| A measure of the quality of the binary decoding process: the average difference between the intensity of a data bit versus the decision threshold. **Higher numbers roughly indicate better decodes. This is a reasonable measure of detection accuracy only for very small tags** -- not effective for larger tags (where we could have sampled anywhere within a bit cell and still gotten a good detection.) 	|
-| `homography`      	| The **3x3 homography matrix** describing the projection from an "ideal" tag (with corners at **(-1,1), (1,1), (1,-1), and (-1, -1))** to pixels in the image.|
-| `center`          	| The **center** of the detection in image pixel coordinates.|
-| `corners`         	| The **corners** of the tag in image pixel coordinates. These always wrap counter-clock wise around the tag.|
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Attribute</th>
+        <th>Explanation</th>
+    </tr>
+    <tr>
+        <td>tag_family</td>
+        <td>The family of the tag.</td>
+    </tr>
+    <tr>
+        <td>tag_id</td>
+        <td>The decoded ID of the tag.</td>
+    </tr>
+    <tr>
+        <td>hamming</td>
+        <td>How many error bits were corrected? Note: accepting large numbers of corrected errors leads to greatly increased false positive rates. NOTE: As of this implementation, the detector cannot detect tags with a Hamming distance greater than 3.</td>
+    </tr>
+    <tr>
+        <td>decision_margin</td>
+        <td>A measure of the quality of the binary decoding process: the average difference between the intensity of a data bit versus the decision threshold. Higher numbers roughly indicate better decodes. This is a reasonable measure of detection accuracy only for very small tags -- not effective for larger tags (where we could have sampled anywhere within a bit cell and still gotten a good detection.)</td>
+    </tr>
+    <tr>
+        <td>homography</td>
+        <td>The 3x3 homography matrix describing the projection from an "ideal" tag (with corners at (-1,1), (1,1), (1,-1), and (-1,-1)) to pixels in the image.</td>
+    </tr>
+    <tr>
+        <td>center</td>
+        <td>The center of the detection in image pixel coordinates.</td>
+    </tr>
+    <tr>
+        <td>corners</td>
+        <td>The corners of the tag in image pixel coordinates. These always wrap counter-clockwise around the tag.</td>
+    </tr>
+</table>
+
+</body>
+</html>
 
 
 아래는 tag detection 결과이며, 직관적인 이해를 위해 `tag`를 둘러싸는 `cube`도 그려보았다.
