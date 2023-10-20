@@ -16,12 +16,12 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Robotics Scientist"
+title                    : "Robotics Research Master's Student"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "joonhyung-lee"
 description              : "archiving for my research"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://joonhyung-lee.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Joonhyung Lee"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Robotics Scientist"
+  bio              : "Hello! I'm a CS Master student at Korea University, where I am advised by [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). My research lies at the intersection of robotics and machine learning."
   location         : "Seoul, Korea"
   email            : "dlwnsgud8823@korea.ac.kr"
   links:
