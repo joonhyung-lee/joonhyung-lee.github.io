@@ -106,7 +106,7 @@ analytics:
 author:
   name             : "Joonhyung Lee"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Hello! I'm a CS Master student at Korea University, where I am advised by [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). My research lies at the intersection of robotics and machine learning."
+  bio              : "Hello everyone! I am a master's student in the A.I. department at Korea University, where I am advised by [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). My research is at the intersection of robotics and machine learning."
   location         : "Seoul, Korea"
   email            : "dlwnsgud8823@korea.ac.kr"
   links:
