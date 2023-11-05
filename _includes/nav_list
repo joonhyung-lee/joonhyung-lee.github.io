@@ -40,7 +40,7 @@
       <li>
         {% assign sum = site.categories['paper-review'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-review">📚 paper-review ({{sum}})</a></span>
-        {% assign fav_tags = "Computer Vision/CV, Natural Language Processing/NLP, Reinforcement Learning/RL" | split: ", " %}
+        {% assign fav_tags = "Computer Vision, Natural Language Processing, Reinforcement Learning" | split: ", " %}
         {% for fav_tag in fav_tags %}
           {% assign sep = fav_tag | split: "/" %}
           <ul v-show="flag_c">
