@@ -4,6 +4,10 @@ main:
     url: /categories/
   - title: "Tag"
     url: /tags/
+  - publication: "Publication"
+    url: /publications/
+  - cv: "CV"
+    url: /cv/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
