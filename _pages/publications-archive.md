@@ -1,6 +1,6 @@
 ---
 title: "publications"
-permalink: /categories/publications/
+permalink: /publications/
 layout: publications
 author_profile: true
 taxonomy: publications
