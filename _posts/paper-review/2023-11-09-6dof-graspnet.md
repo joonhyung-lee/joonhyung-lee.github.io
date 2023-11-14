@@ -5,7 +5,7 @@ last_modified_at: 2023-11-14
 #    - \usepackage{bbm}
 categories:
   - paper-review
-  - paper-review/PBL
+  - paper-review/cv
 tags:
   - Grsap
   - VAE
