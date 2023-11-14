@@ -1,0 +1,1336 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning - Robotics Research Master’s Student</title>
+<meta name="description" content="paper review about exo-pbl">
+
+
+  <meta name="author" content="Joonhyung Lee">
+  
+  <meta property="article:author" content="Joonhyung Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Robotics Research Master's Student">
+<meta property="og:title" content="[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning">
+<meta property="og:url" content="http://localhost:4000/paper-review/paper-review/pbl/exo-pbl/">
+
+
+  <meta property="og:description" content="paper review about exo-pbl">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-10-29T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-10-29T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/paper-review/paper-review/pbl/exo-pbl/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "joonhyung-lee",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Robotics Research Master's Student Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Robotics Research Master's Student
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Post</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/"></a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/"></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joonhyung Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Hello everyone! I am a master’s student in the A.I. department at Korea University, where I am advised by <a href="https://sites.google.com/view/sungjoon-choi">Sungjoon Choi</a>. My research is at the intersection of robotics and machine learning.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/joonhyung-lee" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dlwnsgud8823@korea.ac.kr" rel="me" class="u-email">
+            <meta itemprop="email" content="dlwnsgud8823@korea.ac.kr" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  <!-- 
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+  </ul>
+</nav> -->
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'>📂 Total Posts: 14 개</span>
+      </li>
+
+      
+      <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/publications">📝 publications (0)</a></span>
+
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-review">📚 paper-review (8)</a></span>
+        
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Computer Vision (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Reinforcement Learning (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/programming">💻 programming (2)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/study">📒 study (3)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/miscellaneous">🔬 miscellaneous (1)</a></span>
+
+        <span class="nav__sub-title" v-on:click='togglet()'>tags</span>
+        <ul v-show="flag_t">
+        
+          
+          
+
+            
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2023" class="">2023 (5)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+                  <li><a href="/tags/#preference-based-learning" class="">Preference-Based Learning (4)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#arxiv" class="">Arxiv (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#reinforcement-learning" class="">Reinforcement Learning (2)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#machine-learning" class="">Machine Learning (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#computer-vision" class="">Computer Vision (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+                  <li><a href="/tags/#diffusion" class="">Diffusion (1)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#mujoco" class="">MuJoCo (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#apriltag" class="">AprilTag (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#calibration" class="">Calibration (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#pose-estimation" class="">Pose Estimation (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#iclr" class="">ICLR (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#contrastive-learning" class="">Contrastive Learning (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#neurips" class="">NeurIPS (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2021" class="">2021 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#exoskeletons" class="">Exoskeletons (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#science-robotics" class="">Science Robotics (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2006" class="">2006 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#linux" class="">Linux (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#corl" class="">CoRL (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#oral" class="">Oral (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#itmp" class="">ITMP (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#grsap" class="">Grsap (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#vae" class="">VAE (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#iccv" class="">ICCV (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2019" class="">2019 (1)</a></li>
+                
+              
+            
+            
+        </ul>
+      </li>
+  </ul>
+</nav>
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning">
+    <meta itemprop="description" content="paper review about exo-pbl">
+    <meta itemprop="datePublished" content="2023-10-29T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-10-29T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/paper-review/paper-review/pbl/exo-pbl/" class="u-url" itemprop="url">[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <blockquote>
+  <p>Science Robotics 2023. [<a href="https://www.science.org/doi/10.1126/scirobotics.adg3705">Paper</a>] [<a href="https://www.science.org/doi/suppl/10.1126/scirobotics.adg3705/suppl_file/scirobotics.adg3705_sm.pdf">Code</a>]</p>
+
+  <p>Ung Hee Lee  and Varun S. Shetty  and Patrick W. Franks  and Jie Tan  and Georgios Evangelopoulos  and Sehoon Ha  and Elliott J. Rouse</p>
+
+  <p>18 Oct 2023</p>
+</blockquote>
+
+<h2 id="한-문장-요약">한 문장 요약</h2>
+<p>요약: Exoskeleton에서 Preference를 결정짓는 control parameter를(=4개) 자동으로 튜닝해주는 연구를 수행했다.</p>
+<blockquote>
+  <p>Offline RL method that never needs to evaluate actions outside of the dataset, but still enables the learned policy to improve substantially over the best behavior in the data through generalization</p>
+
+  <p>Keyword: <strong>Preference-Based Learning</strong>, <strong>Exoskeletons</strong></p>
+</blockquote>
+
+<h3 id="abstract">Abstract</h3>
+<ul>
+  <li><strong>기존의 한계</strong>
+    <ul>
+      <li>resource intensive</li>
+      <li>only enabling a single objective optimization
+        <ul>
+          <li>we can do it for many factors, including comfort, fatigue, and stability, among others</li>
+          <li>conveniently tune the four parameters</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Approach</strong>
+    <ul>
+      <li>used an evolutionary algorithm to recommend potential parameters, which were ranked by a neural network <code class="highlighter-rouge">RankNet</code>.
+        <ul>
+          <li>real-time feedback as a force-choice comparison (=binary comparison)</li>
+        </ul>
+      </li>
+      <li>accuracy of 88% on average when compared with randomly generated parameters.</li>
+      <li>user-preferred settings stabilized in 43 $\pm$ 7 queries.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction">Introduction</h3>
+<p>기존의 웨어러블 기기에서 수행된 PBL은 두 가지 방식이 있다.</p>
+
+<ol>
+  <li>Expert-based tuning to mimic natural human locomotion ⇒ Learning from Demonstration</li>
+  <li>Automatic tuning based on metabolic rate or other physiological objectives.
+    <ul>
+      <li>위 방법들은 성공적으로 수행되어 왔지만, 오직 하나의 요소에 대해서만 PBL이 수행되어 왔다. (=<code class="highlighter-rouge">single objective</code>)</li>
+      <li>따라서 이러한 한계를 해결하고자 여러 요소를 고려하는 <code class="highlighter-rouge">Multi-objective</code> optimization 방법들도 연구되고 있지만, 아직까진 그렇게 성공적이진 않다고 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>low-dimensional controller parameter space(=튜닝 파라미터의 총 갯수)로는 실제 환경의 모든 상황으로 확장이 불가하며, 저자는 이를 active learning으로 수행하겠다고 한다.
+    <ul>
+      <li>The algorithm searches a parameter space automatic</li>
+    </ul>
+  </li>
+</ul>
+
+<p>요약하자면, 저자가 주장하는 contribution은 아래의 두 가지 입니다.</p>
+<ul>
+  <li>sample-efficient optimization algorithm: four-dimensional parameter space</li>
+  <li>real-time framework for allowing users to determine preference at will
+    <ul>
+      <li><code class="highlighter-rouge">RankCMA-ES</code>라는 이름으로 알고리즘을 제안함.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="contribution">Contribution</h3>
+<ol>
+  <li>Sample-Efficient
+    <ol>
+      <li>이전 연구에서 Covariance Matrix Adaptation-Evolutionary Strategy (CMA-ES)로 metabolic rate를 최적화 하는 연구가 수행되었으나 PBL로는 확장되지 못하였음.</li>
+      <li>저자는 RankNet을 사용해 CMA-ES 방법론을 합침. (Binary comparison: [A or B])
+        <ul>
+          <li>이전 PBL 연구에서는 5개의 option에 대해 2개의</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>Real-world에서 사용 가능하다
+    <ol>
+      <li>웨어러블 기기와 사용자의 binary comparison만 있으면 내부 알고리즘이 동작하므로 실생활에 사용할 수 있다는 의미.</li>
+      <li>그리고 사용자가 tuning pace를 조절할 수도 있음.</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="approach">Approach</h3>
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-overview.png" width="100%" />
+  <p>Fig. 1: Overview of the Exoskeleton PBL.</p>
+</div>
+
+<ul>
+  <li>저자는 RankNet을 사용하여 preference를 모델링 했다. (preference score를 continuous하게 추정하기 위해 preference가 neural network에서 활용된 연구임.)
+    <ul>
+      <li><strong>Input: controller setting / output: normalized in a [0~1] score (latent user score)</strong></li>
+    </ul>
+  </li>
+  <li><strong>Two-Dim. controller parameter</strong>에서 perference model을 <strong>pre-train</strong> 한 후에 <strong>Four-Dim.</strong>에서 <strong>optimization</strong>을 수행한다. 
+(pre-train 과정에선 이전 연구(<a href="https://www.science.org/doi/10.1126/science.aal5054">Human-in-the-loop optimization of exoskeleton assistance during walking</a>)에서 수행된 데이터를 사용한다고 함.)
+    <ul>
+      <li>Controller parameter: <strong>peak torque</strong> and <strong>peak torque timing</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-algorithm.png" width="80%" />
+  <p>Fig. 2: Pseudo Algorithm of the Exoskeleton PBL.</p>
+</div>
+
+<ul>
+  <li>Optimization part
+    <ul>
+      <li>user-independent preference model: RankNet
+        <ul>
+          <li>pre-train을 위해 이전 연구에서 사용된 데이터셋을 활용함.
+            <ul>
+              <li>12명의 참가자 + 3개의 다른 속도 (1, 1.2, and 1.4 m/s)</li>
+              <li>데이터로부터 mean과 covariance를 얻어내서, 12개의 개별적인 2D gaussian function을 취득함. ⇒ 이를 preference score로 사용함.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>user-dependent preference model (black-box optimizer): CMA-ES
+        <ul>
+          <li>multivariate normal distribution에서 샘플을 추출</li>
+          <li>이전의 것과 비교하여 더 선호하는 것을 선택</li>
+          <li>선택된 것을 기반으로 covariance matrix $C$, step size $\sigma$ 를 업데이트 하며 distribution이 바뀜.
+            <ul>
+              <li>저자는 $1+\lambda$ CMA-ES 방법론을 사용함.</li>
+              <li>이는 suboptimal에 취약하지만, 빠른 수렴성을 보여서 사용한다고 함.
+                <ul>
+                  <li>1: parent의 수</li>
+                  <li>+: new generation이 children/parent pool에서 선택된다는 의미</li>
+                  <li>$\lambda$: offspring의 수, search space를 결정함, scheduling parameter</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="experiments">Experiments</h3>
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-experimental-setup.png" width="100%" />
+  <p>Fig. 3: Experimental Setup of the Exoskeleton PBL.</p>
+</div>
+
+<ul>
+  <li>실험 세팅
+    <ul>
+      <li>피실험자는 총 14명이며 참가자 당 5번의 실험을 수행한다.</li>
+      <li>피실험자는 트레드밀에 고정된 속도 1.2 m/s로 걸으며 2개의 option A/B 를 선택할 수 있는 터치 스크린이 있었으며, 자유롭게 A/B option을 체험해볼 수 있었음. 이 중에서 어떠한 것이 더 좋은지 선택하게끔 함.
+        <ul>
+          <li>이러한 과정을 50번 정도 수행함. 이 숫자는 선행 연구에 기반을 두었다고 언급함.</li>
+          <li>이렇게 main(optimization+validation) session은 39 $\pm$ 18 분 소요되었음.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-gait-result.png" width="100%" />
+  <p>Fig. 4: Gait result of the Exoskeleton PBL.</p>
+</div>
+
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-ranknet-result.png" width="100%" />
+  <p>Fig. 5: RankNet result.</p>
+</div>
+
+<ul>
+  <li>RankCMA-ES를 leave-one-subject-out cross validation으로 수행했다고 함.
+    <ul>
+      <li>n개의 데이터에서 1개를 Test Set으로 정하고 나머지 n-1개의 데이터로 모델링을 하는 방법</li>
+    </ul>
+  </li>
+  <li>CMA-ES 를 baseline으로 삼음.
+    <ul>
+      <li>RankCMA-ES가 더 적은 수(=30 회)의 generation으로 GT에 근접한 score로 수렴했고, baseline은 150회의 generation으로 sub-optimal로 수렴했다. ⇒ sample-efficiency</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="thought">Thought</h4>
+<ul>
+  <li>Introduction에서 밝히길 본 연구는 partial-assist system에 대해서 PBL을 수행했다고 하며, 기존의 연구는 complete-assist exoskeleton에서 PBL이 수행되어 왔다고 합니다. (Bayesian-Optimization + Gaussian Process를 활용함.)</li>
+  <li>아마도 이 이유 때문에 Baseline을 pbl이 아닌 CMA 으로만 수행한 것 같습니다. (PBL에 대해서 수행하는 논문이지만 baseline에는 PBL 관련된 것이 없어서 처음에는 조금 의아했었습니다.)</li>
+  <li>해당 논문에서 사용된 factor로는 다음의 4개를 활용했습니다. rise time (r_t), peak torque timing (p_t), fall time (f_t ), and peak torque magnitude.</li>
+  <li>저자도 논문에서 밝히길 더 많은 수의 factor를 정의해 문제를 해결할 수는 있다고 하며, text로 표현된 내용에 기반해서 preference를 추정하는 접근도 해볼 수 있지 않을까 라는 생각을 했습니다.</li>
+  <li>추가로, preference model에 대해서도 RankNet 이외에도 다른 ranking method를 활용해볼 수 있을 것 같습니다.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#2023" class="page__taxonomy-item p-category" rel="tag">2023</a><span class="sep">, </span>
+    
+      <a href="/tags/#exoskeletons" class="page__taxonomy-item p-category" rel="tag">Exoskeletons</a><span class="sep">, </span>
+    
+      <a href="/tags/#preference-based-learning" class="page__taxonomy-item p-category" rel="tag">Preference-Based Learning</a><span class="sep">, </span>
+    
+      <a href="/tags/#science-robotics" class="page__taxonomy-item p-category" rel="tag">Science Robotics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#paper-review" class="page__taxonomy-item p-category" rel="tag">paper-review</a><span class="sep">, </span>
+    
+      <a href="/categories/#paper-review-pbl" class="page__taxonomy-item p-category" rel="tag">paper-review/PBL</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-29">October 29, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/paper-review/paper-review/pbl/iql/" class="pagination--pager" title="[paper-review] OFFLINE REINFORCEMENT LEARNING WITH IMPLICIT Q-LEARNING
+">Previous</a>
+    
+    
+      <a href="/study/mdn/" class="pagination--pager" title="[study] Mixture Density Network
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/paper-review/pbl/6dof-graspnet/" rel="permalink">[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about 6-DOF GraspNet
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study/tamp/" rel="permalink">[study] Task and Motion Planning
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Task and Motion Planning
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/stow/" rel="permalink">[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about stow
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/miscellaneous/tips/" rel="permalink">[miscellaneous] tips for linux storage
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Linux Storage
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 joonhyung-lee. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+  processEscapes: true
+  },
+  "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+  </body>
+</html>

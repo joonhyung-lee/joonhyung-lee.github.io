@@ -1,0 +1,1188 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[구현] MuJoCo 기초 사용법 - Robotics Research Master’s Student</title>
+<meta name="description" content="MuJoCo 기초 사용법">
+
+
+  <meta name="author" content="Joonhyung Lee">
+  
+  <meta property="article:author" content="Joonhyung Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Robotics Research Master's Student">
+<meta property="og:title" content="[구현] MuJoCo 기초 사용법">
+<meta property="og:url" content="http://localhost:4000/programming/mujoco/">
+
+
+  <meta property="og:description" content="MuJoCo 기초 사용법">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-10-17T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-10-17T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/programming/mujoco/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "joonhyung-lee",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Robotics Research Master's Student Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Robotics Research Master's Student
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Post</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/"></a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/"></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joonhyung Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Hello everyone! I am a master’s student in the A.I. department at Korea University, where I am advised by <a href="https://sites.google.com/view/sungjoon-choi">Sungjoon Choi</a>. My research is at the intersection of robotics and machine learning.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/joonhyung-lee" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dlwnsgud8823@korea.ac.kr" rel="me" class="u-email">
+            <meta itemprop="email" content="dlwnsgud8823@korea.ac.kr" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  <!-- 
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+  </ul>
+</nav> -->
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'>📂 Total Posts: 14 개</span>
+      </li>
+
+      
+      <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/publications">📝 publications (0)</a></span>
+
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-review">📚 paper-review (8)</a></span>
+        
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Computer Vision (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Reinforcement Learning (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/programming">💻 programming (2)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/study">📒 study (3)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/miscellaneous">🔬 miscellaneous (1)</a></span>
+
+        <span class="nav__sub-title" v-on:click='togglet()'>tags</span>
+        <ul v-show="flag_t">
+        
+          
+          
+
+            
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2023" class="">2023 (5)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+                  <li><a href="/tags/#preference-based-learning" class="">Preference-Based Learning (4)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#arxiv" class="">Arxiv (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#reinforcement-learning" class="">Reinforcement Learning (2)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#machine-learning" class="">Machine Learning (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#computer-vision" class="">Computer Vision (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+                  <li><a href="/tags/#diffusion" class="">Diffusion (1)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#mujoco" class="">MuJoCo (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#apriltag" class="">AprilTag (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#calibration" class="">Calibration (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#pose-estimation" class="">Pose Estimation (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#iclr" class="">ICLR (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#contrastive-learning" class="">Contrastive Learning (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#neurips" class="">NeurIPS (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2021" class="">2021 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#exoskeletons" class="">Exoskeletons (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#science-robotics" class="">Science Robotics (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2006" class="">2006 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#linux" class="">Linux (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#corl" class="">CoRL (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#oral" class="">Oral (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#itmp" class="">ITMP (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#grsap" class="">Grsap (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#vae" class="">VAE (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#iccv" class="">ICCV (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2019" class="">2019 (1)</a></li>
+                
+              
+            
+            
+        </ul>
+      </li>
+  </ul>
+</nav>
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[구현] MuJoCo 기초 사용법">
+    <meta itemprop="description" content="MuJoCo 기초 사용법">
+    <meta itemprop="datePublished" content="2023-10-17T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-10-17T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/programming/mujoco/" class="u-url" itemprop="url">[구현] MuJoCo 기초 사용법
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h2 id="mujoco">MuJoCo</h2>
+<p>MuJoCo를 파이썬에서 사용하기 위해서 <a href="https://github.com/openai/mujoco-py"><code class="highlighter-rouge">mujoco-py</code></a> 모듈을 사용해왔다. 이 모듈을 설치하기 위해서는 hidden folder를 만들고, cython build도 번거롭게 진행해주어야 했다. 성공적으로 설치를 끝마쳐도, <code class="highlighter-rouge">glfw</code> 라이브러리와 충돌도 일어나 <code class="highlighter-rouge">jupyter-notebook</code> 에서 렌더링을 수행해주는 것에 어려움 또한 있었다.</p>
+
+<p>하지만 <code class="highlighter-rouge">mujoco==2.1.0</code> 버전 이후로 <a href="https://github.com/google-deepmind/mujoco/blob/main/python/README.md">파이썬 바인딩</a>이 되어, 단순히 pip install 만으로도 라이브러리 사용이 가능해졌다. 그리고 dependency 관련 에러도 많이 있었으나, <code class="highlighter-rouge">mujoco</code>로 바인딩 된 후에는 이러한 에러가 모두 사라졌다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">mujoco</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">mujoco</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">viewer</span> <span class="c1"># Rendering helper utilities
+</span><span class="n">pip3</span> <span class="n">install</span> <span class="n">mujoco</span><span class="o">-</span><span class="n">mjx</span> <span class="c1"># (optional: jax binding)
+</span></code></pre></div></div>
+
+<h2 id="rendering-in-server">Rendering in server</h2>
+<blockquote>
+  <p>참고 링크: [<a href="https://github.com/rohanpsingh/mujoco-python-viewer">1</a>] [<a href="https://stackoverflow.com/questions/71520568/importerror-cannot-import-name-monitor-from-gym-wrappers">2</a>]</p>
+</blockquote>
+
+<p>MuJoCo render를 위해 어떠한 개발자가 만들어놓은 모듈을 기반으로 코드가 진행된다.</p>
+
+<p>서버에서 사용할 것이라면, 추가적인 모듈을 설치해야 한다. 서버엔 GUI가 따로 없기 때문에 MuJoCo 씬을 렌더링하기 위해서는 <code class="highlighter-rouge">pyvirtualdisplay</code>가 필요하다. <code class="highlighter-rouge">pyvirtualdisplay</code>를 사용하기 위해서는 <code class="highlighter-rouge">Xvfb</code>가 필요하므로 <code class="highlighter-rouge">xvfb</code>와 <code class="highlighter-rouge">xvfbwrapper</code>를 추가로 설치해준다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip3</span> <span class="n">install</span> <span class="n">pyvirtualdisplay</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xvfb</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="n">xvfbwrapper</span>
+</code></pre></div></div>
+
+<p>렌더링을 위한 코드는 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">mujoco</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">mujoco_parser</span> <span class="kn">import</span> <span class="n">MuJoCoParserClass</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">"MuJoCo version:[%s]"</span><span class="o">%</span><span class="p">(</span><span class="n">mujoco</span><span class="p">.</span><span class="n">__version__</span><span class="p">))</span>
+
+<span class="n">xml_path</span> <span class="o">=</span> <span class="s">'../asset/ur5e/scene_ur5e_rg2.xml'</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">MuJoCoParserClass</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'UR5e'</span><span class="p">,</span><span class="n">rel_xml_path</span><span class="o">=</span><span class="n">xml_path</span><span class="p">,</span><span class="n">VERBOSE</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">env</span><span class="p">.</span><span class="n">init_viewer</span><span class="p">(</span><span class="n">viewer_title</span><span class="o">=</span><span class="s">'UR5e with RG2'</span><span class="p">,</span><span class="n">viewer_width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span><span class="n">viewer_height</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+                <span class="n">viewer_hide_menus</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">env</span><span class="p">.</span><span class="n">update_viewer</span><span class="p">(</span><span class="n">azimuth</span><span class="o">=</span><span class="mf">174.08</span><span class="p">,</span><span class="n">distance</span><span class="o">=</span><span class="mf">2.76</span><span class="p">,</span><span class="n">elevation</span><span class="o">=-</span><span class="mi">33</span><span class="p">,</span><span class="n">lookat</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.16</span><span class="p">],</span>
+                  <span class="n">VIS_TRANSPARENT</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">VIS_CONTACTPOINT</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                  <span class="n">contactwidth</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">contactheight</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">contactrgba</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span>
+                  <span class="n">VIS_JOINT</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">jointlength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">jointwidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                  <span class="n">jointrgba</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.6</span><span class="p">])</span>
+<span class="n">env</span><span class="p">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">ctrl</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">radians</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">get_sim_time</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">100.0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">env</span><span class="p">.</span><span class="n">is_viewer_alive</span><span class="p">():</span>
+    <span class="n">env</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="n">ctrl</span><span class="o">=</span><span class="n">ctrl</span><span class="p">)</span>
+    <span class="n">env</span><span class="p">.</span><span class="n">plot_T</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">R</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">PLOT_AXIS</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">axis_len</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">axis_width</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">env</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="n">render_every</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">env</span><span class="p">.</span><span class="n">loop_every</span><span class="p">(</span><span class="n">HZ</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span> 
+        <span class="n">scene_img</span> <span class="o">=</span> <span class="n">env</span><span class="p">.</span><span class="n">grab_image</span><span class="p">()</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span> <span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">scene_img</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Tick:[%d] Time:[%.2f]sec"</span><span class="o">%</span><span class="p">(</span><span class="n">env</span><span class="p">.</span><span class="n">tick</span><span class="p">,</span><span class="n">env</span><span class="p">.</span><span class="n">get_sim_time</span><span class="p">()),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">env</span><span class="p">.</span><span class="n">close_viewer</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">"Done."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="성공-화면">성공 화면</h2>
+<p>아래 비디오는 <code class="highlighter-rouge">UR5e Manipulator</code> 환경에 대해 rendering 된 결과이다.</p>
+<div style="text-align: center;">
+    <video src="/assets/vid/mujoco/ur5e-render.mp4" width="75%" controls=""></video>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#mujoco" class="page__taxonomy-item p-category" rel="tag">MuJoCo</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#programming" class="page__taxonomy-item p-category" rel="tag">programming</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-17">October 17, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/paper-review/paper-review/pbl/aligndiff/" class="pagination--pager" title="[paper-review] AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model
+">Previous</a>
+    
+    
+      <a href="/programming/apriltag-pose-estimation/" class="pagination--pager" title="[구현] AprilTag Pose Estimation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/paper-review/pbl/6dof-graspnet/" rel="permalink">[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about 6-DOF GraspNet
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study/tamp/" rel="permalink">[study] Task and Motion Planning
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Task and Motion Planning
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/stow/" rel="permalink">[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about stow
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/miscellaneous/tips/" rel="permalink">[miscellaneous] tips for linux storage
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Linux Storage
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 joonhyung-lee. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+  processEscapes: true
+  },
+  "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+  </body>
+</html>

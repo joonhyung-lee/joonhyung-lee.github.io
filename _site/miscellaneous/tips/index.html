@@ -1,0 +1,1256 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[miscellaneous] tips for linux storage - Robotics Research Master’s Student</title>
+<meta name="description" content="Linux Storage">
+
+
+  <meta name="author" content="Joonhyung Lee">
+  
+  <meta property="article:author" content="Joonhyung Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Robotics Research Master's Student">
+<meta property="og:title" content="[miscellaneous] tips for linux storage">
+<meta property="og:url" content="http://localhost:4000/miscellaneous/tips/">
+
+
+  <meta property="og:description" content="Linux Storage">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-11-05T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-11-05T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/miscellaneous/tips/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "joonhyung-lee",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Robotics Research Master's Student Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Robotics Research Master's Student
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Post</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/"></a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/"></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joonhyung Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Hello everyone! I am a master’s student in the A.I. department at Korea University, where I am advised by <a href="https://sites.google.com/view/sungjoon-choi">Sungjoon Choi</a>. My research is at the intersection of robotics and machine learning.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/joonhyung-lee" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dlwnsgud8823@korea.ac.kr" rel="me" class="u-email">
+            <meta itemprop="email" content="dlwnsgud8823@korea.ac.kr" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  <!-- 
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+  </ul>
+</nav> -->
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'>📂 Total Posts: 14 개</span>
+      </li>
+
+      
+      <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/publications">📝 publications (0)</a></span>
+
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-review">📚 paper-review (8)</a></span>
+        
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Computer Vision (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Reinforcement Learning (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/programming">💻 programming (2)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/study">📒 study (3)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/miscellaneous">🔬 miscellaneous (1)</a></span>
+
+        <span class="nav__sub-title" v-on:click='togglet()'>tags</span>
+        <ul v-show="flag_t">
+        
+          
+          
+
+            
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2023" class="">2023 (5)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+                  <li><a href="/tags/#preference-based-learning" class="">Preference-Based Learning (4)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#arxiv" class="">Arxiv (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#reinforcement-learning" class="">Reinforcement Learning (2)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#machine-learning" class="">Machine Learning (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#computer-vision" class="">Computer Vision (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+                  <li><a href="/tags/#diffusion" class="">Diffusion (1)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#mujoco" class="">MuJoCo (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#apriltag" class="">AprilTag (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#calibration" class="">Calibration (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#pose-estimation" class="">Pose Estimation (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#iclr" class="">ICLR (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#contrastive-learning" class="">Contrastive Learning (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#neurips" class="">NeurIPS (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2021" class="">2021 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#exoskeletons" class="">Exoskeletons (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#science-robotics" class="">Science Robotics (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2006" class="">2006 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#linux" class="">Linux (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#corl" class="">CoRL (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#oral" class="">Oral (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#itmp" class="">ITMP (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#grsap" class="">Grsap (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#vae" class="">VAE (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#iccv" class="">ICCV (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2019" class="">2019 (1)</a></li>
+                
+              
+            
+            
+        </ul>
+      </li>
+  </ul>
+</nav>
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[miscellaneous] tips for linux storage">
+    <meta itemprop="description" content="Linux Storage">
+    <meta itemprop="datePublished" content="2023-11-05T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-11-05T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/miscellaneous/tips/" class="u-url" itemprop="url">[miscellaneous] tips for linux storage
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <blockquote>
+  <p>기타 유용한 linux 명령어에 대해 작성합니다.</p>
+</blockquote>
+
+<h3 id="ubuntu-파일-폴더-용량-확인">[ubuntu] 파일, 폴더 용량 확인</h3>
+
+<h4 id="1-df">1. df</h4>
+<h5 id="1-디스크-별-용량-확인">1) 디스크 별 용량 확인</h5>
+<p><code class="highlighter-rouge">df -h</code></p>
+
+<h4 id="2-du">2. du</h4>
+<h6 id="1-특정-디렉토리-용량-확인">1) 특정 디렉토리 용량 확인</h6>
+<p><code class="highlighter-rouge">du -hs folder</code></p>
+<ul>
+  <li>-h 옵션은 사람이 읽을 수 있는 형태(mb, gb단위)로 출력해준다.</li>
+</ul>
+
+<h6 id="2-현재-폴더에-있는-폴더-및-파일-용량-출력">2) 현재 폴더에 있는 폴더 및 파일 용량 출력</h6>
+<p><code class="highlighter-rouge">du -hs *</code></p>
+
+<h6 id="3-현재-폴더에서-파일-용량이-큰-순서대로-출력">3) 현재 폴더에서 파일 용량이 큰 순서대로 출력</h6>
+<p><code class="highlighter-rouge">du -h --max-depth=1 | sort -hr</code></p>
+
+<h6 id="4-현재-디렉토리에서-상위-10개-폴더의-용량-보기">4) 현재 디렉토리에서 상위 10개 폴더의 용량 보기</h6>
+<p><code class="highlighter-rouge">sudo du -hsx * | sort -rh | head -n 10</code></p>
+
+<h4 id="python-environment-manager-installation-guide">Python Environment Manager Installation Guide</h4>
+
+<p><code class="highlighter-rouge">sudo apt install python3-dev python3-pip</code></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> build-essential libssl-dev zlib1g-dev libbz2-dev <span class="se">\</span>
+libreadline-dev libsqlite3-dev <span class="se">\</span>
+wget curl llvm libncurses5-dev libncursesw5-dev <span class="se">\</span>
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://pyenv.run | bash
+</code></pre></div></div>
+
+<h5 id="set-in-bashrc">Set in <code class="highlighter-rouge">./bashrc</code></h5>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/home/[YOUR USER NAME]/.pyenv/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv init -<span class="si">)</span><span class="s2">"</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv virtualenv-init -<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위 커맨드는 pyenv를 path에 등록해주고 auto completion을 사용할 수 있게 해줍니다.</li>
+</ul>
+
+<h5 id="setup">Setup</h5>
+<p><code class="highlighter-rouge">exec "$SHELL"</code></p>
+
+<ul>
+  <li>이제 pyenv 를 입력했을때 다음과 같은 command 안내가 나오면 정상적으로 설치된 것입니다.</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rilab@rilab-xxx-xx-xxxx:~<span class="nv">$ </span>pyenv
+pyenv 2.3.20
+Usage: pyenv &lt;<span class="nb">command</span><span class="o">&gt;</span> <span class="o">[</span>&lt;args&gt;]
+
+Some useful pyenv commands are:
+   activate    Activate virtual environment
+   commands    List all available pyenv commands
+   deactivate   Deactivate virtual environment
+   doctor      Verify pyenv installation and development tools to build pythons.
+   <span class="nb">exec        </span>Run an executable with the selected Python version
+   global      Set or show the global Python version<span class="o">(</span>s<span class="o">)</span>
+   <span class="nb">help        </span>Display <span class="nb">help </span><span class="k">for </span>a <span class="nb">command
+   </span>hooks       List hook scripts <span class="k">for </span>a given pyenv <span class="nb">command
+   </span>init        Configure the shell environment <span class="k">for </span>pyenv
+   <span class="nb">install     </span>Install a Python version using python-build
+   latest      Print the latest installed or known version with the given prefix
+   <span class="nb">local       </span>Set or show the <span class="nb">local </span>application-specific Python version<span class="o">(</span>s<span class="o">)</span>
+   prefix      Display prefixes <span class="k">for </span>Python versions
+   rehash      Rehash pyenv shims <span class="o">(</span>run this after installing executables<span class="o">)</span>
+   root        Display the root directory where versions and shims are kept
+   shell       Set or show the shell-specific Python version
+   shims       List existing pyenv shims
+   uninstall   Uninstall Python versions
+   update      Update pyenv, its plugins including the list of available versions
+   <span class="nt">--version</span>   Display the version of pyenv
+   version     Show the current Python version<span class="o">(</span>s<span class="o">)</span> and its origin
+   version-file   Detect the file that sets the current pyenv version
+   version-name   Show the current Python version
+   version-origin   Explain how the current Python version is <span class="nb">set
+   </span>versions    List all Python versions available to pyenv
+   virtualenv   Create a Python virtualenv using the pyenv-virtualenv plugin
+   virtualenv-delete   Uninstall a specific Python virtualenv
+   virtualenv-init   Configure the shell environment <span class="k">for </span>pyenv-virtualenv
+   virtualenv-prefix   Display real_prefix <span class="k">for </span>a Python virtualenv version
+   virtualenvs   List all Python virtualenvs found <span class="k">in</span> <span class="sb">`</span><span class="nv">$PYENV_ROOT</span>/versions/<span class="k">*</span><span class="s1">'.
+   whence      List all Python versions that contain the given executable
+   which       Display the full path to an executable
+
+See `pyenv help &lt;command&gt;'</span> <span class="k">for </span>information on a specific command.
+For full documentation, see: https://github.com/pyenv/pyenv#readme
+
+</code></pre></div></div>
+
+<h4 id="pyenv-commands">pyenv commands</h4>
+
+<h5 id="install">Install</h5>
+<p><code class="highlighter-rouge">pyenv install --list</code></p>
+
+<ul>
+  <li>설치할 수 있는 python의 version list를 확인합니다.</li>
+</ul>
+
+<p><code class="highlighter-rouge">pyenv virtualenv version-of-python name-of-env </code></p>
+
+<ul>
+  <li>ex) <code class="highlighter-rouge">pyenv virtualenv 3.8.8 rilab</code></li>
+  <li>3.8.8 버전의 rilab 이름을 가지는 가상 환경을 설치합니다.</li>
+</ul>
+
+<h5 id="uninstall">Uninstall</h5>
+
+<p><code class="highlighter-rouge">pyenv uninstall name-of-env</code></p>
+
+<ul>
+  <li>ex) <code class="highlighter-rouge">pyenv uninstall rilab</code></li>
+  <li>rilab 이름의 가상환경을 삭제합니다.</li>
+</ul>
+
+<h5 id="get-an-installed-virtualenv-list">Get an Installed virtualenv list</h5>
+
+<p><code class="highlighter-rouge">pyenv versions</code></p>
+
+<ul>
+  <li>설치되어 있는 모든 가상환경을 확인할 수 있습니다.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#linux" class="page__taxonomy-item p-category" rel="tag">Linux</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#miscellaneous" class="page__taxonomy-item p-category" rel="tag">miscellaneous</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-11-05">November 5, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/paper-review/prs/" class="pagination--pager" title="[paper-review] Poisson Reconstruction
+">Previous</a>
+    
+    
+      <a href="/paper-review/stow/" class="pagination--pager" title="[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/paper-review/pbl/6dof-graspnet/" rel="permalink">[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about 6-DOF GraspNet
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study/tamp/" rel="permalink">[study] Task and Motion Planning
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Task and Motion Planning
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/stow/" rel="permalink">[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about stow
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/prs/" rel="permalink">[paper-review] Poisson Reconstruction
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-02">2023년 11월 02일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about prs
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 joonhyung-lee. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+  processEscapes: true
+  },
+  "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+  </body>
+</html>

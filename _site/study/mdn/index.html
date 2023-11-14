@@ -1,0 +1,1441 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[study] Mixture Density Network - Robotics Research Master’s Student</title>
+<meta name="description" content="Mixture Density Network">
+
+
+  <meta name="author" content="Joonhyung Lee">
+  
+  <meta property="article:author" content="Joonhyung Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Robotics Research Master's Student">
+<meta property="og:title" content="[study] Mixture Density Network">
+<meta property="og:url" content="http://localhost:4000/study/mdn/">
+
+
+  <meta property="og:description" content="Mixture Density Network">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-10-30T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-10-30T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/study/mdn/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "joonhyung-lee",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Robotics Research Master's Student Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Robotics Research Master's Student
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Post</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">Tag</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/"></a>
+            </li><li class="masthead__menu-item">
+              <a href="/cv/"></a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joonhyung Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Hello everyone! I am a master’s student in the A.I. department at Korea University, where I am advised by <a href="https://sites.google.com/view/sungjoon-choi">Sungjoon Choi</a>. My research is at the intersection of robotics and machine learning.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/joonhyung-lee" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dlwnsgud8823@korea.ac.kr" rel="me" class="u-email">
+            <meta itemprop="email" content="dlwnsgud8823@korea.ac.kr" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  <!-- 
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+  </ul>
+</nav> -->
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'>📂 Total Posts: 14 개</span>
+      </li>
+
+      
+      <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/publications">📝 publications (0)</a></span>
+
+      <li>
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/paper-review">📚 paper-review (8)</a></span>
+        
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Computer Vision (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+          
+          <ul v-show="flag_c">
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+                <li><a href="/categories/paper-review/" class="">Reinforcement Learning (0)</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/programming">💻 programming (2)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/study">📒 study (3)</a></span>
+
+        
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/miscellaneous">🔬 miscellaneous (1)</a></span>
+
+        <span class="nav__sub-title" v-on:click='togglet()'>tags</span>
+        <ul v-show="flag_t">
+        
+          
+          
+
+            
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2023" class="">2023 (5)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+                  <li><a href="/tags/#preference-based-learning" class="">Preference-Based Learning (4)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#arxiv" class="">Arxiv (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#reinforcement-learning" class="">Reinforcement Learning (2)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#machine-learning" class="">Machine Learning (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#computer-vision" class="">Computer Vision (2)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            
+              
+                
+                  <li><a href="/tags/#diffusion" class="">Diffusion (1)</a></li>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#mujoco" class="">MuJoCo (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#apriltag" class="">AprilTag (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#calibration" class="">Calibration (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#pose-estimation" class="">Pose Estimation (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#iclr" class="">ICLR (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#contrastive-learning" class="">Contrastive Learning (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#neurips" class="">NeurIPS (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2021" class="">2021 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#exoskeletons" class="">Exoskeletons (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#science-robotics" class="">Science Robotics (1)</a></li>
+                
+              
+                
+              
+                
+                  <li><a href="/tags/#2006" class="">2006 (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#linux" class="">Linux (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#corl" class="">CoRL (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#oral" class="">Oral (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#itmp" class="">ITMP (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#grsap" class="">Grsap (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#vae" class="">VAE (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#iccv" class="">ICCV (1)</a></li>
+                
+              
+                
+                  <li><a href="/tags/#2019" class="">2019 (1)</a></li>
+                
+              
+            
+            
+        </ul>
+      </li>
+  </ul>
+</nav>
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[study] Mixture Density Network">
+    <meta itemprop="description" content="Mixture Density Network">
+    <meta itemprop="datePublished" content="2023-10-30T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-10-30T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/study/mdn/" class="u-url" itemprop="url">[study] Mixture Density Network
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <h3 id="0-simple-networks">0. Simple Networks</h3>
+
+<p>일반적으로 네트워크를 구성한다는 것은 <strong>입력</strong>과 <strong>출력</strong>에 대해 설계하는 것이다. 이를 조건부 확률로 나타내면 다음과 같다.</p>
+
+<p><script type="math/tex">p(y|x,z)</script></p>
+<ul>
+  <li>$x$: Input of the network</li>
+  <li>$z$: Model parameter</li>
+  <li>$y$: Output of the network (=label)</li>
+</ul>
+
+<p>예를 들어, 만일 classification 문제를 수행하고 있다면 $y$는 분류해야 할 label을 의미하는 것이다. 각 label은 discrete하게 존재하므로 (e.g., <code class="highlighter-rouge">dog</code> or <code class="highlighter-rouge">cat</code>) 출력 값에 Softmax 연산을 수행해주어 어떠한 class에 해당할 확률을 뱉어주게 된다.</p>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-regression.png" width="75%" />
+  <p>Fig. 1: Simple image about Linear Regression.</p>
+</div>
+
+<p>Regression 문제를 수행하고 있다면 출력 값 $y$는 continuous 한 값을 갖게 될 것이다. 어떠한 입력 $x$에 대응하는 출력 $y$의 값이 있을 것이며, 이에 대해 Mean Squared Error (MSE)로 선형회귀를 수행한다면 주어진 입력 $x$에 대해 가장 잘 표현하는 직선을 얻게 될 것이다.</p>
+
+<p>실제 직선을 $f(x)$라고 칭하고, 예측한 직선을 $\hat{f}(x)$ 라고 한다면 두 직선 간의 차이는 존재하게 된다. 
+<script type="math/tex">f(x) = \hat{f}(x) + \epsilon</script>
+완벽하게 일치하는 직선은 존재할 수 없으며, 작은 오차 $\epsilon$을 가지게 되며, 이러한 오차는 (보통) Gaussian distribution을 따른다고 가정한다. 이를 확률 분포로 표현하면 아래와 같으며, $w$는 각각의 weight를 의미한다.</p>
+
+<script type="math/tex; mode=display">\left( y \mid x \right) \sim N(w^Tx, \sigma^2)</script>
+
+<h4 id="01-example-simple-sinusoidal-function">0.1. Example: Simple Sinusoidal Function</h4>
+
+<script type="math/tex; mode=display">\begin{equation}
+    y_{\text{true}}(x) = 7\sin{(0.75x)} + 0.5x + \epsilon 
+\end{equation}</script>
+
+<p>위 함수를 기준으로 Regression 문제를 수행해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
+
+<span class="k">def</span> <span class="nf">sample_data</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">))</span>
+    <span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">y_data</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="n">x_data</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x_data</span> <span class="o">+</span> <span class="n">epsilon</span>
+    <span class="k">return</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span>
+
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>위 코드를 통해 위 함수에 근사하는 데이터를 추출할 수 있었다.</p>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex1-func.png" width="50%" />
+  <p>Fig. 2: Sampled from arbitrary function.</p>
+</div>
+
+<p>그럼 이제 이 함수를 근사할 수 있는 간단한 네트워크를 구성해볼 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_input</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">n_output</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">network</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_input</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="p">.</span><span class="n">Tanh</span><span class="p">(),</span>
+                        <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_output</span><span class="p">))</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">network</span><span class="p">.</span><span class="n">parameters</span><span class="p">())</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="n">x_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">x_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">y_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">y_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">x_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">)</span>
+<span class="n">y_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">y_tensor</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">train</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3000</span><span class="p">):</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_variable</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_variable</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">300</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>간단한 MLP layer를 만들어, MSE Loss를 최소화하도록 학습시킨다. 이때 주의할 점은 numpy array를 pytorch가 사용할 수 있는 tensor로 바꿔줘야한다. 또한 numpy의 기본 형태인 np.float64를 pytorch의 기본형인 np.float32로 바꿔줘야 에러가 발생하지 않는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">()</span>
+
+<span class="n">x_test_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">x_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">x_test_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">x_test_tensor</span><span class="p">)</span>
+<span class="n">y_test_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_test_variable</span><span class="p">)</span>
+<span class="n">y_test_data</span> <span class="o">=</span> <span class="n">y_test_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">y_test_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex1-func-fitted.png" width="50%" />
+  <p>Fig. 3: Fitted with simple network.</p>
+</div>
+
+<p>이는 간단하게 학습된 네트워크에 test input $x$를 샘플하여 정말 잘 학습 되었는지 확인하는 코드이다. 위 그림을 보면 알 수 있듯이, 손쉽게 해당 function에 fitting 된 것을 알 수 있다. 
+이론 상으로는 은닉층 하나 만으로도 MLP는 임의의 함수를 근사할 수 있다는 점을 알 수 있다. 즉, 하나 이상의 input $x$와 그에 대응하는 오직 하나의 출력 $y$을 갖는 함수에 대해서는 쉽게 표현할 수 있다는 것을 의미한다.</p>
+
+<p>다르게 생각해보면, 여러 개의 출력을 갖는 경우에는 어떻게 될지 생각해볼 수 있다. 즉 앞선 경우는 mode가 1인 경우에 regression을 수행한 것이며, 여러 개의 mode로 표현되는 정규분포에 대해 regression을 수행할 때에도 정말 잘 표현할 수 있는지는 고민해볼 필요가 있다.</p>
+
+<h4 id="02-example-reverse-of-the-eqn-1">0.2. Example: Reverse of the <a href="#equation-1">Eqn. 1</a></h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex2-func.png" width="50%" />
+  <p>Fig. 4: Reverse of the function.</p>
+</div>
+
+<p>간단하게 $x$와 $y$를 서로 바꾸어주면 된다. 이렇게 되면 하나의 입력 $x$는 여러 개의 출력 $y$를 표현하게 된다. 이러한 상황에서 기존의 네트워크를 사용하여 다시 학습해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_variable</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">y_tensor</span>
+<span class="n">y_variable</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">x_tensor</span>
+
+<span class="n">train</span><span class="p">()</span>
+
+<span class="n">x_test_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">x_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">x_test_variable</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">x_test_tensor</span>
+
+<span class="n">y_test_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_test_variable</span><span class="p">)</span>
+
+<span class="c1"># move from torch back to numpy
+</span><span class="n">y_test_data</span> <span class="o">=</span> <span class="n">y_test_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="c1"># plot the original data and the test data
+</span><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">y_test_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex2-func-fitted.png" width="50%" />
+  <p>Fig. 5: Result with simple network.</p>
+</div>
+
+<p>이렇게 여러 mode의 distribution에 대해서는 일반적인(간단한) 네트워크로는 표현하기 어렵다는 것을 알 수 있다. 이는 기본적으로 MSE Loss를 최소화하도록 학습시키고 각 입력에 대해 하나의 출력만 가능했기 때문이다. 이러한 문제를 해결하기 위해서 제안된 것이 <strong>Mixture Density Network (MDN)</strong> 이다.</p>
+
+<h3 id="1-mixture-density-network-mdn">1. Mixture Density Network (MDN)</h3>
+
+<h4 id="11-definition">1.1 Definition</h4>
+<p>MDN은 <a href="https://www.google.com/search?q=Christopher+Bishop+MDN&amp;sca_esv=577843258&amp;ei=g88_ZeriHpnM1e8P_s64sAM&amp;ved=0ahUKEwiqsKHhjp6CAxUZZvUHHX4nDjYQ4dUDCBA&amp;uact=5&amp;oq=Christopher+Bishop+MDN&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiFkNocmlzdG9waGVyIEJpc2hvcCBNRE4yBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKABSIYNUCFYpAxwBngBkAEAmAGWAaAB_gWqAQMwLja4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIFEAAYgATCAgQQABgewgINEC4YExicAxioAxiABMICBxAAGBMYgATCAg0QLhgTGIAEGKgDGJoDwgIcEC4YExicAxioAxiABBiXBRjcBBjeBBjgBNgBAcICCRAhGKABGAoYKsICBxAhGKABGArCAg0QLhgTGIAEGJoDGKgDwgIGEAAYHhgTwgIIEAAYCBgeGBPiAwQYACBBiAYBkAYHugYGCAEQARgU&amp;sclient=gws-wiz-serp">paper</a>에서 자세한 내용을 확인할 수 있다. 정리하면, 하나의 입력 $x$에 대해 다른 분포를 가지는 $y$에서 $p(y|x)$를 추정하는 것이다.</p>
+
+<script type="math/tex; mode=display">p(y\mid x)=\sum^{n}_{i=1} p(c=i\mid x) ~ \mathcal{N}(y;\mu^{i}, \sigma^{i})</script>
+
+<p>이를 수식으로 표현하면 위와 같으며, $n$개의 정규분포를 가정하고 각 분포에서 $y$가 나올 확률을 이 분포에 속할 확률과 곱하여 결과를 예측하는 것이다. 이렇게 $p(y \mid x)$를 얻어, 여기서 sample 하여 함수를 추정하면 끝이다.</p>
+
+<p>그렇게 Network에서 결정(추정)해주어야 할 값은 총 3가지 이다. (각 분포마다 3개씩.)</p>
+<ul>
+  <li>$p(c=i \mid x)$: 입력 $x$가 category $i$에 속할 확률.
+    <ul>
+      <li>확률분포의 정의에 의해 Normalize를 반드시 해주어야 한다. (총 합이 1이 되게끔 softmax를 수행함.)</li>
+    </ul>
+  </li>
+  <li>$\mu^{i},~\sigma^{i}$: category $i$에 속할 때 $y$가 따르는 정규분포
+    <ul>
+      <li>$\sigma^{i} &gt; 0$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>그리고 이젠 출력이 단일한 값을 뱉어주지 못하므로 loss 또한 MSE Loss가 아닌 다른 loss를 사용해야 한다. Cross-Entropy Loss를 사용하며, 수식은 아래와 같다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    \mathcal{L}_{\text{C.E.}} = -\log{ \sum_{i=1}^m p(c = i \mid x)N(y; \mu^i, \sigma^i)}
+\end{equation}</script>
+
+<p>그렇다면 위 loss function을 가지며, Network의 출력은 $\pi,~\mu,~\sigma$를 하는 MDN class를 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MDN</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MDN</span><span class="p">,</span> <span class="bp">self</span><span class="p">).</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_h</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">Tanh</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_pi</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_mu</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">)</span>  
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_sigma</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">z_h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">z_h</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">pi</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">functional</span><span class="p">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">z_pi</span><span class="p">(</span><span class="n">z_h</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">z_sigma</span><span class="p">(</span><span class="n">z_h</span><span class="p">))</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">z_mu</span><span class="p">(</span><span class="n">z_h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">z_pi</code>는 확률분포 이기에 softmax를 수행해준 것이다.</li>
+  <li><code class="highlighter-rouge">z_sigma</code>는 항상 양수이어야 하므로 $\exp$를 취해주었다.</li>
+</ul>
+
+<p>$\mu^{i},~\sigma^{i}$에서 정의되는 정규분포의 수식은 아래와 같다.</p>
+
+<script type="math/tex; mode=display">\begin{equation*}
+    \mathcal{N}(\mu, \sigma)(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp (-\frac{(x-\mu)^2}{2\sigma^2})
+\end{equation*}</script>
+
+<p>이를 고려한 loss function을 코드로 구현하면 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gaussian_distribution</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">result</span> <span class="o">*</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">sigma</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mdn_loss_fn</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">gaussian_distribution</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="n">torch</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>각 분포로부터 $y$가 나올 확률 $\mathcal{N}(\mu,\sigma)(x)$와 그 분포에 대응할 확률 $\pi$을 곱하고, 이 모두를 다 더한 다음, 로그와 평균을 취해주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">network</span> <span class="o">=</span> <span class="n">MDN</span><span class="p">(</span><span class="n">n_hidden</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">network</span><span class="p">.</span><span class="n">parameters</span><span class="p">())</span>
+
+<span class="n">mdn_x_data</span> <span class="o">=</span> <span class="n">y_data</span>
+<span class="n">mdn_y_data</span> <span class="o">=</span> <span class="n">x_data</span>
+
+<span class="n">mdn_x_tensor</span> <span class="o">=</span> <span class="n">y_tensor</span>
+<span class="n">mdn_y_tensor</span> <span class="o">=</span> <span class="n">x_tensor</span>
+
+<span class="n">x_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">mdn_x_tensor</span><span class="p">)</span>
+<span class="n">y_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">mdn_y_tensor</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">train_mdn</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">pi_variable</span><span class="p">,</span> <span class="n">sigma_variable</span><span class="p">,</span> <span class="n">mu_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_variable</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">mdn_loss_fn</span><span class="p">(</span><span class="n">pi_variable</span><span class="p">,</span> <span class="n">sigma_variable</span><span class="p">,</span> <span class="n">mu_variable</span><span class="p">,</span> <span class="n">y_variable</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">train_mdn</span><span class="p">()</span>
+
+<span class="n">pi_variable</span><span class="p">,</span> <span class="n">sigma_variable</span><span class="p">,</span> <span class="n">mu_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_test_variable</span><span class="p">)</span>
+
+<span class="n">pi_data</span> <span class="o">=</span> <span class="n">pi_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">sigma_data</span> <span class="o">=</span> <span class="n">sigma_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">mu_data</span> <span class="o">=</span> <span class="n">mu_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">pi_data</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'$p(c = i | x)$'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">sigma_data</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'$\sigma$'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">mu_data</span><span class="p">)</span>
+<span class="n">ax3</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'$\mu$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-output.png" width="67.5%" />
+  <p>Fig. 6: Result with MDN network.</p>
+</div>
+
+<p>입력 $x$의 변화에 따른 각 분포의 양상을 확인할 수 있다. 하나의 $x$에 여러 개의 $y$가 가능하며, <strong>이 각각의 점이 선택될 확률은</strong> $\mathbf{p(c=i \mid x)}$<strong>로 표현되는 것이다.</strong></p>
+
+<p>학습시킨 네트워크에서 특정 정규분포의 결과를 얻고 싶다면 <strong><code class="highlighter-rouge">Gumbel softmax</code></strong> sampling을 사용하면 되며, 이론적인 내용은 이후에 작성하겠습니다.</p>
+
+<p>이제 우리는 각 입력 $x$에 대해서 어떤 정규분포를 선택해야되는지를 알았으니 각각의 평균과 분산을 이용해 이를 sampling만 하면 됩니다. random noise는 표준정규분포를 따르므로 이에 $\sigma$를 곱하고 $\mu$를 더해주기만하면 원래의 정규분포를 얻을 수 있다. 이렇게 해서 최종 결과물을 시각화하면 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gumbel_sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">gumbel</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">z</span><span class="p">).</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">gumbel_sample</span><span class="p">(</span><span class="n">pi_data</span><span class="p">)</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">random_noise</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="n">sampled</span> <span class="o">=</span> <span class="n">random_noise</span> <span class="o">*</span> <span class="n">sigma_data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">+</span> <span class="n">mu_data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mdn_x_data</span><span class="p">,</span> <span class="n">mdn_y_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">sampled</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-fitted.png" width="50%" />
+  <p>Fig. 7: Fitted with MDN network.</p>
+</div>
+
+<h3 id="요약">요약</h3>
+<p>기존의 간단한 network는 <strong>하나의 입력</strong> $\mathbf{x}$에 대해 <strong>여러 개의 출력</strong> $\mathbf{y}$가 가능한 경우에 효과적으로 표현할 수 없었다. <strong>Mixture Density Network (MDN)</strong>은 <strong>여러 개의 정규분포</strong> $\mathbf{\mathcal{N}^{i}}$ (혹은 다른 분포)의 <strong>평균</strong> $\mathbf{\mu}^{i}$와 <strong>분산</strong> $\mathbf{\sigma}^{i}$를 예측하고, <strong>각 정규분포에 속할 확률</strong> $\mathbf{\pi^{i}=p(c=i \mid x)}$을 통해 이를 효과적으로 근사할 수 있게 한 것이다. 즉, 여러 개의 출력이 있는 경우에도 분포를 추정할 수 있다는 의미이다.</p>
+
+<h5 id="references">References:</h5>
+<ul>
+  <li><a href="https://publications.aston.ac.uk/id/eprint/373/1/NCRG_94_004.pdf">Paper</a></li>
+  <li><a href="https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb">Code</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#machine-learning" class="page__taxonomy-item p-category" rel="tag">Machine Learning</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#study" class="page__taxonomy-item p-category" rel="tag">study</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-10-30">October 30, 2023</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/paper-review/paper-review/pbl/exo-pbl/" class="pagination--pager" title="[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning
+">Previous</a>
+    
+    
+      <a href="/paper-review/prs/" class="pagination--pager" title="[paper-review] Poisson Reconstruction
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">You may also enjoy</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/paper-review/pbl/6dof-graspnet/" rel="permalink">[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about 6-DOF GraspNet
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/study/tamp/" rel="permalink">[study] Task and Motion Planning
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-10-23">2023년 10월 23일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Task and Motion Planning
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/paper-review/stow/" rel="permalink">[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">paper review about stow
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/miscellaneous/tips/" rel="permalink">[miscellaneous] tips for linux storage
+</a>
+      
+    </h2>
+    
+    <p class="page__meta">
+      
+        <i class="fa fa-fw fa-calendar" aria-hidden="true"></i> <time datetime="2023-11-05">2023년 11월 05일</time>&emsp;
+      
+    </p>
+    
+    
+
+
+    <p class="archive__item-excerpt" itemprop="description">Linux Storage
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 joonhyung-lee. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+  inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+  displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+  processEscapes: true
+  },
+  "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+
+  </body>
+</html>

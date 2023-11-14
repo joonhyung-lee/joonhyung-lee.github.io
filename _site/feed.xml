@@ -1,0 +1,1659 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-11T01:49:53+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Robotics Research Master’s Student</title><subtitle>archiving for my research</subtitle><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><entry><title type="html">[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation</title><link href="http://localhost:4000/paper-review/paper-review/pbl/6dof-graspnet/" rel="alternate" type="text/html" title="[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation" /><published>2023-11-09T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/paper-review/pbl/6dof-graspnet</id><content type="html" xml:base="http://localhost:4000/paper-review/paper-review/pbl/6dof-graspnet/"><![CDATA[<blockquote>
+  <p>ICCV 2019. [<a href="https://arxiv.org/abs/1905.10520">Paper</a>] [<a href="https://github.com/NVlabs/6dof-graspnet">Github</a>]</p>
+
+  <p>Arsalan Mousavian, Clemens Eppner, Dieter Fox
+NVIDIA</p>
+
+  <p>17 Aug 2019</p>
+</blockquote>
+
+<h3 id="motivation">Motivation</h3>
+
+<p>Pick-and-place is one of the fundamental tasks in robotics research.</p>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="paper-review/PBL" /><category term="Grsap" /><category term="VAE" /><category term="ICCV" /><category term="2019" /><summary type="html"><![CDATA[paper review about 6-DOF GraspNet]]></summary></entry><entry><title type="html">[study] Task and Motion Planning</title><link href="http://localhost:4000/study/tamp/" rel="alternate" type="text/html" title="[study] Task and Motion Planning" /><published>2023-11-08T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>http://localhost:4000/study/tamp</id><content type="html" xml:base="http://localhost:4000/study/tamp/"><![CDATA[<h3 id="0-what-is-task-and-motion-planning">0. What is Task and Motion Planning?</h3>
+
+<ul>
+  <li>Task planning: High-level, Discrete (i.e., pick, place, grasp, sweep, push etc.)</li>
+  <li>Motion planning: Low-level, Continuous (i.e., trajectory generation, interpolation, collision avoidance etc.)</li>
+</ul>
+
+<p>Task And Motion Planning (TAMP) problems contain elements of discrete task planning, discrete-continuous mathematical programming, and continuous motion planning.
+즉, <strong>Discrete Task planning $\leftarrow$ Mode parameter $\rightarrow$ Motion planning</strong> 로 이루어진다.</p>
+
+<h3 id="1-integrated-tamp">1. Integrated TAMP</h3>
+
+<h4 id="reference">Reference</h4>
+<ul>
+  <li>Hierarchical Task and Motion Planning in the Now (2011, ICRA) <a href="https://ieeexplore.ieee.org/document/5980391">Paper</a></li>
+  <li>Integrated Task and Motion Planning (2021, Annual Review) <a href="https://arxiv.org/pdf/2010.01083.pdf">Paper</a></li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="study" /><category term="ITMP" /><summary type="html"><![CDATA[Task and Motion Planning]]></summary></entry><entry><title type="html">[miscellaneous] tips for linux storage</title><link href="http://localhost:4000/miscellaneous/tips/" rel="alternate" type="text/html" title="[miscellaneous] tips for linux storage" /><published>2023-11-05T00:00:00+09:00</published><updated>2023-11-05T00:00:00+09:00</updated><id>http://localhost:4000/miscellaneous/tips</id><content type="html" xml:base="http://localhost:4000/miscellaneous/tips/"><![CDATA[<blockquote>
+  <p>기타 유용한 linux 명령어에 대해 작성합니다.</p>
+</blockquote>
+
+<h3 id="ubuntu-파일-폴더-용량-확인">[ubuntu] 파일, 폴더 용량 확인</h3>
+
+<h4 id="1-df">1. df</h4>
+<h5 id="1-디스크-별-용량-확인">1) 디스크 별 용량 확인</h5>
+<p><code class="highlighter-rouge">df -h</code></p>
+
+<h4 id="2-du">2. du</h4>
+<h6 id="1-특정-디렉토리-용량-확인">1) 특정 디렉토리 용량 확인</h6>
+<p><code class="highlighter-rouge">du -hs folder</code></p>
+<ul>
+  <li>-h 옵션은 사람이 읽을 수 있는 형태(mb, gb단위)로 출력해준다.</li>
+</ul>
+
+<h6 id="2-현재-폴더에-있는-폴더-및-파일-용량-출력">2) 현재 폴더에 있는 폴더 및 파일 용량 출력</h6>
+<p><code class="highlighter-rouge">du -hs *</code></p>
+
+<h6 id="3-현재-폴더에서-파일-용량이-큰-순서대로-출력">3) 현재 폴더에서 파일 용량이 큰 순서대로 출력</h6>
+<p><code class="highlighter-rouge">du -h --max-depth=1 | sort -hr</code></p>
+
+<h6 id="4-현재-디렉토리에서-상위-10개-폴더의-용량-보기">4) 현재 디렉토리에서 상위 10개 폴더의 용량 보기</h6>
+<p><code class="highlighter-rouge">sudo du -hsx * | sort -rh | head -n 10</code></p>
+
+<h4 id="python-environment-manager-installation-guide">Python Environment Manager Installation Guide</h4>
+
+<p><code class="highlighter-rouge">sudo apt install python3-dev python3-pip</code></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> build-essential libssl-dev zlib1g-dev libbz2-dev <span class="se">\</span>
+libreadline-dev libsqlite3-dev <span class="se">\</span>
+wget curl llvm libncurses5-dev libncursesw5-dev <span class="se">\</span>
+xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://pyenv.run | bash
+</code></pre></div></div>
+
+<h5 id="set-in-bashrc">Set in <code class="highlighter-rouge">./bashrc</code></h5>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/home/[YOUR USER NAME]/.pyenv/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv init -<span class="si">)</span><span class="s2">"</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>pyenv virtualenv-init -<span class="si">)</span><span class="s2">"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>위 커맨드는 pyenv를 path에 등록해주고 auto completion을 사용할 수 있게 해줍니다.</li>
+</ul>
+
+<h5 id="setup">Setup</h5>
+<p><code class="highlighter-rouge">exec "$SHELL"</code></p>
+
+<ul>
+  <li>이제 pyenv 를 입력했을때 다음과 같은 command 안내가 나오면 정상적으로 설치된 것입니다.</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rilab@rilab-xxx-xx-xxxx:~<span class="nv">$ </span>pyenv
+pyenv 2.3.20
+Usage: pyenv &lt;<span class="nb">command</span><span class="o">&gt;</span> <span class="o">[</span>&lt;args&gt;]
+
+Some useful pyenv commands are:
+   activate    Activate virtual environment
+   commands    List all available pyenv commands
+   deactivate   Deactivate virtual environment
+   doctor      Verify pyenv installation and development tools to build pythons.
+   <span class="nb">exec        </span>Run an executable with the selected Python version
+   global      Set or show the global Python version<span class="o">(</span>s<span class="o">)</span>
+   <span class="nb">help        </span>Display <span class="nb">help </span><span class="k">for </span>a <span class="nb">command
+   </span>hooks       List hook scripts <span class="k">for </span>a given pyenv <span class="nb">command
+   </span>init        Configure the shell environment <span class="k">for </span>pyenv
+   <span class="nb">install     </span>Install a Python version using python-build
+   latest      Print the latest installed or known version with the given prefix
+   <span class="nb">local       </span>Set or show the <span class="nb">local </span>application-specific Python version<span class="o">(</span>s<span class="o">)</span>
+   prefix      Display prefixes <span class="k">for </span>Python versions
+   rehash      Rehash pyenv shims <span class="o">(</span>run this after installing executables<span class="o">)</span>
+   root        Display the root directory where versions and shims are kept
+   shell       Set or show the shell-specific Python version
+   shims       List existing pyenv shims
+   uninstall   Uninstall Python versions
+   update      Update pyenv, its plugins including the list of available versions
+   <span class="nt">--version</span>   Display the version of pyenv
+   version     Show the current Python version<span class="o">(</span>s<span class="o">)</span> and its origin
+   version-file   Detect the file that sets the current pyenv version
+   version-name   Show the current Python version
+   version-origin   Explain how the current Python version is <span class="nb">set
+   </span>versions    List all Python versions available to pyenv
+   virtualenv   Create a Python virtualenv using the pyenv-virtualenv plugin
+   virtualenv-delete   Uninstall a specific Python virtualenv
+   virtualenv-init   Configure the shell environment <span class="k">for </span>pyenv-virtualenv
+   virtualenv-prefix   Display real_prefix <span class="k">for </span>a Python virtualenv version
+   virtualenvs   List all Python virtualenvs found <span class="k">in</span> <span class="sb">`</span><span class="nv">$PYENV_ROOT</span>/versions/<span class="k">*</span><span class="s1">'.
+   whence      List all Python versions that contain the given executable
+   which       Display the full path to an executable
+
+See `pyenv help &lt;command&gt;'</span> <span class="k">for </span>information on a specific command.
+For full documentation, see: https://github.com/pyenv/pyenv#readme
+
+</code></pre></div></div>
+
+<h4 id="pyenv-commands">pyenv commands</h4>
+
+<h5 id="install">Install</h5>
+<p><code class="highlighter-rouge">pyenv install --list</code></p>
+
+<ul>
+  <li>설치할 수 있는 python의 version list를 확인합니다.</li>
+</ul>
+
+<p><code class="highlighter-rouge">pyenv virtualenv version-of-python name-of-env </code></p>
+
+<ul>
+  <li>ex) <code class="highlighter-rouge">pyenv virtualenv 3.8.8 rilab</code></li>
+  <li>3.8.8 버전의 rilab 이름을 가지는 가상 환경을 설치합니다.</li>
+</ul>
+
+<h5 id="uninstall">Uninstall</h5>
+
+<p><code class="highlighter-rouge">pyenv uninstall name-of-env</code></p>
+
+<ul>
+  <li>ex) <code class="highlighter-rouge">pyenv uninstall rilab</code></li>
+  <li>rilab 이름의 가상환경을 삭제합니다.</li>
+</ul>
+
+<h5 id="get-an-installed-virtualenv-list">Get an Installed virtualenv list</h5>
+
+<p><code class="highlighter-rouge">pyenv versions</code></p>
+
+<ul>
+  <li>설치되어 있는 모든 가상환경을 확인할 수 있습니다.</li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="miscellaneous" /><category term="Linux" /><summary type="html"><![CDATA[Linux Storage]]></summary></entry><entry><title type="html">[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks</title><link href="http://localhost:4000/paper-review/stow/" rel="alternate" type="text/html" title="[paper-review] Predicting Object Interactions with Behavior Primitives: An Application in Stowing Tasks" /><published>2023-11-05T00:00:00+09:00</published><updated>2023-11-05T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/stow</id><content type="html" xml:base="http://localhost:4000/paper-review/stow/"><![CDATA[<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>CoRL 2023 (Oral). [<a href="https://hhoppe.com/poissonrecon.pdf">Paper</a>]</td>
+        <td>[<a href="https://github.com/haonan16/Stow/">Code</a>]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Haonan Chen, Yilong Niu<sup>*</sup>, Kaiwen Hong<sup>*</sup>, Shuijing Liu, Yixuan Wang, Yunzhu Li, Katherine Driggs-Campbell</p>
+
+  <p>University of Illinois Urbana-Champaign</p>
+
+  <p>(* indicate equal contribution)</p>
+
+  <p>2023</p>
+</blockquote>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-task-description.png" width="75%" />
+  <p>Fig. 1: Task description about Stowing.</p>
+</div>
+
+<h3 id="한-문장-요약">한 문장 요약</h3>
+
+<p>요약: Stowing task에 대해서 one-shot demonstration으로 policy를 학습하자.</p>
+<ul>
+  <li>Stowing: defined as relocating an object from a table to a cluttered shelf.</li>
+</ul>
+
+<blockquote>
+  <p>We propose a framework that uses Graph Neural Networks (GNNs) to predict object interactions within the parameter space of behavior primitives.</p>
+</blockquote>
+
+<h4 id="previous-research">Previous Research</h4>
+
+<p>Stowing task는 아래 세 개의 측면에서 어려움이 있었음.</p>
+<ul>
+  <li>Long-horizon nature: contact/friction에 대한 정의가 필요함.</li>
+  <li>Multi-object interaction: struggle with adaptability.</li>
+  <li>Variety of objects: need for expensive data collection and human labelling.</li>
+</ul>
+
+<h4 id="contribution">Contribution</h4>
+
+<ol>
+  <li><strong>minimal demonstration</strong>으로 학습할 수 있는 model-based imitation learning framework를 제시함.</li>
+  <li>Stowing benchmark를 제시함. (comprehensive long-horizon task)</li>
+  <li>저자가 제안한 모델에 대한 Effectiveness와 Generalization을 검증함.</li>
+</ol>
+
+<h4 id="approach">Approach</h4>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-overview.png" width="100%" />
+  <p>Fig. 2: Overview of STOW-GNN.</p>
+</div>
+
+<p>2개의 모듈로 나뉜다.</p>
+<ol>
+  <li>GNN predicts system dynamics.</li>
+  <li>A primitive-augmented trajectory optimization method achieves subgoals from a single demonstration.</li>
+</ol>
+
+<h5 id="learning-forward-dynamics-via-gnn">Learning Forward Dynamics via GNN</h5>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-gnn.png" width="100%" />
+  <p>Fig. 3: Description about GNN Network.</p>
+</div>
+
+<ul>
+  <li>Graph Construction (Terminology)
+    <ul>
+      <li>Rigid-body system을 System state $s \in \mathcal{S}$ with $\mathcal{M}$ objects and $\mathcal{N}$ particles 로 표현한다.
+        <ul>
+          <li>graph state $s_{t}= \left(\mathcal{O}<em>{t}, \mathcal{E}</em>{t} \right)$</li>
+          <li>grph’s vertices $\mathcal{O}_{t}$: <strong>object’s particles.</strong>
+            <ul>
+              <li>$o_{i,~t}=\left&lt; x_{i,~t},~c_{i,~t} \right&gt;$, particles’s position $x_{i,~t}$ and object’s attributes $c_{i,~t}$</li>
+            </ul>
+          </li>
+          <li>grph’s edges $\mathcal{E}_{t}$: <strong>relations between particles.</strong> It is formed when the distance between two vertices is less than a specified threshold.
+            <ul>
+              <li>$\mathcal{E}_{t}$: 2개의 경우로 relation을 정의한다.
+                <ol>
+                  <li>Intra-object relations: Between different particles within the same object or across different objects.</li>
+                  <li>Gripper-to-object relations: Between particles from the objects and the robot’s gripper.
+                    <ul>
+                      <li>$e_{k}=\left&lt; i_k, j_k, c_k \right&gt;$: $i_k, j_k$ are reciever and sender particles, respectively. $k$ is edge’s index, $c$ is object’s attribute</li>
+                    </ul>
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Action을 $\mathcal{A}$로 표현한다. 이는 $\left&lt; \text{skill type, associated parameter} \right&gt;$ 를 포함하고 있다.</li>
+      <li>$\mathcal{T}$: (dynamic object 각각에 대해) $\mathcal{M}$ 개의 rigid transformation을 의미한다.</li>
+      <li>Dynamics function $\Phi: \mathcal{S\times A \rightarrow T}$</li>
+    </ul>
+  </li>
+  <li>GNN을 사용하는 이유는 단순히 behavior primitive를 수행했을 때의 system’s state를 예측하기 위함이다.</li>
+</ul>
+
+<p>그렇게 모든 vertices와 edges는 MLP를 거쳐 latent vertex $h^{O}<em>{i}$, edge $h^{E}</em>{i,j}$ representation을 아래의 수식으로 표현할 수 있게 된다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    h^{E}_{i,j} \leftarrow \rho^{E} \left( h^{E}_{i,j}, h^{O}_{i}, h^{O}_{j} \right),~~~ h^{O}_{i} \leftarrow \rho^{O} \left( h^{O}_{i}, \sum_{j} h^{E}_{i,j} \right)
+\end{equation}</script>
+
+<p>여기서 $\rho^{E},~\rho^{O}$는 각각 edge, vertex의 message passing function (i.e., MLP)을 의미한다.</p>
+
+<p>그리고 각 물체의 rigid transformation는 decoder output의 mean으로 결정된다. (Fig. 2(b)를 참고하면 됨.)</p>
+
+<p>그리고 마지막으로 control action은 아래와 같이 정의된다. (gripper’s planned position and motion defined by particles.)</p>
+
+<ul>
+  <li>$o_{i,t} = \left&lt; x_{i,t}, v_{i,t}, c_{i,t} \right&gt;$
+    <ul>
+      <li>$x_{i,t}$: current position of gripper</li>
+      <li>$v_{i,t}$: planned motion of the gripper</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="control-with-the-learned-dynamics">Control with the Learned Dynamics</h5>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-skill.png" width="100%" />
+  <p>Fig. 4: Description about Skill selection.</p>
+</div>
+
+<p>Behavior primitive를 정의해 Operation Space Control로써 action이 수행된다.
+저자는 총 3개의 Primitive를 정의한다.</p>
+<ol>
+  <li>Sweeping: $y,h,d,\theta$로 정의됨.
+    <ul>
+      <li>$y$: starting offset in the shelf direction</li>
+      <li>$h$: sweeping height</li>
+      <li>$d$: sliding distance</li>
+      <li>$\theta$: angle of gripper rotation</li>
+    </ul>
+  </li>
+  <li>Pushing: $x,y,d$로 정의됨.
+    <ul>
+      <li>$(x,y)$: starting push(nudge) position</li>
+      <li>$d$: distance of the push</li>
+    </ul>
+  </li>
+  <li>Transporting: $y,h,d,\theta$로 정의되며, Sweeping과 동일함. 다른 점은, 물체를 쥐고 있다는 점이다.</li>
+</ol>
+
+<p>아래의 Objective loss를 최소화하는 action $a_{p}$를 찾는 것이 목적이다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    a_{p} = \arg \min_{a_{p}} \mathcal{J} (s_{T}, g)
+\end{equation}</script>
+
+<ul>
+  <li>$a_{p}$: skill parameter</li>
+  <li>$g$: Keyframes collected during demonstrations.</li>
+</ul>
+
+<p>요약: $\Phi$로 Forward prediction을 통해서 rigid body system의 future state를 예측하고, lowest cost를 갖는 skill parameter $a_{p}$를 찾는 것이다.</p>
+
+<h4 id="experiment-setup">Experiment Setup</h4>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-exp-setup-all.png" width="100%" />
+  <p>Fig. 5: Experimental Setup.</p>
+</div>
+
+<ul>
+  <li>각 Action primitive 마다 300개의 episode dataset을 구축함. (각 skill에 따른 key pose도 포함됨.)</li>
+  <li>shelf width로 randomization을 주었다. 그리고 shelf에 꽂힌 물체의 갯수/property/size/density에 대해서도 randomization을 수행했다.</li>
+  <li>Kinova Gen3 Robot + OAK-D camera</li>
+  <li>Evaluation metrics
+    <ul>
+      <li>Mean Squared Error (MSE)</li>
+      <li>Earth Mover’s Distance (EMD)</li>
+      <li>Chamfer distance (CD)</li>
+    </ul>
+  </li>
+</ul>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-table-12.png" width="100%" />
+  <p>Fig. 6: Results about STOW-GNN.</p>
+</div>
+
+<div align="center">
+  <img src="/assets/img/stow/stow-stillcut.png" width="100%" />
+  <p>Fig. 7: Still-cut about STOW-GNN.</p>
+</div>
+
+<h3 id="thought">Thought</h3>
+
+<ul>
+  <li>Shelf, Cluttered env에서 수행하는 pick-n-place를 stowing task라고 표현하는 것을 처음 알게 되었습니다.</li>
+  <li>GNN 으로 rigid body dynamics를 예측하고 (정확히는 state(pose)를 예측하고), 이 예측값에 가장 근접하는 action primitive $a_{p}$를 찾는 연구입니다. 논문에서는 rigid body에 대해 모두 box shape의 point-cloud particle로 정의했는데, 다른 형태의 물체에 대해서는 실험을 수행하지 않은 점이 궁금합니다.</li>
+  <li>해당 논문에서 보여준 transporting task는 꽤 괜찮은 task인 것 같습니다.</li>
+</ul>
+
+<h4 id="한계점">한계점</h4>
+<ul>
+  <li>manual human labeling of ordered keyframes from demonstration</li>
+  <li>used box-shaped point clouds to represent objects</li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="Computer Vision" /><category term="CoRL" /><category term="Oral" /><category term="2023" /><summary type="html"><![CDATA[paper review about stow]]></summary></entry><entry><title type="html">[paper-review] Poisson Reconstruction</title><link href="http://localhost:4000/paper-review/prs/" rel="alternate" type="text/html" title="[paper-review] Poisson Reconstruction" /><published>2023-11-02T00:00:00+09:00</published><updated>2023-11-02T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/prs</id><content type="html" xml:base="http://localhost:4000/paper-review/prs/"><![CDATA[<blockquote>
+  <p>Eurographics Symposium on Geometry Processing 2006. [<a href="https://hhoppe.com/poissonrecon.pdf">Paper</a>]</p>
+
+  <p>Michael Kazhdan1<sup>1</sup>, Matthew Bolitho<sup>1</sup> and Hugues Hoppe<sup>2</sup></p>
+
+  <p><sup>1</sup>Johns Hopkins University, Baltimore MD, USA,
+<sup>2</sup>Microsoft Research, Redmond WA, USA</p>
+
+  <p>2006</p>
+</blockquote>
+
+<h2 id="한-문장-요약">한 문장 요약</h2>
+<p>요약: Surface reconstruction을 Poisson problem으로 해석해서 수행하자.</p>
+
+<h3 id="0-reconstruction">0. Reconstruction</h3>
+
+<p>이번에 연구 내용으로 수행했던 내용 중 <code class="highlighter-rouge">Real-to-Sim</code> 파트가 있었다. 이는 실제 환경의 3D asset의 정보를 <code class="highlighter-rouge">미리 정의되어 있는</code> Asset pool에서 그대로 MuJoCo simulator로 가져오는 그러한 내용이었다. 이 부분을 구현하면서 많은 아쉬움이 있었다.
+우선 3D mesh가 이미 정의되어 있어야 한다는 매우 치명적인 한계가 있었다. 그리고 대부분의 Object shape이 cylinder, sphere, flat한 형태였기에 Orientation을 고려할 수 있는 방법이 없었다. 그러던 와중, 최근 각광받느 NeRF 알고리즘 이전에 3D scene reconstruction 연구에선 어떠한 것이 있었는지 공부하고자 글을 작성한다.</p>
+
+<h3 id="1-introduction">1. Introduction</h3>
+<p>논문은 이와 같은 문장으로 시작한다.</p>
+<blockquote>
+  <p>We show that surface reconstruction from oriented points can be cast as a spatial Poisson problem. This Poisson formulation considers all the points at once, without resorting to heuristic spatial partitioning or blending, and is therefore highly resilient to data noise.</p>
+</blockquote>
+
+<p>우선, 해당 방법론의 <strong>입/출력</strong> 부터 정의하자면 아래와 같다.</p>
+
+<ul>
+  <li>Input : <strong>Point cloud with normal</strong> (이하 oriented points, sample points, 혹은 그냥 points)</li>
+  <li>Output : <strong>Closed Surface</strong> (안과 밖이 명확히 구분 되는 surface. 이하 surface)</li>
+</ul>
+
+<p>우리가 reconstruct 하고자 하는 surface를 다음과 같은 function $\mathcal{X}$ 으로 생각해볼 수 있다:</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+  \mathcal{X}(x,y,z)
+\end{equation}</script>
+
+<ul>
+  <li>점 $(x,y,z)$ 가 surface 내부의 점이면 <strong>1</strong>, 외부의 점이면 <strong>0</strong>.</li>
+</ul>
+
+<p>이를 <strong>indication function</strong>이라 하는데, 이 function $\mathcal{X}(x,y,z)$ 의 공간 상의 변화율(기울기)인 gradient $\nabla \mathcal{X}$ 를 구하면, <strong>0</strong>에서 <strong>1</strong>로 바뀌는 순간, 즉 surface 상의 점들에서 <strong>0</strong>이 아닌 기울기 벡터를 가지게 될 것이다.</p>
+
+<p>기본적으로 이 기울기 vector field는 <strong>surface에서 물체 내부로 향하는 normal vector</strong>랑 같기 때문에, <strong>point cloud with normal</strong>은 기울기 벡터 필드로부터 특정 점들에서의 기울기를 sample로 가져온 것이라 볼 수 있다.</p>
+
+<p>즉, 주어진 normal vector를 가진 point set $\mathrm{V}$와 가장 유사한 $\nabla \mathcal{X}$를 찾아서 $\nabla \mathcal{X}$ 가 <strong>0</strong>이 아닌 부분들을 추출한다면 surface를 얻을 수 있다는 접근 방식이다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+  \min_{\mathcal{X}} \vert\vert \nabla \mathcal{X} - \vec{V} \vert\vert
+\end{equation}</script>
+
+<p>위 objective를 만족하는 best approximates a vector field $\vec{V}$ 를 구하기 위해 gradient $\nabla$ 를 취하면 divergence $\Delta$ 로 표현되며, 이제 일반적인 Poisson problem으로 치환이 가능하게 된다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+  \Delta \mathcal{X} = \nabla \cdot \nabla ~ \mathcal{X} = \nabla \cdot \vec{V}
+\end{equation}</script>
+
+<blockquote>
+  <p>Poisson problem: compute the scalar function $\mathcal{X}$ whose Laplacian (divergence of gradient) equals the divergence of the vector field.
+이렇게 $V$로부터 가장 유사한 $\nabla \mathcal{X}$를 찾을 때, 다음과 같은 미분 방정식을 세워서 풀게 된다: $\Delta \mathcal{X} = \nabla \cdot V$ 이 방정식을 푸는 것을 Poisson problem이라 부르며, 이러한 미분 방정식으로 수행하니 Possion Reconstruction이라고 한다.</p>
+</blockquote>
+
+<div align="center">
+  <img src="/assets/img/prs/prs-overview.png" width="100%" />
+  <p>Fig. 1: Intuitive illustration of Poisson reconstruction in 2D.</p>
+</div>
+
+<p>이렇게 Poisson problem으로 치환하게 되면 아래의 이점을 갖는다고 한다.</p>
+<ul>
+  <li>기존의 Implicit surface fitting method는 local approx. 이었으며, 부수적인 엔지니어링이 필요했다.
+    <blockquote>
+      <p>Many implicit surface fitting methods segment the data into regions for local fitting, and further combine these local approximations using blending functions (i.e., RBF approach).</p>
+    </blockquote>
+    <ul>
+      <li><strong>Poisson reconstruction</strong>은 Global solution을 도출하게 되므로, 이러한 고민을 없애주게 되며 그 결과 또한 smooth surface로 표현된다고 한다.</li>
+    </ul>
+  </li>
+  <li>또, 기존 Implicit fitting 방법론들은 오직 sampled point (i.e., oriented points) 부근에서만 수행된다는 단점이 있다.
+    <ul>
+      <li><strong>Poisson reconstruction</strong>은 Global하게 이루어지므로 이 또한 해결된다고 표현한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="approach">Approach</h3>
+
+<div align="center">
+  <img src="/assets/img/prs/prs-armadillo.png" width="80%" />
+  <p>Fig. 2: Overall procedure about Poisson Surface Reconstruction.</p>
+</div>
+
+<ul>
+  <li>$S$: Input data, set of sampled $s \in S$
+    <ul>
+      <li>each consisting of a <strong>point</strong> $s.p$ and an <strong>inward-facing normal</strong> $s.\vec{N}$</li>
+    </ul>
+  </li>
+  <li>$M$: Unknown surface model, assumed to $S$ lies on or near the surface $\partial M$</li>
+</ul>
+
+<h4 id="defining-the-gradient-field">Defining the gradient field</h4>
+
+<p><strong>목적은 Indicator function을 잘 근사시키는 것이다.</strong> 저자는 이를 위해 Gradient Field를 정의하며 시작한다. Indicator function은 ${ 0,1 }$로 이루어진 piecewise constant function이다. 이에 대한 gradient field를 구하게 되면 <strong>표면 부근에 대하여 Unbounded value</strong>가 포함되어 있을 것이다. 이를 방지하고자, 저자는 smoothing filter를 고려한 gradient field with a smoothed function Lemma를 제시한다. 이는 <strong>smoothed indicator function</strong>과 <strong>surface normal field에</strong> 대한 관계를 표현한 수식이다.</p>
+
+<blockquote>
+  <p>Lemma: Given a solid $M$ with boundary $\partial M$, let $\mathbf{\mathcal{X}<em>{M}}$ denote the <strong>indicator function</strong> of $M$, $\vec{N}</em>{\partial M} (p)$ be the <strong>inward surface normal</strong> at $p \in \nabla{M},~ \tilde{F}(q)$ be a smoothing filter, and $\tilde{F}_{p} (q) = \tilde{F}(q-p)$ its translation to the point $p$. <strong>The gradient of the smoothed indicator function is equal to the vector field obtained by smoothing the surface normal field:</strong></p>
+
+  <script type="math/tex; mode=display">\begin{equation}
+  \nabla \left( \mathcal{X}_{M} ~ \ast ~ \tilde{F} \right) \left( q_{0} \right) = \int_{\partial M} \tilde{F}_{p} \left( q_{0} \right) \vec{N}_{\partial M} \left( p \right) dp
+\end{equation}</script>
+</blockquote>
+
+<h4 id="approximating-the-gradient-field">Approximating the gradient field.</h4>
+
+<p>입력으로 들어온 oriented point에 대한 integral with discrete summation을 통해 Surface approx.를 수행하게 된다. 구체적으로, 입력 좌표 집합에 대한 여러 patch로 분리하여 (discretize), poisson equation을 세우는 것이다.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{align}
+  \nabla (\mathcal{X}_{M}~\ast~\tilde{F}) (q) &= \sum_{s \in S} \int_{\mathcal{P}_{s}} \tilde{F}_{p} (q) \vec{N}_{\partial M} (p) dP \\
+   &\approx \sum_{s \in S} \vert \mathcal{P}_{s} \vert \tilde{F}_{s.p} (q) s.\vec{N} \equiv \vec{V}(q)
+\end{align}
+\end{equation} %]]></script>
+
+<ul>
+  <li>$\mathcal{P}_{S} \subset \partial M$ : Distinct patches</li>
+  <li>$\tilde{F}(p)$: smoothing filter</li>
+</ul>
+
+<p>저자가 말하길, Filter를 설정하는 과정에서 고려할 점이 두 가지가 있다고 한다.</p>
+<ol>
+  <li>It should be sufficiently narrow so that we do not over-smooth the data</li>
+  <li>It should be wide enough so that the integral over $\mathcal{P}_{S}$ is well approximated by the value at $s.p$ scaled by the patch area.</li>
+</ol>
+
+<p>(저자는 위 조건을 만족하는 괜찮은 Filter는 Gaussian으로 사용하는 것을 추천해주었다.)</p>
+
+<h4 id="solving-the-poisson-problem">Solving the Poisson problem</h4>
+
+<p>우리가 정의한 Vector field에서 indicator function을 풀어내기 위한 정의가 모두 이루어 졌으며, 이에 대한 exact solution은 일반적으로 항상 존재하지 않는다. (not integrable 하므로, 즉 not curl-free 이다.) 그리하여 아래의 수식에 대해 Least-Square 방식으로 해를 근사시켜 해를 구한다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+  \Delta \mathcal{X} = \nabla \cdot \vec{V}
+\end{equation}</script>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>우리가 구하고자 하는 indicator function은 기본적으로 continuous function(연속 함수)이다. 
+따라서 특정 point에서의 normal값만을 가진 input Oriented points들을 3d 공간 상의 연속 함수로 변환시키고 난 뒤에, 컴퓨터 상에서 좀더 효율적으로 계산하기 위해 discretize(이산화) 해서 Poisson equation을 세워야한다.</p>
+
+<p>우선은 Input으로 들어온 sample point들을 octree 구조에 배치하고, 각 octree의 node마다 그 안의 점들의 normal vector들의 weighted average를 구하여, 그 node의 normal vector로 삼는다. 이를 Point Rasterization이라고 한다.</p>
+
+<p>이때 Octree는 무조건 정해진 depth의 node로 되어 있는 것이 아니라, sampling density에 따라서 점이 많은 곳은 depth가 높고, 점이 적은 곳은 depth가 낮은 octree를 사용하는 adaptive octree이다. Octree의 node o마다 어떤 function Fo를 associate시켜서, 이 Fo들의 조합으로 전체 vector field V를 표현하고, Poisson equation을 컴퓨터 상에서 풀 수 있는 matrix representation으로 세우고, 최종적으로 풀어서 얻은 indicator function도 이 Fo로 표현되게 한다.</p>
+
+<p>세워진 Poisson equation은 대략적으로 다음과 같은 과정으로 풀이가 된다. 주어진 octree의 depth D에 대해, Poisson solver는 낮은 depth인 0부터 D까지 한단계씩 높이면서, 낮은 depth에서 solution을 찾아 만족시킨 contraint들은 제외시키고 다음 depth에서 조정된 constraint에 맞춰 풀이를 진행한다. 이런 방식을 Cascadic Solver라고 부른다.</p>
+
+<p>현재 쓰이고 있는 Screened Poisson Reconstruction은 Poisson equation을 (∆ - a I)χ = ∇·V 의 형태로 약간 수정한 것인데, 여기서 a값은 기존 Poisson equation의 솔루션 대로 나온 indicator function의 gradient를 중시할 지, 아니면 input으로 넣은 Oriented point들의 배치를 좀더 중시할 지를 따지는 weight값이다. 풀이를 통해 얻은 indicator function의 gradient로부터 <a href="https://en.wikipedia.org/wiki/Marching_cubes">marching cubes</a> 알고리즘을 통해 surface를 represent 한다.</p>
+
+<h3 id="experiments">Experiments</h3>
+
+<p>Poisson Reconstruction 실행시 결과에 영향을 끼치는 다양한 파라미터가 있으나, 가장 결과물에 영향이 큰 것은 다음 세 가지 정도로 볼 수 있다.</p>
+
+<ul>
+  <li>Depth / Weight / Sample per Node</li>
+</ul>
+
+<div align="center">
+  <img src="/assets/img/prs/prs-dragon.png" width="50%" />
+  <p>Fig. 3: Varying Octree depth value [6, 8, 10]</p>
+</div>
+
+<p>Depth가 높을수록 공간을 분할하는 octree의 node의 개수가 많아지므로 더 세밀하게 나눠진 function들로 표현된 indicator function을 얻게 되므로 결과의 해상도가 올라가게 된다. 단, 점의 밀도가 낮을 경우엔 adaptive octree가 그에 맞춰 낮은 depth의 octree를 사용하기 때문에 이것은 사용할 depth의 최대값이라고 보면 된다.</p>
+
+<h3 id="요약">요약</h3>
+
+<p>Point cloud를 표현하는 Gradient field를 정의해서 이에 대해 Poisson problem으로 Surface를 표현하는 알고리즘에 대해 공부하였다. 쉽게 비유하자면, Poisson surface reconstruction은은 <strong>Implicit mesh representation</strong> 방법이며, 이는 <strong>매끄러운 천으로 데이터를 감싸는 것</strong>으로 설명할 수 있다. Oriented sample 각각이 갖고 있는 Normal의 Surface에 대해서 새로운 point set $S’$을 계산하여 기존의 point set $S$와 밀접하게 registration 되도록 하는 것이다.</p>
+
+<h5 id="references">References:</h5>
+<ul>
+  <li><a href="https://hhoppe.com/poissonrecon.pdf">Paper</a></li>
+  <li><a href="https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb">Code</a></li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="Computer Vision" /><category term="2006" /><summary type="html"><![CDATA[paper review about prs]]></summary></entry><entry><title type="html">[study] Mixture Density Network</title><link href="http://localhost:4000/study/mdn/" rel="alternate" type="text/html" title="[study] Mixture Density Network" /><published>2023-10-30T00:00:00+09:00</published><updated>2023-10-30T00:00:00+09:00</updated><id>http://localhost:4000/study/mdn</id><content type="html" xml:base="http://localhost:4000/study/mdn/"><![CDATA[<h3 id="0-simple-networks">0. Simple Networks</h3>
+
+<p>일반적으로 네트워크를 구성한다는 것은 <strong>입력</strong>과 <strong>출력</strong>에 대해 설계하는 것이다. 이를 조건부 확률로 나타내면 다음과 같다.</p>
+
+<p><script type="math/tex">p(y|x,z)</script></p>
+<ul>
+  <li>$x$: Input of the network</li>
+  <li>$z$: Model parameter</li>
+  <li>$y$: Output of the network (=label)</li>
+</ul>
+
+<p>예를 들어, 만일 classification 문제를 수행하고 있다면 $y$는 분류해야 할 label을 의미하는 것이다. 각 label은 discrete하게 존재하므로 (e.g., <code class="highlighter-rouge">dog</code> or <code class="highlighter-rouge">cat</code>) 출력 값에 Softmax 연산을 수행해주어 어떠한 class에 해당할 확률을 뱉어주게 된다.</p>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-regression.png" width="75%" />
+  <p>Fig. 1: Simple image about Linear Regression.</p>
+</div>
+
+<p>Regression 문제를 수행하고 있다면 출력 값 $y$는 continuous 한 값을 갖게 될 것이다. 어떠한 입력 $x$에 대응하는 출력 $y$의 값이 있을 것이며, 이에 대해 Mean Squared Error (MSE)로 선형회귀를 수행한다면 주어진 입력 $x$에 대해 가장 잘 표현하는 직선을 얻게 될 것이다.</p>
+
+<p>실제 직선을 $f(x)$라고 칭하고, 예측한 직선을 $\hat{f}(x)$ 라고 한다면 두 직선 간의 차이는 존재하게 된다. 
+<script type="math/tex">f(x) = \hat{f}(x) + \epsilon</script>
+완벽하게 일치하는 직선은 존재할 수 없으며, 작은 오차 $\epsilon$을 가지게 되며, 이러한 오차는 (보통) Gaussian distribution을 따른다고 가정한다. 이를 확률 분포로 표현하면 아래와 같으며, $w$는 각각의 weight를 의미한다.</p>
+
+<script type="math/tex; mode=display">\left( y \mid x \right) \sim N(w^Tx, \sigma^2)</script>
+
+<h4 id="01-example-simple-sinusoidal-function">0.1. Example: Simple Sinusoidal Function</h4>
+
+<script type="math/tex; mode=display">\begin{equation}
+    y_{\text{true}}(x) = 7\sin{(0.75x)} + 0.5x + \epsilon 
+\end{equation}</script>
+
+<p>위 함수를 기준으로 Regression 문제를 수행해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
+
+<span class="k">def</span> <span class="nf">sample_data</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+    <span class="n">epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">))</span>
+    <span class="n">x_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">y_data</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.75</span><span class="o">*</span><span class="n">x_data</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x_data</span> <span class="o">+</span> <span class="n">epsilon</span>
+    <span class="k">return</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span>
+
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>위 코드를 통해 위 함수에 근사하는 데이터를 추출할 수 있었다.</p>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex1-func.png" width="50%" />
+  <p>Fig. 2: Sampled from arbitrary function.</p>
+</div>
+
+<p>그럼 이제 이 함수를 근사할 수 있는 간단한 네트워크를 구성해볼 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_input</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">n_output</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">network</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_input</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
+                        <span class="n">nn</span><span class="p">.</span><span class="n">Tanh</span><span class="p">(),</span>
+                        <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_output</span><span class="p">))</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">network</span><span class="p">.</span><span class="n">parameters</span><span class="p">())</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="n">x_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">x_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">y_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">y_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">x_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">)</span>
+<span class="n">y_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">y_tensor</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">train</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3000</span><span class="p">):</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_variable</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_variable</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">300</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>간단한 MLP layer를 만들어, MSE Loss를 최소화하도록 학습시킨다. 이때 주의할 점은 numpy array를 pytorch가 사용할 수 있는 tensor로 바꿔줘야한다. 또한 numpy의 기본 형태인 np.float64를 pytorch의 기본형인 np.float32로 바꿔줘야 에러가 발생하지 않는다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train</span><span class="p">()</span>
+
+<span class="n">x_test_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">x_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">x_test_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">x_test_tensor</span><span class="p">)</span>
+<span class="n">y_test_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_test_variable</span><span class="p">)</span>
+<span class="n">y_test_data</span> <span class="o">=</span> <span class="n">y_test_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">y_test_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex1-func-fitted.png" width="50%" />
+  <p>Fig. 3: Fitted with simple network.</p>
+</div>
+
+<p>이는 간단하게 학습된 네트워크에 test input $x$를 샘플하여 정말 잘 학습 되었는지 확인하는 코드이다. 위 그림을 보면 알 수 있듯이, 손쉽게 해당 function에 fitting 된 것을 알 수 있다. 
+이론 상으로는 은닉층 하나 만으로도 MLP는 임의의 함수를 근사할 수 있다는 점을 알 수 있다. 즉, 하나 이상의 input $x$와 그에 대응하는 오직 하나의 출력 $y$을 갖는 함수에 대해서는 쉽게 표현할 수 있다는 것을 의미한다.</p>
+
+<p>다르게 생각해보면, 여러 개의 출력을 갖는 경우에는 어떻게 될지 생각해볼 수 있다. 즉 앞선 경우는 mode가 1인 경우에 regression을 수행한 것이며, 여러 개의 mode로 표현되는 정규분포에 대해 regression을 수행할 때에도 정말 잘 표현할 수 있는지는 고민해볼 필요가 있다.</p>
+
+<h4 id="02-example-reverse-of-the-eqn-1">0.2. Example: Reverse of the <a href="#equation-1">Eqn. 1</a></h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex2-func.png" width="50%" />
+  <p>Fig. 4: Reverse of the function.</p>
+</div>
+
+<p>간단하게 $x$와 $y$를 서로 바꾸어주면 된다. 이렇게 되면 하나의 입력 $x$는 여러 개의 출력 $y$를 표현하게 된다. 이러한 상황에서 기존의 네트워크를 사용하여 다시 학습해보자.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_variable</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">y_tensor</span>
+<span class="n">y_variable</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">x_tensor</span>
+
+<span class="n">train</span><span class="p">()</span>
+
+<span class="n">x_test_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">x_test_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float32</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_input</span><span class="p">))</span>
+<span class="n">x_test_variable</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">x_test_tensor</span>
+
+<span class="n">y_test_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_test_variable</span><span class="p">)</span>
+
+<span class="c1"># move from torch back to numpy
+</span><span class="n">y_test_data</span> <span class="o">=</span> <span class="n">y_test_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="c1"># plot the original data and the test data
+</span><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_data</span><span class="p">,</span> <span class="n">x_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">y_test_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-ex2-func-fitted.png" width="50%" />
+  <p>Fig. 5: Result with simple network.</p>
+</div>
+
+<p>이렇게 여러 mode의 distribution에 대해서는 일반적인(간단한) 네트워크로는 표현하기 어렵다는 것을 알 수 있다. 이는 기본적으로 MSE Loss를 최소화하도록 학습시키고 각 입력에 대해 하나의 출력만 가능했기 때문이다. 이러한 문제를 해결하기 위해서 제안된 것이 <strong>Mixture Density Network (MDN)</strong> 이다.</p>
+
+<h3 id="1-mixture-density-network-mdn">1. Mixture Density Network (MDN)</h3>
+
+<h4 id="11-definition">1.1 Definition</h4>
+<p>MDN은 <a href="https://www.google.com/search?q=Christopher+Bishop+MDN&amp;sca_esv=577843258&amp;ei=g88_ZeriHpnM1e8P_s64sAM&amp;ved=0ahUKEwiqsKHhjp6CAxUZZvUHHX4nDjYQ4dUDCBA&amp;uact=5&amp;oq=Christopher+Bishop+MDN&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiFkNocmlzdG9waGVyIEJpc2hvcCBNRE4yBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKABSIYNUCFYpAxwBngBkAEAmAGWAaAB_gWqAQMwLja4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIFEAAYgATCAgQQABgewgINEC4YExicAxioAxiABMICBxAAGBMYgATCAg0QLhgTGIAEGKgDGJoDwgIcEC4YExicAxioAxiABBiXBRjcBBjeBBjgBNgBAcICCRAhGKABGAoYKsICBxAhGKABGArCAg0QLhgTGIAEGJoDGKgDwgIGEAAYHhgTwgIIEAAYCBgeGBPiAwQYACBBiAYBkAYHugYGCAEQARgU&amp;sclient=gws-wiz-serp">paper</a>에서 자세한 내용을 확인할 수 있다. 정리하면, 하나의 입력 $x$에 대해 다른 분포를 가지는 $y$에서 $p(y|x)$를 추정하는 것이다.</p>
+
+<script type="math/tex; mode=display">p(y\mid x)=\sum^{n}_{i=1} p(c=i\mid x) ~ \mathcal{N}(y;\mu^{i}, \sigma^{i})</script>
+
+<p>이를 수식으로 표현하면 위와 같으며, $n$개의 정규분포를 가정하고 각 분포에서 $y$가 나올 확률을 이 분포에 속할 확률과 곱하여 결과를 예측하는 것이다. 이렇게 $p(y \mid x)$를 얻어, 여기서 sample 하여 함수를 추정하면 끝이다.</p>
+
+<p>그렇게 Network에서 결정(추정)해주어야 할 값은 총 3가지 이다. (각 분포마다 3개씩.)</p>
+<ul>
+  <li>$p(c=i \mid x)$: 입력 $x$가 category $i$에 속할 확률.
+    <ul>
+      <li>확률분포의 정의에 의해 Normalize를 반드시 해주어야 한다. (총 합이 1이 되게끔 softmax를 수행함.)</li>
+    </ul>
+  </li>
+  <li>$\mu^{i},~\sigma^{i}$: category $i$에 속할 때 $y$가 따르는 정규분포
+    <ul>
+      <li>$\sigma^{i} &gt; 0$</li>
+    </ul>
+  </li>
+</ul>
+
+<p>그리고 이젠 출력이 단일한 값을 뱉어주지 못하므로 loss 또한 MSE Loss가 아닌 다른 loss를 사용해야 한다. Cross-Entropy Loss를 사용하며, 수식은 아래와 같다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    \mathcal{L}_{\text{C.E.}} = -\log{ \sum_{i=1}^m p(c = i \mid x)N(y; \mu^i, \sigma^i)}
+\end{equation}</script>
+
+<p>그렇다면 위 loss function을 가지며, Network의 출력은 $\pi,~\mu,~\sigma$를 하는 MDN class를 만든다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MDN</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MDN</span><span class="p">,</span> <span class="bp">self</span><span class="p">).</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_h</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">),</span>
+            <span class="n">nn</span><span class="p">.</span><span class="n">Tanh</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_pi</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_mu</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">)</span>  
+        <span class="bp">self</span><span class="p">.</span><span class="n">z_sigma</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">z_h</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">z_h</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">pi</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">functional</span><span class="p">.</span><span class="n">softmax</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">z_pi</span><span class="p">(</span><span class="n">z_h</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">z_sigma</span><span class="p">(</span><span class="n">z_h</span><span class="p">))</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">z_mu</span><span class="p">(</span><span class="n">z_h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">z_pi</code>는 확률분포 이기에 softmax를 수행해준 것이다.</li>
+  <li><code class="highlighter-rouge">z_sigma</code>는 항상 양수이어야 하므로 $\exp$를 취해주었다.</li>
+</ul>
+
+<p>$\mu^{i},~\sigma^{i}$에서 정의되는 정규분포의 수식은 아래와 같다.</p>
+
+<script type="math/tex; mode=display">\begin{equation*}
+    \mathcal{N}(\mu, \sigma)(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp (-\frac{(x-\mu)^2}{2\sigma^2})
+\end{equation*}</script>
+
+<p>이를 고려한 loss function을 코드로 구현하면 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gaussian_distribution</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">result</span> <span class="o">*</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="p">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">sigma</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mdn_loss_fn</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">gaussian_distribution</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="o">-</span><span class="n">torch</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>각 분포로부터 $y$가 나올 확률 $\mathcal{N}(\mu,\sigma)(x)$와 그 분포에 대응할 확률 $\pi$을 곱하고, 이 모두를 다 더한 다음, 로그와 평균을 취해주면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">network</span> <span class="o">=</span> <span class="n">MDN</span><span class="p">(</span><span class="n">n_hidden</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_gaussians</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">optim</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">network</span><span class="p">.</span><span class="n">parameters</span><span class="p">())</span>
+
+<span class="n">mdn_x_data</span> <span class="o">=</span> <span class="n">y_data</span>
+<span class="n">mdn_y_data</span> <span class="o">=</span> <span class="n">x_data</span>
+
+<span class="n">mdn_x_tensor</span> <span class="o">=</span> <span class="n">y_tensor</span>
+<span class="n">mdn_y_tensor</span> <span class="o">=</span> <span class="n">x_tensor</span>
+
+<span class="n">x_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">mdn_x_tensor</span><span class="p">)</span>
+<span class="n">y_variable</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">mdn_y_tensor</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">train_mdn</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">pi_variable</span><span class="p">,</span> <span class="n">sigma_variable</span><span class="p">,</span> <span class="n">mu_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_variable</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">mdn_loss_fn</span><span class="p">(</span><span class="n">pi_variable</span><span class="p">,</span> <span class="n">sigma_variable</span><span class="p">,</span> <span class="n">mu_variable</span><span class="p">,</span> <span class="n">y_variable</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="p">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">loss</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">train_mdn</span><span class="p">()</span>
+
+<span class="n">pi_variable</span><span class="p">,</span> <span class="n">sigma_variable</span><span class="p">,</span> <span class="n">mu_variable</span> <span class="o">=</span> <span class="n">network</span><span class="p">(</span><span class="n">x_test_variable</span><span class="p">)</span>
+
+<span class="n">pi_data</span> <span class="o">=</span> <span class="n">pi_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">sigma_data</span> <span class="o">=</span> <span class="n">sigma_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">mu_data</span> <span class="o">=</span> <span class="n">mu_variable</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">pi_data</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'$p(c = i | x)$'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">sigma_data</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'$\sigma$'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">mu_data</span><span class="p">)</span>
+<span class="n">ax3</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'$\mu$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-output.png" width="67.5%" />
+  <p>Fig. 6: Result with MDN network.</p>
+</div>
+
+<p>입력 $x$의 변화에 따른 각 분포의 양상을 확인할 수 있다. 하나의 $x$에 여러 개의 $y$가 가능하며, <strong>이 각각의 점이 선택될 확률은</strong> $\mathbf{p(c=i \mid x)}$<strong>로 표현되는 것이다.</strong></p>
+
+<p>학습시킨 네트워크에서 특정 정규분포의 결과를 얻고 싶다면 <strong><code class="highlighter-rouge">Gumbel softmax</code></strong> sampling을 사용하면 되며, 이론적인 내용은 이후에 작성하겠습니다.</p>
+
+<p>이제 우리는 각 입력 $x$에 대해서 어떤 정규분포를 선택해야되는지를 알았으니 각각의 평균과 분산을 이용해 이를 sampling만 하면 됩니다. random noise는 표준정규분포를 따르므로 이에 $\sigma$를 곱하고 $\mu$를 더해주기만하면 원래의 정규분포를 얻을 수 있다. 이렇게 해서 최종 결과물을 시각화하면 아래와 같다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gumbel_sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">gumbel</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">z</span><span class="p">).</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">gumbel_sample</span><span class="p">(</span><span class="n">pi_data</span><span class="p">)</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">random_noise</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="n">sampled</span> <span class="o">=</span> <span class="n">random_noise</span> <span class="o">*</span> <span class="n">sigma_data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">+</span> <span class="n">mu_data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mdn_x_data</span><span class="p">,</span> <span class="n">mdn_y_data</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test_data</span><span class="p">,</span> <span class="n">sampled</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div align="center">
+  <img src="/assets/img/mdn/mdn-fitted.png" width="50%" />
+  <p>Fig. 7: Fitted with MDN network.</p>
+</div>
+
+<h3 id="요약">요약</h3>
+<p>기존의 간단한 network는 <strong>하나의 입력</strong> $\mathbf{x}$에 대해 <strong>여러 개의 출력</strong> $\mathbf{y}$가 가능한 경우에 효과적으로 표현할 수 없었다. <strong>Mixture Density Network (MDN)</strong>은 <strong>여러 개의 정규분포</strong> $\mathbf{\mathcal{N}^{i}}$ (혹은 다른 분포)의 <strong>평균</strong> $\mathbf{\mu}^{i}$와 <strong>분산</strong> $\mathbf{\sigma}^{i}$를 예측하고, <strong>각 정규분포에 속할 확률</strong> $\mathbf{\pi^{i}=p(c=i \mid x)}$을 통해 이를 효과적으로 근사할 수 있게 한 것이다. 즉, 여러 개의 출력이 있는 경우에도 분포를 추정할 수 있다는 의미이다.</p>
+
+<h5 id="references">References:</h5>
+<ul>
+  <li><a href="https://publications.aston.ac.uk/id/eprint/373/1/NCRG_94_004.pdf">Paper</a></li>
+  <li><a href="https://github.com/hardmaru/pytorch_notebooks/blob/master/mixture_density_networks.ipynb">Code</a></li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="study" /><category term="Machine Learning" /><summary type="html"><![CDATA[Mixture Density Network]]></summary></entry><entry><title type="html">[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning</title><link href="http://localhost:4000/paper-review/paper-review/pbl/exo-pbl/" rel="alternate" type="text/html" title="[paper-review] User preference optimization for control of ankle exoskeletons using sample efficient active learning" /><published>2023-10-29T00:00:00+09:00</published><updated>2023-10-29T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/paper-review/pbl/exo-pbl</id><content type="html" xml:base="http://localhost:4000/paper-review/paper-review/pbl/exo-pbl/"><![CDATA[<blockquote>
+  <p>Science Robotics 2023. [<a href="https://www.science.org/doi/10.1126/scirobotics.adg3705">Paper</a>] [<a href="https://www.science.org/doi/suppl/10.1126/scirobotics.adg3705/suppl_file/scirobotics.adg3705_sm.pdf">Code</a>]</p>
+
+  <p>Ung Hee Lee  and Varun S. Shetty  and Patrick W. Franks  and Jie Tan  and Georgios Evangelopoulos  and Sehoon Ha  and Elliott J. Rouse</p>
+
+  <p>18 Oct 2023</p>
+</blockquote>
+
+<h2 id="한-문장-요약">한 문장 요약</h2>
+<p>요약: Exoskeleton에서 Preference를 결정짓는 control parameter를(=4개) 자동으로 튜닝해주는 연구를 수행했다.</p>
+<blockquote>
+  <p>Offline RL method that never needs to evaluate actions outside of the dataset, but still enables the learned policy to improve substantially over the best behavior in the data through generalization</p>
+
+  <p>Keyword: <strong>Preference-Based Learning</strong>, <strong>Exoskeletons</strong></p>
+</blockquote>
+
+<h3 id="abstract">Abstract</h3>
+<ul>
+  <li><strong>기존의 한계</strong>
+    <ul>
+      <li>resource intensive</li>
+      <li>only enabling a single objective optimization
+        <ul>
+          <li>we can do it for many factors, including comfort, fatigue, and stability, among others</li>
+          <li>conveniently tune the four parameters</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Approach</strong>
+    <ul>
+      <li>used an evolutionary algorithm to recommend potential parameters, which were ranked by a neural network <code class="highlighter-rouge">RankNet</code>.
+        <ul>
+          <li>real-time feedback as a force-choice comparison (=binary comparison)</li>
+        </ul>
+      </li>
+      <li>accuracy of 88% on average when compared with randomly generated parameters.</li>
+      <li>user-preferred settings stabilized in 43 $\pm$ 7 queries.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction">Introduction</h3>
+<p>기존의 웨어러블 기기에서 수행된 PBL은 두 가지 방식이 있다.</p>
+
+<ol>
+  <li>Expert-based tuning to mimic natural human locomotion ⇒ Learning from Demonstration</li>
+  <li>Automatic tuning based on metabolic rate or other physiological objectives.
+    <ul>
+      <li>위 방법들은 성공적으로 수행되어 왔지만, 오직 하나의 요소에 대해서만 PBL이 수행되어 왔다. (=<code class="highlighter-rouge">single objective</code>)</li>
+      <li>따라서 이러한 한계를 해결하고자 여러 요소를 고려하는 <code class="highlighter-rouge">Multi-objective</code> optimization 방법들도 연구되고 있지만, 아직까진 그렇게 성공적이진 않다고 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>low-dimensional controller parameter space(=튜닝 파라미터의 총 갯수)로는 실제 환경의 모든 상황으로 확장이 불가하며, 저자는 이를 active learning으로 수행하겠다고 한다.
+    <ul>
+      <li>The algorithm searches a parameter space automatic</li>
+    </ul>
+  </li>
+</ul>
+
+<p>요약하자면, 저자가 주장하는 contribution은 아래의 두 가지 입니다.</p>
+<ul>
+  <li>sample-efficient optimization algorithm: four-dimensional parameter space</li>
+  <li>real-time framework for allowing users to determine preference at will
+    <ul>
+      <li><code class="highlighter-rouge">RankCMA-ES</code>라는 이름으로 알고리즘을 제안함.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="contribution">Contribution</h3>
+<ol>
+  <li>Sample-Efficient
+    <ol>
+      <li>이전 연구에서 Covariance Matrix Adaptation-Evolutionary Strategy (CMA-ES)로 metabolic rate를 최적화 하는 연구가 수행되었으나 PBL로는 확장되지 못하였음.</li>
+      <li>저자는 RankNet을 사용해 CMA-ES 방법론을 합침. (Binary comparison: [A or B])
+        <ul>
+          <li>이전 PBL 연구에서는 5개의 option에 대해 2개의</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>Real-world에서 사용 가능하다
+    <ol>
+      <li>웨어러블 기기와 사용자의 binary comparison만 있으면 내부 알고리즘이 동작하므로 실생활에 사용할 수 있다는 의미.</li>
+      <li>그리고 사용자가 tuning pace를 조절할 수도 있음.</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="approach">Approach</h3>
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-overview.png" width="100%" />
+  <p>Fig. 1: Overview of the Exoskeleton PBL.</p>
+</div>
+
+<ul>
+  <li>저자는 RankNet을 사용하여 preference를 모델링 했다. (preference score를 continuous하게 추정하기 위해 preference가 neural network에서 활용된 연구임.)
+    <ul>
+      <li><strong>Input: controller setting / output: normalized in a [0~1] score (latent user score)</strong></li>
+    </ul>
+  </li>
+  <li><strong>Two-Dim. controller parameter</strong>에서 perference model을 <strong>pre-train</strong> 한 후에 <strong>Four-Dim.</strong>에서 <strong>optimization</strong>을 수행한다. 
+(pre-train 과정에선 이전 연구(<a href="https://www.science.org/doi/10.1126/science.aal5054">Human-in-the-loop optimization of exoskeleton assistance during walking</a>)에서 수행된 데이터를 사용한다고 함.)
+    <ul>
+      <li>Controller parameter: <strong>peak torque</strong> and <strong>peak torque timing</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-algorithm.png" width="80%" />
+  <p>Fig. 2: Pseudo Algorithm of the Exoskeleton PBL.</p>
+</div>
+
+<ul>
+  <li>Optimization part
+    <ul>
+      <li>user-independent preference model: RankNet
+        <ul>
+          <li>pre-train을 위해 이전 연구에서 사용된 데이터셋을 활용함.
+            <ul>
+              <li>12명의 참가자 + 3개의 다른 속도 (1, 1.2, and 1.4 m/s)</li>
+              <li>데이터로부터 mean과 covariance를 얻어내서, 12개의 개별적인 2D gaussian function을 취득함. ⇒ 이를 preference score로 사용함.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>user-dependent preference model (black-box optimizer): CMA-ES
+        <ul>
+          <li>multivariate normal distribution에서 샘플을 추출</li>
+          <li>이전의 것과 비교하여 더 선호하는 것을 선택</li>
+          <li>선택된 것을 기반으로 covariance matrix $C$, step size $\sigma$ 를 업데이트 하며 distribution이 바뀜.
+            <ul>
+              <li>저자는 $1+\lambda$ CMA-ES 방법론을 사용함.</li>
+              <li>이는 suboptimal에 취약하지만, 빠른 수렴성을 보여서 사용한다고 함.
+                <ul>
+                  <li>1: parent의 수</li>
+                  <li>+: new generation이 children/parent pool에서 선택된다는 의미</li>
+                  <li>$\lambda$: offspring의 수, search space를 결정함, scheduling parameter</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="experiments">Experiments</h3>
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-experimental-setup.png" width="100%" />
+  <p>Fig. 3: Experimental Setup of the Exoskeleton PBL.</p>
+</div>
+
+<ul>
+  <li>실험 세팅
+    <ul>
+      <li>피실험자는 총 14명이며 참가자 당 5번의 실험을 수행한다.</li>
+      <li>피실험자는 트레드밀에 고정된 속도 1.2 m/s로 걸으며 2개의 option A/B 를 선택할 수 있는 터치 스크린이 있었으며, 자유롭게 A/B option을 체험해볼 수 있었음. 이 중에서 어떠한 것이 더 좋은지 선택하게끔 함.
+        <ul>
+          <li>이러한 과정을 50번 정도 수행함. 이 숫자는 선행 연구에 기반을 두었다고 언급함.</li>
+          <li>이렇게 main(optimization+validation) session은 39 $\pm$ 18 분 소요되었음.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-gait-result.png" width="100%" />
+  <p>Fig. 4: Gait result of the Exoskeleton PBL.</p>
+</div>
+
+<div align="center">
+  <img src="/assets/img/exo-pbl/exo-pbl-ranknet-result.png" width="100%" />
+  <p>Fig. 5: RankNet result.</p>
+</div>
+
+<ul>
+  <li>RankCMA-ES를 leave-one-subject-out cross validation으로 수행했다고 함.
+    <ul>
+      <li>n개의 데이터에서 1개를 Test Set으로 정하고 나머지 n-1개의 데이터로 모델링을 하는 방법</li>
+    </ul>
+  </li>
+  <li>CMA-ES 를 baseline으로 삼음.
+    <ul>
+      <li>RankCMA-ES가 더 적은 수(=30 회)의 generation으로 GT에 근접한 score로 수렴했고, baseline은 150회의 generation으로 sub-optimal로 수렴했다. ⇒ sample-efficiency</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="thought">Thought</h4>
+<ul>
+  <li>Introduction에서 밝히길 본 연구는 partial-assist system에 대해서 PBL을 수행했다고 하며, 기존의 연구는 complete-assist exoskeleton에서 PBL이 수행되어 왔다고 합니다. (Bayesian-Optimization + Gaussian Process를 활용함.)</li>
+  <li>아마도 이 이유 때문에 Baseline을 pbl이 아닌 CMA 으로만 수행한 것 같습니다. (PBL에 대해서 수행하는 논문이지만 baseline에는 PBL 관련된 것이 없어서 처음에는 조금 의아했었습니다.)</li>
+  <li>해당 논문에서 사용된 factor로는 다음의 4개를 활용했습니다. rise time (r_t), peak torque timing (p_t), fall time (f_t ), and peak torque magnitude.</li>
+  <li>저자도 논문에서 밝히길 더 많은 수의 factor를 정의해 문제를 해결할 수는 있다고 하며, text로 표현된 내용에 기반해서 preference를 추정하는 접근도 해볼 수 있지 않을까 라는 생각을 했습니다.</li>
+  <li>추가로, preference model에 대해서도 RankNet 이외에도 다른 ranking method를 활용해볼 수 있을 것 같습니다.</li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="paper-review/PBL" /><category term="Exoskeletons" /><category term="Preference-Based Learning" /><category term="Science Robotics" /><category term="2023" /><summary type="html"><![CDATA[paper review about exo-pbl]]></summary></entry><entry><title type="html">[paper-review] Contrastive Prefence Learning: Learning from Human Feedback without RL</title><link href="http://localhost:4000/paper-review/paper-review/pbl/cpl/" rel="alternate" type="text/html" title="[paper-review] Contrastive Prefence Learning: Learning from Human Feedback without RL" /><published>2023-10-24T00:00:00+09:00</published><updated>2023-10-24T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/paper-review/pbl/cpl</id><content type="html" xml:base="http://localhost:4000/paper-review/paper-review/pbl/cpl/"><![CDATA[<blockquote>
+  <p>Arxiv 2023. [<a href="https://arxiv.org/abs/2310.13639">Paper</a>] [<a href="https://github.com/jhejna/cpl">Github</a>]</p>
+
+  <p>Joey Hejna<sup>1</sup>, Rafael Rafailov<sup>1*</sup>, Harshit Sikchi<sup>2*</sup>, Chelsea Finn<sup>1</sup>, Scott Niekum<sup>3</sup>, W. Bradley Knox<sup>2</sup>, Dorsa Sadigh<sup>1</sup>
+<sup>1</sup>Stanford University,
+<sup>2</sup>UT Austin,
+<sup>3</sup>UMass Amherst
+* means Equal Contribution</p>
+
+  <p>20 Oct 2023</p>
+</blockquote>
+
+<h2 id="한-문장-요약">한 문장 요약</h2>
+<p>요약: Contrastive Leraning objective를 유도하여 Prefernce-based Learning을 수행해보자.</p>
+
+<p>Keyword: <strong>Contrastive Learning</strong>, <strong>Preference-based Learning</strong>, <strong>Regret</strong></p>
+
+<div align="center">
+  <img src="/assets/img/cpl/cpl-overview.png" width="75%" />
+  <p>Fig. 1: Overview of the Contrastive Preference Learning (CPL).</p>
+</div>
+
+<h3 id="introduction">Introduction</h3>
+<p>기존에 수행해오던 Two-Phase RLHF이 가정하고 있는 것에 대해 언급하며 논문이 시작한다.</p>
+<blockquote>
+  <p>Human preferences are distributed according to the discounted sum of rewards or <em>partial return</em> of each behavior segment.</p>
+</blockquote>
+
+<p>최근 연구들은 human으로부터 regret에 기반한 preference feedback을 받는 것으로 새로운 접근을 수행했다.</p>
+<blockquote>
+  <p>Positioning that humans instead provide preferences based on the <strong>regret of each behavior under the optimal policy of the expert’s reward function.</strong></p>
+  <ul>
+    <li>Models of human preference for learning reward functions
+      <ul>
+        <li>Arxiv: https://arxiv.org/abs/2206.02231</li>
+        <li>OpenReview: https://openreview.net/forum?id=6UtOXn1LwNE
+          <ul>
+            <li>NeurIPS rejected ..</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p>즉, Reward 만으로 사람의 optimal choice를 대변해주긴 어렵다고 판단되며, <strong><code class="highlighter-rouge">advantage(=negated regret)</code></strong> function으로 feedback에 대해 quantify 하는 것이라고 말함.</p>
+
+<p>그렇게 저자는 Regret-based preference model을 제시하며, 이는 optimal policy에 대한 직접적인 정보를 얻을 수 있는 장점이 있다고 한다. (regret function의 정의에 의해 )</p>
+<ul>
+  <li>regret: difference between optimal and actual reward.</li>
+</ul>
+
+<p>저자의 Key insight는 Regret-based Preference framework를 Maximum Entropy와 엮은 것이라고 한다. 그렇게 함으로써 advantage function과 policy를 bijection의 관계로 표현할 수 있다고 한다.</p>
+<ul>
+  <li>Bijection: 두 함수 사이를 중복 없이 모두 일대일로 대응하는 함수.</li>
+</ul>
+
+<p>Advantage function 대신 <strong>policy 기반</strong>으로 최적화 수식을 작성함으로서, 저자는 <strong>optimal policy와의 Supervised Learning Objective</strong>로 정의할 수 있었다고 한다.
+저자는 이를 Contrastive Preference Learning (CPL)이라고 칭하며, 다음 3개의 장점이 있다고 주장합니다.</p>
+<ol>
+  <li><strong>CPL can scale as well as supervised learning</strong> because it uses only <strong>supervised objectives</strong> to match the optimal advantage without any policy gradients or dynamic programming.</li>
+  <li><strong>CPL is fully off-policy,</strong> enabling effectively using any offline sub-optimal data source.</li>
+  <li>CPL can be applied to <strong>arbitrary Markov Decision Processes (MDPs),</strong> allowing for learning from preference queries over sequential data.</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="preliminaries">Preliminaries</h3>
+<p>본 논문은 reward-free MDP의 RLHF $\mathcal{M}/r=(\mathcal{S,A},p,\gamma)$ 를 따른다. 여기서 reward function은 없으니, expert’s preference를 통해 추정해야 한다.</p>
+
+<p><br /></p>
+
+<h4 id="maximum-entorpy-reinforcement-learning">Maximum Entorpy Reinforcement Learning.</h4>
+<p><code class="highlighter-rouge">Maximum-Entropy</code> RL은 causal entropy를 최대화하는 $\pi$를 학습하는 것이 목적이며, 다음의 objective를 가진다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    \max_{\pi} \mathbb{E}_{\pi} \left[\sum^{\infty}_{t=0} \gamma^{t}(r(s_{t},a_{t}) - \alpha \log \pi (a_{t} | s_{t})) \right]
+\end{equation}</script>
+
+<ul>
+  <li>$\alpha$: temperature parameter.</li>
+</ul>
+
+<p>Additional negated $\log \pi(\cdot)$는 offline-RL에서 자주 사용되는 항이다. (KL-constrained objective for reference distribution)</p>
+
+<p><br /></p>
+
+<h4 id="the-regret-or-advantage-preference-model">The Regret (or Advantage) Preference Model.</h4>
+<p>Advantage function $A^{\pi}<em>{r}(s,a) \overset{=} Q^{\pi}</em>{r}(s,a)-V^{\pi}_{r}(s)$ 로 정의되며, policy $\pi$ 를 따랐을 때 보다 action $a$ 를 취했을 때에 <code class="highlighter-rouge">how worse</code> 한지 파악하는 지표이다. 일반적으로 preference model은 <code class="highlighter-rouge">Boltzman rational distribution</code>을 따른다고 하며 연구가 수행되어 왔지만, 이는 partial return을 고려하는 경우에 inconsistent 하다는 <a href="https://arxiv.org/abs/2206.02231">연구 결과</a>를 보였다. 혹은 sparse reward에 의해 표현력이 떨어진다는 것도 inconsistent에 영향을 준다고 얘기한다.</p>
+<blockquote>
+  <p>Boltzmann rational distribution이란?
+어떤 시스템에서 특정 상태 $i$에 있을 확률을 해당 상태의 에너지와 시스템의 온도로써 표현하는 것이다. Boltzmann distribution은 아래의 형태를 띈다.
+<script type="math/tex">p_{i} \propto \exp({-\frac{\varepsilon_{i}}{kT}})</script></p>
+
+  <ul>
+    <li>$p_{i}$: state $i$에 있을 확률</li>
+    <li>$\epsilon_{i}$: the energy of the state</li>
+    <li>$kT$: Boltzmann constant $k$, thermodynamic temperature $T$</li>
+  </ul>
+
+  <p>정보이론에 의해 시스템은 낮은 에너지부터 채워지는 경향을 전제로 한다. 즉, 에너지가 낮은 상태의 확률이 에너지가 높은 상태의 확률보다 더 큰 값을 가진다는 의미이다. 쉽게 말해서 energy $\epsilon_{i}$의 값이 커질수록 확률값 $p_{i}$의 값이 더 낮아진다는 것이다.</p>
+
+  <p>Boltzmann distribution은 아래와 같이 정의된다.</p>
+
+  <script type="math/tex; mode=display">p_{i} = \frac{1}{Q} \exp({-\frac{\varepsilon_{i}}{kT}}) = \frac{\exp(-\frac{\epsilon_{i}}{kT})}{\sum^{M}_{j=1} \exp(-\frac{\epsilon_{j}}{kT}{})}</script>
+
+  <p>앞서 작성한 수식과 동일하며, normalization denominator term $Q$가 추가된 것이다. $M$은 system에서 알 수 있는 모든 state의 수를 의미한다.</p>
+
+  <p>reference: <a href="https://en.wikipedia.org/wiki/Boltzmann_distribution">wikipedia</a></p>
+</blockquote>
+
+<p>기존의 RLHF 방식처럼 partial return을 기준으로 한다면 inconsistency를 띄게 되므로 negated discounted regret segment에 대한 수식으로 표현한다. 그렇게, 이 preference model은 optimal policy를 기준으로 얼마나 lower regret을 보이는지 해석할 수 있다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    P_{A^*}\left[ \sigma^{+} \succ \sigma^{-} \right] = \frac{\exp \sum_{\sigma^{+}} \gamma^{t} A^{\ast}(s^{+}_{t}, a^{+}_{t})}{\exp \sum_{\sigma^{+}}\gamma^{t} A^{\ast}(s^{+}_{t}, a^{+}_{t}) + \exp \sum_{\sigma^{-}}\gamma^{t} A^{\ast}(s^{-}_{t}, a^{-}_{t})}
+\end{equation}</script>
+
+<ul>
+  <li>$+$: preferred behavior segment</li>
+  <li>$-$: unpreferred behavior segment</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="contrastive-preference-learning">Contrastive Preference Learning</h3>
+<p>일반적인 reward model을 사용하는 것은 vast, unnecessary computational expense를 유발한다. 그렇다고 Regret based model이 무조건 다 좋은 것은 아니고, 이 또한 다음의 문제점을 갖고 있다.</p>
+<ul>
+  <li>rely on estimating gradients with respect to <strong>a moving reward function.</strong></li>
+  <li>unsuitable for <strong>complex scenarios</strong> beyond the simplistic grid world environments.</li>
+</ul>
+
+<p>그렇게 저자는 다음의 Key contribution을 내세운다.</p>
+<ul>
+  <li>Max-Ent RL framework에서 Advantage function을 log-probability of the policy로 표현한다.
+    <ul>
+      <li>Log-probability로 표현하여, 더이상 Advantage function를 학습하지 않아도 된다.</li>
+      <li>RL framework에서 수행되던 optimization challenge를 해결하게 된다.
+        <ul>
+          <li>즉, aligned regret prefernce를 더욱 근접하게 포착할 수 있고, human feedback을 통해 학습할 때에 supervised learning 만 수행해도 된다는 이점을 갖는다.</li>
+          <li><strong>Supervised objective</strong>로 변환했다는 것이 핵심적인 contribution 이다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="from-optimal-advantage-to-optimal-policy">From Optimal Advantage To Optimal Policy</h4>
+<p>저자가 제안한 regret preference model은 $\mathcal{D}_{\text{pref}}$을 Dataset으로 갖는다.</p>
+<ul>
+  <li>$\mathcal{D}_{\text{pref}}$: Informations about the optimal advantage function $A^{\ast}(s,a)$</li>
+</ul>
+
+<p><script type="math/tex">\arg \max_{a \in \mathcal{A}} A^{\ast}(s,a)=a^{\ast}</script>
+그러므로 정의에 따라 $A^{\ast}(\cdot)$ 를 최대화하는 action은 optimal action $a^{\ast}$ 가 되며 이 $A^{\ast}(\cdot)$ 함수를 학습한다는 것은 결국 optimal policy $\pi^{\ast}$를 반드시 따른다는 것을 알 수 있으며 이는 아래의 수식으로 표현 가능하다.</p>
+
+<script type="math/tex; mode=display">\begin{equation*}
+    \max_{A_{\theta}} \mathbb{E}_{(\sigma^{+},\sigma^{-})\sim \mathcal{D}_{\text{pref}}} \left[ \log P_{A_{\theta}} \left[\sigma^{+} \succ \sigma^{-}\right]\right]
+\end{equation*}</script>
+
+<p>쉽게 생각해볼 수 있는 점은, Advantage function을 그대로 <a href="#equation-2">Eqn. (2)</a> 에서 parameterized advantage $A_{\theta}$로 대체하는 것이다. 하지만 일반적인 RL과 MaxEnt RL 두 경우 모두에 대해서 Bellman-consistent advantage function을 학습하는 것은 non-trivial 하다는 것이다. 즉 학습하기 어려운 경우를 뜻한다.</p>
+
+<p>$A^{\ast}$를 $\pi^{\ast}$에 대한 관계는 아래와 같다.[<a href="https://www.cs.cmu.edu/~bziebart/publications/thesis-bziebart.pdf">Ziebart (2010)</a>]  $\pi^{\ast}$는 확률 분포의 정의에 따라 $A^{\ast}$도 몇 가지 제약 사항을 충족해야만 한다. (<a href="https://www.google.com/search?q=axiom+probabilty&amp;oq=axiom+probabilty&amp;aqs=chrome..69i57.2897j0j7&amp;sourceid=chrome&amp;ie=UTF-8">probability axioms</a>)
+<script type="math/tex">\begin{equation*}
+    \pi^{\ast}(a|s) = \exp^{\frac{A^{\ast}_{r}(s,a)}{\alpha}}
+\end{equation*}</script></p>
+
+<p>이는 학습된 $A^{\ast}$ 가 optimal 하려면, 확률 분포 정의에 의해 normalized 되어야 한다는 것이다. $ \int_{\mathcal{A}} \exp^{\mathcal{A}^{\ast}(s,a)/\alpha}~da = 1$. 이러한 제약 조건은 깊은 신경망과 continuous space 일 경우에 intractable 하게 되므로 $A_{\theta}$ 를 통해 학습하는 접근(<code class="highlighter-rouge">=MLE</code>)은 어려워진다.</p>
+
+<p>그렇다면 $A_{\theta}$ 를 직접 학습하는 것은 지양해야 한다는 것이며, 다른 방법을 찾아야 한다.  저자는 $A^{\ast}$ 와 $\pi^{\ast}$ 의 bijection 성질을 이용해서 수식을 전개해나간다. 이를 통해 $A^{\ast}$ 이 $\pi^{\ast}$ 에 <strong>log-scale</strong>로 비례한다는 의미로 수식을 다시 작성할 수 있다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    A^{\ast}_{r}(s,a) = \alpha \log \pi^{\ast}(a|s)
+\end{equation}</script>
+
+<p><strong>이렇게 됨으로써, 우리는 더이상 advantage function을 학습하지 않고, 곧바로 optimal policy를 학습할 수 있게 된다.</strong> 즉 <a href="#equation-3">Eqn. (3)</a> 을 <a href="#equation-2">Eqn. (2)</a>에 대입하면 아래와 같은 수식을 유도할 수 있다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    P_{A^*}[\sigma^{+} \succ \sigma^{-}] = \frac{\exp \sum_{\sigma^{+}} \gamma^{t} \alpha \log \pi^{\ast} (a^{+}_{t} | s^{+}_{t})}{\exp \sum_{\sigma^{+}}\gamma^{t} \alpha \log \pi^{\ast} (a^{+}_{t} | s^{+}_{t}) + \exp \sum_{\sigma^{-}}\gamma^{t} \alpha \log \pi^{\ast} (a^{-}_{t} | s^{-}_{t})}
+\end{equation}</script>
+
+<p>이렇게 MaxEnt RL에서 $\pi^{\ast}$ 만으로 해석할 수 있는 preference model을 유도하게 된다. 위 수식을 토대로 <code class="highlighter-rouge">Maximum-Likelihood Estimation(MLE)</code> Loss도 손쉽게 유도할 수 있다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    \mathcal{L}_{\text{CPL}}(\pi_{\theta}, \mathcal{D}_{\text{pref}}) = \mathbb{E}_{(\sigma^{+},\sigma^{-})\sim \mathcal{D}_{\text{pref}}}\left[ -\log \frac{\exp \sum_{\sigma^{+}} \gamma^{t} \alpha \log \pi^{\ast} (a^{+}_{t} | s^{+}_{t})}{\exp \sum_{\sigma^{+}} \gamma^{t} \alpha \log \pi^{\ast} (a^{+}_{t} | s^{+}_{t})+\exp \sum_{\sigma^{-}} \gamma^{t} \alpha \log \pi^{\ast} (a^{-}_{t} | s^{-}_{t})}  \right]
+\end{equation}</script>
+
+<p>이렇게 $\pi_{\theta}$는 완벽하게 user-preference로 수렴하는 것을 보장하게 된다. 이는 <em>identifiable</em> 이라고 표현된다. (meaning the objective can achieve a loss of zero.)</p>
+<blockquote>
+  <p>Assuming sufficient representation power, at convergence $\pi_{\theta}$ will perfectly model the users preferences, and thus exactly recover $\pi^{\ast}$ under the advantage-based preference model given an unbounded amount of preference data.</p>
+</blockquote>
+
+<p>이렇게 supervised manner로 policy를 곧바로 학습하게 되면 다음의 이점을 가질 수 있다.</p>
+<ol>
+  <li>circumvents the needs for learning any other functions, like a reward function or value function.
+    <ul>
+      <li>reduces both complexity and computational cost</li>
+    </ul>
+  </li>
+  <li>이전 연구들은 preference model의 shifting distribution 문제점이 있었으나, CPL은 probability axiom에 의해 이러한 문제점을 해결할 수 있다.
+    <ul>
+      <li>즉 어떠한 normalization scheme이 필요하지 않다.</li>
+    </ul>
+  </li>
+  <li>$\int_{\mathcal{A}} \exp^{\mathcal{A}^{\ast}(s,a)/\alpha}~da = 1$ 성질에 의해 어떠한 reward function에 상응하는 optimal advantage function $A^{\ast}$이 존재한다.
+    <ul>
+      <li>저자는 이를 <em>consistency</em> 라고 표현하며 Appendix A 에서 증명을 보인다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><a href="#equation-2">Eqn. 2</a>에서 알 수 있듯이 [preferred / unpreferred] 를 $+$, $-$로 표현하고 있으며, 이는 contrastive learning에서 흔히 사용되는 [positive / negative] sample로 이해할 수 있다는 것이다. 저자가 주장하길, <a href="#equation-5">Eqn. (5)</a>은 Noise Contrastive Estimation objective로 해석할 수 있으며, Plackett-Luce Model 처럼 Ranking method로 모델링하게 되면 InfoNCE objective 형태로 표현할 수 있다.
+<br /> &lt;/br&gt;</p>
+
+<h4 id="practical-considerations">Practical Considerations</h4>
+<p>이 파트에서는 저자가 실제로 구현할 때에 어떠한 요소들이 학습에 영향을 미쳤는지 분석한 내용을 서술한다.</p>
+
+<p>CPL의 objective가 strictly convex하지 않으며, 이를 logistic regression problem으로 정의하여 해결했다.
+우선, policy를 one-dimensional vector로 정의하자. $\pi \in \mathbb{R}^{\left| \mathcal{S} \times \mathcal{A} \right|}$ 그리고 positive/negative segment를 policy $\pi$와 $\text{comparison}$ vector $x$의 $\text{dot}$ product로 표현할 수 있다.</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>positive segment: $\sum_{\sigma^{+}} \gamma^{t} \alpha \log \pi_{\theta}(a^{+}_{t}</td>
+          <td>s^{+}_{t})$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>negative segment: $\sum_{\sigma^{-}} \gamma^{t} \alpha \log \pi_{\theta}(a^{-}_{t}</td>
+          <td>s^{-}_{t})$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>$\text{comparison}$ vector: $x_{i}\left[ s,a \right]= 
+\left{ 
+\begin{matrix}
+ \gamma^{t} &amp; \text{if}<del>\sigma^{+}_{i,t}=(s,a) <br />
+ -\gamma^{t} &amp; \text{if}</del>\sigma^{-}_{i,t}=(s,a) <br />
+ 0 &amp; \text{otherwise} <br />
+\end{matrix}\right.$ }</li>
+</ul>
+
+<p>즉 앞서 보았던 <a href="#equaion-5">Eqn. 5</a>을 logistic function을 사용해서 다시 작성할 수 있다.</p>
+<ul>
+  <li>$\text{logistic}(z)=\frac{1}{1+e^{-z}}$</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+    \mathcal{L}_{\text{CPL}}(\pi_{\theta}, \mathcal{D}_{\text{pref}}) = - \sum^{\left| \mathcal{D}_{\text{pref}} \right|}_{i=1} \log \text{logistic}(\alpha x^{\intercal}_{i} \log \pi(a|s)), \text{where}~x_{i} \left[s,a\right]=\left\{ 
+\begin{matrix}
+ \gamma^{t} & \text{if}~~\sigma^{+}_{i,t}=(s,a) \\
+ -\gamma^{t} & \text{if}~~\sigma^{-}_{i,t}=(s,a) \\
+ 0 & \text{otherwise} \\
+\end{matrix}\right.
+\end{equation} %]]></script>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>Any changes to $\log \pi$ in the null space of $X$ have no effect on the logits of the logistic function, and consequently no effect on the loss. In practice, $\left</td>
+        <td>\mathcal{S \times A}\right</td>
+        <td>» n$, making the null space of $X$ often nontrivial such that there are multiple minimizers of the CPL loss, some of which potentially place a high probability on state-action pairs not in the dataset.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>저자는 위에서 언급한 내용을 CPL objective에 regularizer $\lambda$를 도입하여 해결한다. 일반적으로 constrastive learning에서 자주 사용되는 휴리스틱이다.</p>
+
+<script type="math/tex; mode=display">\begin{equation}
+    \mathcal{L}_{\text{CPL}\color{red}({\lambda})}(\pi_{\theta}, \mathcal{D}_{\text{pref}}) = \mathbb{E}_{\mathcal{D}_{\text{pref}}}\left[ -\log \frac{\exp \sum_{\sigma^{+}} \gamma^{t} \alpha \log \pi^{\ast} (a^{+}_{t} | s^{+}_{t})}{\exp \sum_{\sigma^{+}} \gamma^{t} \alpha \log \pi^{\ast} (a^{+}_{t} | s^{+}_{t})+\exp {\color{red}({\lambda})}\sum_{\sigma^{-}} \gamma^{t} \alpha \log \pi^{\ast} (a^{-}_{t} | s^{-}_{t})}  \right]
+\end{equation}</script>
+
+<ul>
+  <li>$\lambda \in (0,1)$</li>
+</ul>
+
+<p>negative segment에 대해서 regularizer term을 추가하여 loss가 급격하게 작아지는 것을 방지하고자 한다.</p>
+
+<p>그리고 저자는 behavior cloning 방식으로 $\pi_{\theta}$를 pre-train하는 경우가 더 성능이 좋았다고 말한다. 그렇게 저자는 BC로 pre-train 한 후에 CPL로 fine-tuning을 수행하라고 한다.</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>BC objective: $\min_{\theta} \mathbb{E}<em>{(s,a)\sim \mathcal{D}} \left[ \log \pi</em>{\theta} (a</td>
+          <td>s) \right]$</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h3 id="experiments">Experiments</h3>
+<p>… 작성 예정.</p>
+
+<h3 id="thoughts">Thoughts</h3>
+<p>수식적으로 증명하는 파트가 꽤 있으며, 관련 background에 대해 이해가 높은 상태에서 읽어야 이 논문이 잘 이해될 것 같다. Preference-based Learning을 Contextual Bandit problem으로 수행하는 연구를 진행중이었는데, 이미 이 논문에서 하나의 sub-section에서 다 풀어버린 느낌이다.</p>
+
+<p>기존의 방법들과 달랐던 점은 Advantage function $A$를 Regret 개념으로 도입해서, partial return sum에 의존하지 말고, optimal policy와 비교한다는 점이었다. 그리고 $A$를 곧바로 학습하는 것이 아니라, policy $\pi$로 표현해서 policy를 직접 학습하는 방식이 큰 contribution 이라고 생각한다. (RLHF를 Supervised Learning으로 풀어낸 느낌.)</p>
+
+<p>참 재미있는 연구인 것 같고, 역시 <code class="highlighter-rouge">Dorsa</code> 그룹은 대단한 것 같다.</p>
+
+<p>코드를 돌려보려고 했으나, <code class="highlighter-rouge">mujoco-py</code>로 개발해두어서 호환성 문제가 생겼다. 얼른 코드를 해석해보자 ..</p>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="paper-review/PBL" /><category term="Preference-Based Learning" /><category term="Contrastive Learning" /><category term="Arxiv" /><category term="2023" /><summary type="html"><![CDATA[paper review about CPL]]></summary></entry><entry><title type="html">[paper-review] OFFLINE REINFORCEMENT LEARNING WITH IMPLICIT Q-LEARNING</title><link href="http://localhost:4000/paper-review/paper-review/pbl/iql/" rel="alternate" type="text/html" title="[paper-review] OFFLINE REINFORCEMENT LEARNING WITH IMPLICIT Q-LEARNING" /><published>2023-10-24T00:00:00+09:00</published><updated>2023-10-24T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/paper-review/pbl/iql</id><content type="html" xml:base="http://localhost:4000/paper-review/paper-review/pbl/iql/"><![CDATA[<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>NeurIPS 2023. [<a href="https://offline-rl-neurips.github.io/2021/pdf/24.pdf">Paper</a>] [<a href="https://github.com/ikostrikov/implicit_q_learning">Github<sup>1</sup></a></td>
+        <td><a href="https://github.com/Manchery/iql-pytorch">Github<sup>2</sup></a>]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Ilya Kostrikov, Ashvin Nair &amp; Sergey Levine 
+Department of Electrical Engineering and Computer Science University of California, Berkeley</p>
+
+  <p>12 Oct 2021</p>
+</blockquote>
+
+<h2 id="한-문장-요약">한 문장 요약</h2>
+<p>요약: State value function을 random variable로 정의하여, policy improvement를 implicit하게 근사해보자. 구체적으로는 Expectiles of the state value function을 추정해보자.</p>
+<blockquote>
+  <p>Offline RL method that never needs to evaluate actions outside of the dataset, but still enables the learned policy to improve substantially over the best behavior in the data through generalization</p>
+
+  <p>Keyword: <strong>Reinforcement Learning</strong>, <strong>Offline RL</strong>, <strong>Quantile Regression</strong></p>
+</blockquote>
+
+<h3 id="introduction">Introduction</h3>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="paper-review/PBL" /><category term="Reinforcement Learning" /><category term="NeurIPS" /><category term="2021" /><summary type="html"><![CDATA[paper review about iql]]></summary></entry><entry><title type="html">[paper-review] Relative Behavioral Attributes: Filling the Gap between Symbolic Goal Specification and Reward Learning from Human Preferences</title><link href="http://localhost:4000/paper-review/paper-review/pbl/rba/" rel="alternate" type="text/html" title="[paper-review] Relative Behavioral Attributes: Filling the Gap between Symbolic Goal Specification and Reward Learning from Human Preferences" /><published>2023-10-23T00:00:00+09:00</published><updated>2023-10-23T00:00:00+09:00</updated><id>http://localhost:4000/paper-review/paper-review/pbl/rba</id><content type="html" xml:base="http://localhost:4000/paper-review/paper-review/pbl/rba/"><![CDATA[<blockquote>
+  <p>ICLR 2023. [<a href="https://arxiv.org/pdf/2210.15906.pdf">Paper</a>] [<a href="https://guansuns.github.io/pages/rba/">Project Page</a>] [<a href="https://github.com/GuanSuns/Relative-Behavioral-Attributes-ICLR-23">Github</a>]</p>
+
+  <p>Lin Guan, Karthik Valmeekam, Subbarao Kambhampati
+School of Computing &amp; AI Arizona State University Tempe, AZ 85281, USA</p>
+
+  <p>27 Feb 2023</p>
+</blockquote>
+
+<h2 id="한-문장-요약">한 문장 요약</h2>
+<p>요약: tacit behavior를 attribute라고 정의하고, trajectory 내에서 relative behavior attribute를 추정하자. 즉, Relative Behavioral Attributes(RBA)를 정의해, symbolic feedback으로부터 희망하는 agent behavior를 얻자.</p>
+<blockquote>
+  <p>In most cases, humans are aware of how the agent should change its behavior along meaningful axes to fulfill their underlying purpose, even if they are not able to fully specify task objectives symbolically: <strong>allows the users to tweak the agent behavior through symbolic concepts.</strong></p>
+</blockquote>
+
+<p>Keyword: <strong>Relative Behavioral Attributes</strong>
+<br /></p>
+
+<h3 id="introduction">Introduction</h3>
+<ul>
+  <li>Agent의 Behavior를 정의하는 방식은 크게 2가지가 있다.
+    <ol>
+      <li>Reward function을 직접 지정해주는 경우.
+        <ul>
+          <li>직접 특정 behavior를 유도하게끔 하는 수식적인 reward function을 explicit하게 정하는 것이며, 논문에서는 이를 <code class="highlighter-rouge">symbolic reward machine</code> 이라고 표현함.</li>
+          <li>하지만 exact description이 가능한 경우는 매우 한정적이며(=<code class="highlighter-rouge">domain specific</code>), <code class="highlighter-rouge">expert knowledge</code>를 요한다.</li>
+        </ul>
+      </li>
+      <li>궤적으로부터 Reward function을 추정하는 경우.
+        <ul>
+          <li>기존의 PBL은 궤적에 대해 이러한 feedback(=binary comparison) 과정을 거쳐 reward function을 추정해왔으며, 이는 preference labelling에 대한 cost가 높았다.</li>
+          <li>그리고 학습된 neural network는 typically inscrutable 하므로 실질적으로 reward model을 재사용할 수도 없으며, internal representation을 해석할 수도 없다.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>위 두 방식에서 수행된 behavior에 대한 표현력은 제한적이었으며, 이러한 한계점을 해결하기 위해 저자는 <code class="highlighter-rouge">attribute</code>를 정의하며 논문을 시작한다.
+    <ul>
+      <li>기존의 pbl에서 사용되던 <code class="highlighter-rouge">feature function</code> $\phi (\xi)$ 와 유사하게, <code class="highlighter-rouge">attribute</code>라는 용어를 정의하며, 이는 behavior에 대해 symbolic concept을 가진다. (<code class="highlighter-rouge">e.g., increasing the softness or speed of agents’ movement</code>)</li>
+      <li>기존에 computer vision에서도 <code class="highlighter-rouge">attribute</code>라는 용어가 사용되어왔지만, 이는 single image에서만 활용됐으며, agent의 궤적에 활용하는 것은 본 논문이 첫 시도임.
+<br /></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="preliminaries">Preliminaries</h3>
+<div style="text-align:center">
+  <img src="/assets/img/rba/rba_vis_attribute_appendix.png" alt="RBA-overview" width="100%" />
+  <p>Fig. 1: Visualization of Behavior Attributes.</p>
+</div>
+
+<ul>
+  <li>Attribute: agent’s behavior features(=descriptions)
+    <ul>
+      <li>총 4개의 Task에 대해서 9개의 Attribute를 정의했음. <code class="highlighter-rouge">Appendix A.1</code> 참조.</li>
+    </ul>
+  </li>
+  <li>$\alpha \in \mathcal{A}$: attribute의 종류, <code class="highlighter-rouge">e.g., softness of movement, step(=stride) size</code></li>
+  <li>$h$: <code class="highlighter-rouge">attribute</code>를 binary masking 해주는 역할.</li>
+  <li>$v^{ {\alpha}<em>{i} }</em>{t}$: target attribute-score vector, $\alpha_i$에 해당하는 target scalar value</li>
+  <li>$\mathcal{D}$: State-only Trajectory pool</li>
+  <li>$\zeta_{\sigma}(\tau ‘, \alpha_{i}) \simeq \boldsymbol{v}^{\alpha_{i}}_{t}$: target attribute score $\boldsymbol{v}$에 대한 mapping function $\zeta$
+<br /></li>
+</ul>
+
+<h3 id="methodology">Methodology</h3>
+<div style="text-align:center">
+  <img src="/assets/img/rba/rba_overview.png" alt="RBA-overview" width="100%" />
+  <p>Fig. 2: Overall framework of RBA.</p>
+</div>
+
+<blockquote>
+  <p>Our goal is to construct a reward function that allows end users to iteratively adjust attribute strengths presented in the agent’s behavior.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="section-41-personalizing-agent-behavior-via-relative-behavior-attributes">Section 4.1 Personalizing Agent Behavior Via Relative Behavior Attributes</h4>
+<ul>
+  <li>Trajectory sequence에서 relative strength of some property(=<code class="highlighter-rouge">attribute</code>)를 찾으려는 것이 목적이며, 이를 2개의 phase로 구분한다.
+    <ol>
+      <li>Leraning an attribute parameterized reward function (no interaction with the end user).
+        <blockquote>
+          <p>To learn a reward function that internally learns a family of rewards that correspond to behaviors with diverse attribute strength</p>
+        </blockquote>
+        <ul>
+          <li>given a subset of labelled trajectories from an offline behavior dataset $\mathcal{D}$.
+            <ul>
+              <li>여기서 Training label은 expert engineer 혹은 developer가 제공하는 것으로 한정한다.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Interaction with the end user (Supporting end users in the loop).
+        <blockquote>
+          <p>Once an attribute parameterized reward function is learned, any incoming users can leverage it to personalize the agent behavior through multiple rounds of query</p>
+        </blockquote>
+        <ul>
+          <li>set of attribute pairs ${ (\alpha, h)}$ 를 기준으로 user가 feedback을 준다.
+            <blockquote>
+              <p>whether the current behavior is desirable.</p>
+            </blockquote>
+            <ul>
+              <li>Attribute representation은 2개로 정의했으며, 1) Index of $\alpha$, 2) a Natural-Language Description of $\alpha$.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>저자는 총 2개의 method 를 제시함. <strong>(1) RBA-Global / (2) RBA-Local</strong>
+<br /></li>
+</ul>
+
+<h4 id="section-42-modeling-behavior-attributes-by-establishing-global-rankings-rba-global">Section 4.2 Modeling Behavior Attributes by Establishing Global Rankings: RBA-Global</h4>
+<ul>
+  <li>RBA-Global은 2개의 과정으로 이루어진다.
+    <ol>
+      <li>Learn attribute strength estimator $\zeta_{\sigma}$
+        <ul>
+          <li>기존의 Bradley-Terry model에서 exponential term이 zeta 함수로 변경되었으며, 궤적과 attribute가 주어졌을 때 그에 상응하는 strength 값으로 attribute mapping function zeta를 학습해주는 과정임.</li>
+          <li>즉, attribute에 대한 ranking을 학습하는 과정임.
+            <blockquote>
+              <p>establishing a global ranking among all possible behaviors according to any given attribute $\alpha$.
+Orderings according to different attributes ${ (\tau^{0} \succ \tau^{1} \succ \cdots \tau^{N} | \alpha)}$ or a set of ranked trajectory pairs $\mathcal{D}_{l}={(\tau^{i} \succ \tau^{j} | \alpha)}$</p>
+            </blockquote>
+          </li>
+          <li>저자는 modified state-only version of Bradley-Terry model을 제안한다.:
+            <blockquote>
+              <p>Rather than assuming that the ranking is governed by the latent user preferences, We assume the ranking is determined by the given attribute $\alpha$:</p>
+            </blockquote>
+          </li>
+        </ul>
+
+        <script type="math/tex; mode=display">\begin{equation*}
+  \mathrm{P}_{\sigma}[\tau^{1} \succ \tau^{2} | \alpha] = \frac{\exp \sum_{t} f_{\sigma}([s^{1}_{t}, e_{\alpha}])}{\sum_{i \in \{ 1,2 \}}\exp \sum_{t} f_{\sigma}([s^{i}_{t}, e_{\alpha}] )}
+  \end{equation*}</script>
+
+        <ul>
+          <li>where $f_{\sigma}$ is an attribute conditioned ranking function with parameters $\sigma$, $[\cdot, \cdot]$ is the vector concatenation operation, and $e_{\alpha}$ is the embedding of attribute $\alpha$.</li>
+          <li>$e_{\alpha}$ can either be a one-hot vector or a sentence embedding generated by any pretrained natural language sentence encoder like $\text{Sentence-BERT}$.</li>
+        </ul>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Learn dense reward function $r_{\theta}(s</td>
+              <td>v_t= \left&lt; v^{\alpha_{1}}<em>{t}, \cdots, v^{\alpha</em>{k}}_{t} \right&gt;)$</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>trajectory pool에서 3개의 궤적 $\tau_0, \tau_1, \tau_2$을 sample하고, $\tau_0$.을 target behavior로 간주하여 나머지 두 궤적 중 어떠한 것이 더 적합한지 cumulative reward를 통해 판단하게 되며, reward function을 학습하게 된다.</li>
+          <li>위 과정에서는 human labelling 과정이 필요없다. zeta function이 자동으로 attribute labelling을 수행해주기 때문에.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="section-43-modeling-behavior-attributes-by-capturing-minimally-viable-local-changes-rba-local">Section 4.3 Modeling Behavior Attributes by Capturing Minimally Viable Local Changes: RBA-Local</h4>
+<ul>
+  <li>RBA-Global에 대해서 확장된 개념이며, 보다 많은 수의 attribute가 있을 때에 효율적으로 학습하기 위해 본 방법론으로 확장했다고 주장한다.</li>
+  <li>여기서는 $\zeta$ function을 학습하지 않고, 곧바로 reward function $r$ 을 학습한다.
+    <blockquote>
+      <p>Our goal is to construct a reward function that gives higher cumulative rewards to trajectories that have some minimal but noticeable change in $\alpha$ in the direction specified by $h$ while keeping other unmentioned attributes unchanged. We refer to such minimal but noticeable changes as minimally viable local changes, and the queried trajectory $\tau_{c}$ as the anchor trajectory.</p>
+    </blockquote>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>$r_{\theta}(\cdot</td>
+          <td>\alpha, h, \tau_{c})$ 를 학습하는 것이며, 이는 minimal but noticeable change in $\alpha$ 를 포착하는 것이 목적이다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>여기서 Dataset에서 가져오는 trajectory pair의 구조도 조금 달라진다; $\mathcal{D}<em>{l}={ (\tau</em>{c}, \tau_{t}, \alpha, h)}$
+    <ul>
+      <li>$\tau_{c}$: anchor trajectory</li>
+      <li>$\tau_{t}$: a trajectory that reflects some minimally viable local changes to the anchor trajectory $\tau_{c}$</li>
+    </ul>
+  </li>
+  <li>이에 대해 queried trajectory $\tau_{c}$ 를 anchor trajectory로 정의하며, 해당 궤적의 attribute $\alpha$를 기준으로 negative sample과 비교하여 trajectory $\tau_{t}$와 PBL을 수행해주는 과정이다.
+     <script type="math/tex">\begin{equation*}
+     \mathrm{P}_{\sigma}[\tau^{t} \succ \tau^{n} | \alpha, h, \tau_{c}] = \frac{\exp \sum_{s \in \tau_{t}} r_{\theta}([s, e_{\alpha}, h, \phi(\tau_{c})])}{\exp \sum_{s \in \tau_{n}} r_{\theta}([s, e_{\alpha}, h, \phi(\tau_{c})] ) + \exp \sum_{s \in \tau_{t}} r_{\theta}([s, e_{\alpha}, h, \phi(\tau_{c})] )}
+     \end{equation*}</script>
+    <ul>
+      <li>where $\tau_{n}$ is a negative sample, $[\cdot]$ is the vector concatenation operation, and $\phi(\tau_{c})$ is a sequence encoder that encodes the anchor trajectory $\tau_{c}$ to a compact latent representation. Note that $\phi(\cdot)$ is a sub-module of $r_{\theta}$ and it’s jointly optimized with $r_{\theta}$.</li>
+      <li>$e_{\alpha}$ can either be a one-hot vector or a sentence embedding generated by any pretrained natural language sentence encoder like $\text{Sentence-BERT}$.
+        <ul>
+          <li>저자는 이러한 구조가 <a href="https://arxiv.org/abs/2206.13499">Prompt-DT</a> 논문과 유사하다고 밝히며, 저자가 주장하는 차이점은 다음과 같다.
+            <ul>
+              <li>RBA method는 단순히 prompt의 behavior를 모방하는 것에 그치지 않고, prompt 내용(=<code class="highlighter-rouge">attribute</code>)을 수정하는 것을 학습한다고 한다.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>다만 이 방법론은 특정 attribute의 local change를 고려하므로 search space가 복잡해지며, 아무런 궤적을 막 가져오면 안 되고 local change가 잘 반영된 궤적을 가져와야 한다는 단점이 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="experiments">Experiments</h3>
+
+<div align="center">
+  <img src="/assets/img/rba/rba_interaction_process.png" width="100%" />
+  <p>Fig. 3: Interaction Visualization</p>
+</div>
+
+<ul>
+  <li><strong>Baselines</strong>
+    <ul>
+      <li>PbRL in (<a href="https://arxiv.org/abs/1706.03741">Christiano et al., 2017</a>; <a href="https://arxiv.org/abs/2106.05091">Lee et al., 2021</a>)
+        <ul>
+          <li>PbRL</li>
+          <li>PEBBLE</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Results on RBA-Global:</li>
+</ul>
+<div align="center">
+  <img src="/assets/img/rba/rba_performance_global.png" width="75%" />
+  <p>Fig. 4: Performance of RBA-Global</p>
+</div>
+
+<ul>
+  <li>Results on RBA-Local:</li>
+</ul>
+<div align="center">
+  <img src="/assets/img/rba/rba_performance_local.png" width="75%" />
+  <p>Fig. 5: Performance of RBA-Local</p>
+</div>
+
+<h3 id="appendix">Appendix</h3>
+<ul>
+  <li>Behavior Attribute details.</li>
+  <li>Implementation details.</li>
+  <li>Experiment details.</li>
+</ul>
+
+<h3 id="thoughts">Thoughts</h3>
+<ul>
+  <li>Behavior PBL을 처음으로 제시한 논문인 것 같습니다. 본 논문에서 언급한 것처럼, <code class="highlighter-rouge">attribute</code>라고 정의해, 말로 설명하기 어려운 <code class="highlighter-rouge">tacit behavior</code>에 대해서 수행하는 것이 가장 큰 contribution 입니다. 다만 실제 실험을 보았을 때에는 <code class="highlighter-rouge">tacit behavior</code>라고 표현하지 않아도 될 요소를 <code class="highlighter-rouge">attribute</code>로 삼아 연구를 수행한 것이 아쉬웠습니다. (<code class="highlighter-rouge">e.g., moving speed, instability of the movement</code>)</li>
+  <li><strong>RBA-Global</strong> 방법론은 기존에 수행해오던 PBL과 크게 다른 점은 없어보였고, feature function을 <code class="highlighter-rouge">attribute conditioned</code>하게 해준 것에 차이가 있는 것 같습니다. 그에 반해 <strong>RBA-Local</strong> 방법론은 human labelling을 필요로하지 않아 제가 느끼기에는 덜 수고스럽다는 점에서 유요하다고 여겨집니다. (50~100개 정도의 궤적에 대해 interaction을 거치면 수렴하는 듯한 양상을 보입니다.)</li>
+  <li>코드가 공개되어 있어서, 실제로 돌려보고 구체적으로 각각의 parameter가 어떻게 적용되는지 공부하려고 합니다.</li>
+</ul>]]></content><author><name>Joonhyung Lee</name><email>dlwnsgud8823@korea.ac.kr</email></author><category term="paper-review" /><category term="paper-review/PBL" /><category term="Preference-Based Learning" /><category term="Reinforcement Learning" /><category term="ICLR" /><category term="2023" /><summary type="html"><![CDATA[paper review about RBA]]></summary></entry></feed>
