@@ -67,6 +67,9 @@
         {% assign sum = site.categories['miscellaneous'] | size %}
         <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/miscellaneous">🔬 miscellaneous ({{sum}})</a></span>
 
+        {% assign sum = site.categories['programming'] | size %}
+        <span class="nav__sub-title" v-on:click='togglec()'><a href="/categories/seminar">👨‍💻 seminar ({{sum}})</a></span>
+
         <span class="nav__sub-title" v-on:click='togglet()'>tags</span>
         <ul v-show="flag_t">
         
