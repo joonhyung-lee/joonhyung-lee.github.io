@@ -1,6 +1,6 @@
 ---
-title: "[paper-review] Motion Planning Networks"
-last_modified_at: 2023-11-26
+title: "[paper-review] Point Cloud Networks"
+last_modified_at: 2023-11-29
 header-includes:
     - \usepackage{textcomp}
     - \usepackage{mathtools}
@@ -13,42 +13,25 @@ header-includes:
     - \usepackage{xcolor}
 categories:
   - paper-review
-  - paper-review/robotics
+  - paper-review/cv
 tags:
-  - Motion Planning
+  - Point Cloud
   - Auto Encoder
-  - ICRA
-  - '2019'
-excerpt: "paper review about MPNet"
+excerpt: "paper review about Old-Fashioned Point Cloud Networks"
 use_math: true
 classes: wide
 ---
-> ICRA 2019. [[Paper](https://arxiv.org/pdf/1806.05767.pdf)] [[Github](https://github.com/ahq1993/MPNet/tree/master)]
->
-> Ahmed H. Qureshi, Anthony Simeonov, Mayur J. Bency and Michael C. Yip <sup>1</sup>
-> University of California San Diego, La Jolla, CA 92093 USA<sup>1</sup>
-> 
-> Feb. 24
 
+> Point Cloud 입력을 받으며, 해당 정보를 압축하는 연구에 대해 작성합니다.
 
-<div align="center">
-  <img src="/assets/img/mpnet/mpnet-overview.png" width="75%">
-  <p>Fig. 1: Introduction figure about MPNet paper.</p>
-</div>
+### 논문
 
-### 한 문장 요약
-
-Learnable한 Collision-free Motion Planning Network를 제시한다.
+* PointNet
+* PointNet++
+* DGCNN
+* FoldingNet
 
 ### Contribution
-
-<div align="center">
-  <img src="/assets/img/mpnet/mpnet-architecture.png" width="100%">
-  <p>Fig. 2: Overall architecture about MPNet.</p>
-</div>
-
-* Offline: 1) Encoder Netowork, 2) Planning Network
-* Online: Neural Planner
 
 
 ### Terminology:
@@ -58,7 +41,7 @@ Learnable한 Collision-free Motion Planning Network를 제시한다.
 * $X \subset \mathbb{R}^{d}$: state space, where $d\in \mathbb{N}$ is the dimensionality of the state space.
   * $d_{w}\in \mathbb{N}$: workspace dimensionality
 * $X_{\text{obs}} \subset X$: obstacle state space
-* $X_{\text{free}} \subset X\textbackslash X_{\text{obs}}$: obstacle state space
+* $X_{\text{free}} \subset X \setminus X_{\text{obs}}$: obstacle state space
   * Initial state $x_{\text{init}} \in X_{\text{free}}$, goal region be $X_{\text{goal}} \subset X_{\text{free}}$
 
 목적은 solution path $\tau$가 entirely obstacle-free space $X_{\text{free}}$에 존재하도록 하는 것이다.
