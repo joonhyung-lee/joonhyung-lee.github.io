@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Joel Lee's Blog # the website title (if blank, full name will be used instead)
+title: Joel Lee # the website title (if blank, full name will be used instead)
 first_name: Joel
 middle_name: R.
 last_name: Lee
