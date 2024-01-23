@@ -1,6 +1,15 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+"ACPR":
+  url: https://link.springer.com/conference/acpr
   color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"RA-L":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7083369
+  color: "#ff6600"
+
+"ICRA":
+  url: https://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000639
+  color: "#0173b2"
+
+"ArXiv":
+  url: https://arxiv.org/
+  color: "#b35806"
