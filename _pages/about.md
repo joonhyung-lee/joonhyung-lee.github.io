@@ -22,12 +22,11 @@ social: true # includes social icons at the bottom of the page
 Hello everyone! I am a master's student in the [A.I. department at Korea University](https://info.korea.edu/en_info/grad/ai_intro.do), where I am advised by [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). My research is at the intersection of robotics and machine learning.
 
 **Research Interest:** 
-
-Robotics Control, Large Language Models, Physics-based Simulation
+- Robotics Control, Large Language Models, Physics-based Simulation
 
 **Education**
-- **M.S. in Artificial Intelligence**, [Korea University](http://xai.korea.ac.kr/) (Sep 2022 - Present). Advisor: Prof. [Sungjoon Choi.](https://sites.google.com/view/sungjoon-choi/personal)
-- **B.Sc. in Computer Science**, [Dongguk University](https://www.dongguk.edu/main) (Mar 2018 - Aug 2022).
+- **M.S. in Artificial Intelligence**, [Korea University](http://xai.korea.ac.kr/) (Sep. 2022 - Present). Advisor: Prof. [Sungjoon Choi.](https://sites.google.com/view/sungjoon-choi/personal)
+- **B.S. in Electro-Mechanical System and Engineering**, [Korea University](https://www.korea.edu/mbshome/mbs/en/index.do) (Mar. 2018 - Feb. 2022).
 
 
 **Research Experience:** 
