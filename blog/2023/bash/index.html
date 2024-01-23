@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"> <html><body> <blockquote> <p>기타 유용한 <code class="language-plaintext highlighter-rouge">bash</code> 명령어에 대해 작성합니다.</p> </blockquote> <h3 id="linux-procedure-from-log-in-to-log-out">Linux Procedure from <code class="language-plaintext highlighter-rouge">log-in</code> to <code class="language-plaintext highlighter-rouge">log-out</code> </h3> <ol> <li>로그인 하게 되면 <code class="language-plaintext highlighter-rouge">/etc/profile</code> 을 읽는다.</li> <li> <code class="language-plaintext highlighter-rouge">/etc/profile.d/*.sh</code> 를 읽어온다. (<code class="language-plaintext highlighter-rouge">profile.d</code> 밑에 <code class="language-plaintext highlighter-rouge">*.sh</code> 확장자인 것을 읽어온다.)</li> <li>그 다음 <code class="language-plaintext highlighter-rouge">~/.bash_profile</code> (=<code class="language-plaintext highlighter-rouge">home directory</code> 밑에 있는 <code class="language-plaintext highlighter-rouge">bash_profile</code>) 을 읽어온다. 이것은 각 개인의 마스터 파일이다. <ul> <li> <code class="language-plaintext highlighter-rouge">~/.bashrc</code>: 앞에 <strong>.</strong> 이 하나 붙는데 이 뜻은 <strong>.bashrc</strong> 파일을 읽어오라는 의미이다. (= C 언어의 <strong><code class="language-plaintext highlighter-rouge">include</code></strong> 와 같다.)</li> </ul> </li> <li> <code class="language-plaintext highlighter-rouge">bashrc</code> 을 읽어온다. 이것은 보조 파일이다.</li> <li> <code class="language-plaintext highlighter-rouge">/etc/bashrc</code> 을 읽어온다. 모든 사용자에게 적용되며 <code class="language-plaintext highlighter-rouge">$PS1</code> 변수가 들어있다.</li> <li> <code class="language-plaintext highlighter-rouge">bash_history</code> : 로그아웃했을 때 이전 실행했던 명령어들을 이 파일에 저장하고 빠져 나온다.</li> <li> <code class="language-plaintext highlighter-rouge">bash_logout</code> : 로그아웃을 했을 때 어떤 일을 하고 싶으면 여기다가 적으면 된다.</li> </ol> <h3 id="if-statement">if-statement</h3> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[</span> 조건문 <span class="o">]</span><span class="p">;</span> <span class="k">then
+	</span>실행문
+<span class="k">elif</span> <span class="o">[</span> 조건문 <span class="o">]</span><span class="p">;</span> <span class="k">then
+	</span>실행문
+<span class="k">fi</span>
+</code></pre></div></div> <p>if 문을 살펴보면 <strong>[ ]</strong> 안은 조건문이고 <strong>-f</strong> 는 파일의 존재 여부를 묻는다고 생각하면 된다. 즉 home directory 밑에 <strong><code class="language-plaintext highlighter-rouge">.bashrc</code></strong> 파일이 존재하는지를 묻고 있고 참이면 아래 문장을 실행한다.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># example)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CONDITION_VALUE</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"foo"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"condition is foo"</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$CONDITION_VALUE</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"bar"</span> <span class="o">]</span> <span class="k">then
+	</span><span class="nb">echo</span> <span class="s2">"condition is bar"</span>
+<span class="k">fi</span>
+</code></pre></div></div> <ul> <li> <code class="language-plaintext highlighter-rouge">alias</code>: 축약어를 의미한다. <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">gb</span><span class="o">=</span><span class="s1">'gedit ~/.bashrc'</span>
+<span class="nb">alias </span><span class="nv">sb</span><span class="o">=</span><span class="s1">'source ~/.bashrc'</span>
+</code></pre></div> </div> </li> <li> <code class="language-plaintext highlighter-rouge">export</code> 는 지역 변수를 전역변수화 시키는 것이다. <div class="language-bash highlighter-rouge"> <div class="highlight"><pre class="highlight"><code><span class="nb">export </span><span class="nv">CONDITION_VALUE</span><span class="o">=</span><span class="s2">"foo"</span>
+</code></pre></div> </div> </li> </ul> <h4 id="example-if-statement">Example: if-statement</h4> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span>
+<span class="c"># !! Contents within this block are managed by 'conda init' !!</span>
+<span class="c"># Ask for user input</span>
+<span class="nb">read</span> <span class="nt">-p</span> <span class="s2">"Do you want to proceed Anaconda? (y/yes): "</span> user_input
+
+<span class="c"># Check if the input is 'y' or 'yes'</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$user_input</span> <span class="o">==</span> <span class="s2">"y"</span> <span class="o">||</span> <span class="nv">$user_input</span> <span class="o">==</span> <span class="s2">"yes"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="c"># Place the commands you want to execute here</span>
+    <span class="nb">echo</span> <span class="s2">"Enable Conda Environements"</span>
+	<span class="nv">__conda_setup</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="s1">'/home/rilab/anaconda3/bin/conda'</span> <span class="s1">'shell.bash'</span> <span class="s1">'hook'</span> 2&gt; /dev/null<span class="si">)</span><span class="s2">"</span>
+	<span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="nt">-eq</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
+	    </span><span class="nb">eval</span> <span class="s2">"</span><span class="nv">$__conda_setup</span><span class="s2">"</span>
+	<span class="k">else
+	    if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="s2">"/home/rilab/anaconda3/etc/profile.d/conda.sh"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+	        <span class="nb">.</span> <span class="s2">"/home/rilab/anaconda3/etc/profile.d/conda.sh"</span>
+	    <span class="k">else
+	        </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/home/rilab/anaconda3/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+	    <span class="k">fi
+	fi
+	</span><span class="nb">unset </span>__conda_setup
+<span class="k">fi</span>
+<span class="c"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span>
+</code></pre></div></div> <p>realworld 실험을 할 때에 ROS와 <code class="language-plaintext highlighter-rouge">Anaonda</code>의 호환 문제가 잦은 편이다. 그래서 대체로는 <code class="language-plaintext highlighter-rouge">pyenv</code>를 통해 python 가상환경을 정리해주고 있지만, 기타 github repo에서는 <code class="language-plaintext highlighter-rouge">conda</code> 환경을 추천하는 경우도 흔히 있다. 그렇기에, 나는 매번 터미널을 켜줄 때마다 <code class="language-plaintext highlighter-rouge">Conda Enable</code>에 대해 물어보도록 하는 조건문을 <code class="language-plaintext highlighter-rouge">~/.bashrc</code> 에 추가하였다.</p> </body></html>
