@@ -51,8 +51,8 @@ nav_order: 4
 {% if site.data.repositories.teaching_assistant %}
 
 <div class="teaching-assistants d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for ta in site.data.repositories.teaching_assistant %}
-    <a href="https://github.com/{{ ta }}" class="ta-link">{{ ta }}</a>
+  {% for repo in site.data.repositories.teaching_assistant %}
+    {% include repository/repo.liquid repository=repo %}
   {% endfor %}
 </div>
 {% endif %}
