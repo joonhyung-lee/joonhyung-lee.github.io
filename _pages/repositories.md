@@ -2,17 +2,17 @@
 layout: page
 permalink: /repositories/
 title: repositories
-description: Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
+description: Sample codes for my research.
 nav: true
 nav_order: 4
 ---
 
-## GitHub users
+## GitHub
 
-{% if site.data.repositories.github_users %}
+{% if site.data.repositories.github %}
 
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for user in site.data.repositories.github_users %}
+  {% for user in site.data.repositories.github %}
     {% include repository/repo_user.liquid username=user %}
   {% endfor %}
 </div>
@@ -42,6 +42,17 @@ nav_order: 4
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
   {% for repo in site.data.repositories.github_repos %}
     {% include repository/repo.liquid repository=repo %}
+  {% endfor %}
+</div>
+{% endif %}
+
+## Teaching Assistants
+
+{% if site.data.teaching_assistants %}
+
+<div class="teaching-assistants d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+  {% for ta in site.data.teaching_assistants %}
+    <a href="https://github.com/{{ ta }}" class="ta-link">{{ ta }}</a>
   {% endfor %}
 </div>
 {% endif %}
