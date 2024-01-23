@@ -13,8 +13,8 @@ profile:
   #   <p>123 your address street</p>
   #   <p>Your City, State 12345</p>
 
-news: true # includes a list of news items
-latest_posts: true # includes a list of the newest posts
+news: false # includes a list of news items
+latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
@@ -31,5 +31,16 @@ Robotics Control, Large Language Models, Physics-based Simulation
 
 
 **Research Experience:** 
-- 2022.01 - 2022.06: [MDI Lab](https://sites.google.com/site/donghwanleehome/), Research Intern at Machine Decision Intelligence Lab
-- 2019.07 ~ 2021.02: [HoRSC Lab](http://horsc.hyunhwanjeong.myds.me/), Undergraduate Reasarch Intern at Human-oriented Robot System and Control Lab
+- 2022.01 ~ 2022.06: [MDI Lab](https://sites.google.com/site/donghwanleehome/), Research Stduent at Machine Decision Intelligence Lab
+  - Reinforcement Learning: From basic theory to the latest research (PPO, SAC).
+  - Reinforcement Learning for Robot Motion Planning and Navigation.
+- 2019.07 ~ 2021.02: [HoRSC Lab](http://horsc.hyunhwanjeong.myds.me/), Undergraduate Reasarch Student at Human-oriented Robot System and Control Lab
+  - Participated in projects on robotics, computer vision,
+    - Robotics: 3 DOF Robot Arm Manipulation Motion planning
+    - Computer Vision: Color-based object position tracking via Kalman Filter
+  - Gave poster presentation on **Visual servoing control robot arm-gripper system** at 7<sup>th</sup> Korea University Electro-Mechanical Systems Engineering Fair (the excellent prize)
+- 2018.03 ~ 2022.02: **KUCIRA**, Academic Society
+  - Participated in projects on robot programming, H/W design 
+    - Robot programming : Implemented Robot Programming
+    - H/W Design : Design Mobile Robot and Robot Arm-gripper
+  - Gave poster presentation on **Rescue Smart Car** at 7<sup>th</sup> Korea University Electro-Mechanical Systems Engineering Fair (the most excellent prize)
