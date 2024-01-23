@@ -8,6 +8,6 @@ github_repos:
   - joonhyung-lee/mujoco-ycb-dataset
   - joonhyung-lee/mujoco-nonprehensile
 
-teaching assistant:
-  - joonhyung-lee/xai615-realworld
+teaching_assistant:
   - joonhyung-lee/xai615-code
+  - joonhyung-lee/xai615-realworld
