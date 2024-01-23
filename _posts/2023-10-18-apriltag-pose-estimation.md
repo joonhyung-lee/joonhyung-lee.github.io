@@ -324,7 +324,7 @@ Detection(tag_family=b'tag36h11',
 
 아래는 tag detection 결과이며, 직관적인 이해를 위해 `tag`를 둘러싸는 `cube`도 그려보았다.
 <div style="text-align: center;">
-    <video src='/assets/vid/apriltag/apriltag-real.mp4' width="100%" controls></video>
+    <video src='/assets/video/apriltag/apriltag-real.mp4' width="100%" controls></video>
 </div>
 
 ### Pose Estimation
@@ -490,7 +490,7 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
 이렇게 긴 과정을 거쳐, `AprilTag`의 pose가 검출된다. 검출된 tag의 pose는 camera coordinate 기준이며, 이는 각자가 설정한 base(=world) coordinate로 transformation 과정을 마지막으로 수행해주면, tag의 pose를 얻어낼 수 있게 된다.
 
 <div style="text-align: center;">
-    <video src='/assets/vid/apriltag/apriltag-real-track.mp4' width="100%" controls></video>
+    <video src='/assets/video/apriltag/apriltag-real-track.mp4' width="100%" controls></video>
 </div>
 
 검출된 `Tag`의 `center point`를 base(=world) coordinate 기준으로 계산된 $(x,y,z)_{\text{world}}$ 를 실시간으로 우측 상단에 배치하였다. 나는 MuJoCo의 coordination을 world coordinate로 삼았으며, 이는 아래와 같다.
