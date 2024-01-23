@@ -3,8 +3,8 @@ layout: page
 permalink: /repositories/
 title: repositories
 description: Sample codes for my research.
-nav: true
-nav_order: 4
+nav: false
+nav_order: 0
 ---
 
 ## GitHub
