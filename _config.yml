@@ -394,10 +394,10 @@ jekyll_get_json:
   - data: resume
     json: assets/joel_cv.pdf
 jsonresume:
-  - basics
-  - work
-  - education
-  - publications
+  - General Information
+  - Education
+  - Research Experience
+  - Publications
   - projects
   - volunteer
   - awards
