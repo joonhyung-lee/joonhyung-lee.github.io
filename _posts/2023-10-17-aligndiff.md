@@ -1,20 +1,19 @@
 ---
-title: "[paper-review] AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model"
-last_modified_at: 2023-10-17
-# header-includes:
-#    - \usepackage{bbm}
-categories:
-  - paper-review
-  - paper-review/PBL
-tags:
+layout: post
+title: [paper-review] AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model
+date: 2023-10-17 11:12:00-0400
+description: paper review about AlignDiff
+tags: 
   - Diffusion
   - Preference-Based Learning
   - Arxiv
   - '2023'
-excerpt: "paper review about AlignDiff"
-use_math: true
-classes: wide
+categories: 
+  - paper-review
+  - paper-review/PBL
+related_posts: false
 ---
+
 > Arxiv 2023. [[Paper](https://arxiv.org/pdf/2310.02054.pdf)] [[Project Page](https://aligndiff.github.io/)] [[Github](https://github.com/aligndiff/aligndiff.github.io)]
 >
 > Zibin Dong<sup>1</sup>, Yifu Yuan<sup>1</sup>, Jianye Hao†<sup>1</sup>, Fei Ni<sup>1</sup>, Yao Mu<sup>3</sup>, Yan Zheng<sup>1</sup>, Yujing Hu<sup>2</sup>, Tangjie Lv<sup>2</sup> , Changjie Fan<sup>2</sup>, Zhipeng Hu<sup>2</sup>
