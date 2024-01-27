@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "[paper-review] 6-DOF GraspNet: Variational Grasp Generation for Object Manipulation"
-last_modified_at: 2023-11-14
+date: 2023-11-14
 # header-includes:
 #    - \usepackage{bbm}
 categories:
@@ -11,9 +12,11 @@ tags:
   - VAE
   - ICCV
   - '2019'
-excerpt: "paper review about 6-DOF GraspNet"
+description: "paper review about 6-DOF GraspNet"
 use_math: true
 classes: wide
+giscus_comments: true
+related_posts: true
 ---
 > ICCV 2019. [[Paper](https://arxiv.org/abs/1905.10520)] [[Github](https://github.com/NVlabs/6dof-graspnet)]
 >

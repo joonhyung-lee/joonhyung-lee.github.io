@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "[paper-review] Promptable Behaviors: Personalizing Multi-Objective Rewards from Human Preferences"
-last_modified_at: 2023-12-24
+date: 2023-12-24
 header-includes:
     - \usepackage{textcomp}
     - \usepackage{mathtools}
@@ -20,9 +21,11 @@ tags:
   - Reasoning
   - NeurIPS-W
   - '2023'
-excerpt: "paper review about Dream2Real"
+description: "paper review about Dream2Real"
 use_math: true
 classes: wide
+giscus_comments: true
+related_posts: true
 ---
 
 > Arxiv. [[Paper](https://arxiv.org/pdf/2312.09337.pdf)] [[Project Page](https://promptable-behaviors.github.io/)]
@@ -54,7 +57,7 @@ classes: wide
 - 가정하고 있는 점은 아래와 같음.
     - Human preference remains constant over time
     - Each human preference is captured through a linear combination of multiple objectives in the environment
-- 매 timestep t 마다 agent는 RGB observation $o_t$에 기반한 action $a_t$를 뱉어낸다.
+- 매 timestep t 마다 agent는 RGB observation $$o_t$$에 기반한 action $$a_t$$를 뱉어낸다.
     - action은 `[MoveAhead, RotateRight, RotateLeft, Done, LookUp, LookDown]`이 있음.
 - 저자는 여기서 `agent’s (navigation) behavior`에 집중해, preference로 표현해주려고 함.
 
@@ -74,17 +77,17 @@ classes: wide
     - (1) Training a promptable multi-objective policy
     - (2) Capturing the agent’s desired behavior through interactions.
 - Image encoding에는 CLIP 모델을 사용함.
-- Reward weight encoder로는 feed-forward neural network(FFNN)을 활용해, $K \cdot 12$-dim latent codebook으로 표현함.
-    - $r^{\mathbf{w}}=\mathbf{w^{\intercal}r}$,
-        - $\mathbf{w}$: randomly sampled from $K$-dim simplex $\Delta_K=\{\mathbf{w} \in \mathbb{R}^{K}_{+} |~||\mathbf{w}||_{1}=1\}$
-        - 기존의 연구들은 $\mathbf{w}$가 pre-defined 되어 있었지만, 저자는 이를 randomly exploration하겠다는 목적임. (그리고 이 reward weight vector $\mathbf{w}\in\Delta_K$인 user’s true preference로 표현된다고 가정한다.)
+- Reward weight encoder로는 feed-forward neural network(FFNN)을 활용해, $$K \cdot 12$$-dim latent codebook으로 표현함.
+    - $$r^{\mathbf{w}}=\mathbf{w^{\intercal}r}$$,
+        - $$\mathbf{w}$$: randomly sampled from $$K$$-dim simplex $$\Delta_K=\{\mathbf{w} \in \mathbb{R}^{K}_{+} |~||\mathbf{w}||_{1}=1\}$$
+        - 기존의 연구들은 $$\mathbf{w}$$가 pre-defined 되어 있었지만, 저자는 이를 randomly exploration하겠다는 목적임. (그리고 이 reward weight vector $$\mathbf{w}\in\Delta_K$$인 user’s true preference로 표현된다고 가정한다.)
 - Navigation policy: DD-PPO 모델로 수행함.
 
 #### Types of Interaction: reasoning through interactions
 
 (1) Human Demonstration
 
-- demonstrated action과 action distribution from policy $\pi$ 간의 log-likelihood loss로 계산함.
+- demonstrated action과 action distribution from policy $$\pi$$ 간의 log-likelihood loss로 계산함.
 
 (2) Trajectory Comparison
 

@@ -1,15 +1,17 @@
 ---
+layout: post
 title: "[구현] AprilTag Pose Estimation"
-last_modified_at: 2023-10-18
+date: 2023-10-18
 categories:
   - programming
 tags:
   - AprilTag
   - Calibration
   - Pose Estimation
-excerpt: "AprilTag Pose Estimation"
 use_math: true
 classes: wide
+giscus_comments: true
+related_posts: true
 ---
 
 ## AprilTag
@@ -328,7 +330,7 @@ Detection(tag_family=b'tag36h11',
 </div>
 
 ### Pose Estimation
-마지막으로, 검출된 `tag` 정보를 기반으로 `tag`의 `pose`도 손쉽게 알아낼 수 있다. 해당 함수는 `detector.detection_pose(detection=r, camera_params=cam_params_rgb, tag_size=tag_size)` 이며, 이에 해당하는 4x4 `pose` matrix와 오차값 $\mathrm{e_{1}},~\mathrm{e_{2}}$ 를 내어준다. 
+마지막으로, 검출된 `tag` 정보를 기반으로 `tag`의 `pose`도 손쉽게 알아낼 수 있다. 해당 함수는 `detector.detection_pose(detection=r, camera_params=cam_params_rgb, tag_size=tag_size)` 이며, 이에 해당하는 4x4 `pose` matrix와 오차값 $$\mathrm{e_{1}},~\mathrm{e_{2}}$$ 를 내어준다. 
 
 apriltag 모듈로 들어가, 해당 함수를 조금 더 자세히 분석해보면 어떻게 tag pose를 얻어오는지 이해할 수 있다. 해당 함수의 코드만 가져왔으며, `class Detector`의 멤버함수이다.
 
@@ -366,7 +368,7 @@ def detection_pose(self, detection, camera_params, tag_size=1, z_sign=1):
 
 > **How to get Homography matrix?**
 >  * [논문](https://april.eecs.umich.edu/media/pdfs/olson2011tags.pdf)에서 밝히길, `Homography matrix`는 `Direct Linear Transform (DLT)` 방법론으로 구한다고 한다.
->  * `DLT`란 Four point correspondences $x_{i}$, $x_{i}'$ ​ 가 주어질 때에. $H x_{i} = x_{i}'$ 이면, $x_{i}' \times H x_{i} = 0$ 이 성립한다는 것이다.
+>  * `DLT`란 Four point correspondences $$x_{i}$$, $$x_{i}'$$ ​ 가 주어질 때에. $$H x_{i} = x_{i}'$$ 이면, $$x_{i}' \times H x_{i} = 0$$ 이 성립한다는 것이다.
 >
 > **Definition of Homography matrix**
 > Briefly, the planar homography relates the transformation between two planes (up to a scale factor):
@@ -377,7 +379,7 @@ def detection_pose(self, detection, camera_params, tag_size=1, z_sign=1):
 > \end{equation*}
 > $$
 > 
-> The homography matrix is a 3x3 matrix but with 8 DoF (degrees of freedom) as it is estimated up to a scale. It is generally normalized (see also 1) with $h_{33}=1$ or $h_{11}^2 + h_{12}^2 + h_{13}^2 + h_{21}^2 + h_{22}^2 + h_{23}^2 + h_{31}^2 + h_{32}^2 + h_{33}^2 = 1$
+> The homography matrix is a 3x3 matrix but with 8 DoF (degrees of freedom) as it is estimated up to a scale. It is generally normalized (see also 1) with $$h_{33}=1$$ or $$h_{11}^2 + h_{12}^2 + h_{13}^2 + h_{21}^2 + h_{22}^2 + h_{23}^2 + h_{31}^2 + h_{32}^2 + h_{33}^2 = 1$$
 <div style="text-align:center">
   <img src="/assets/img/apriltag/homography-matrix.png" alt="Alignment Method Image" width="50%">
   <p>Fig. 3: a planar surface and the image plane</p>
@@ -448,7 +450,7 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
 위에서 구한 `Homography matrix`를 통해 상대적인 `pose [R|t]`를 구하기 위하여 `Singular Value Decomposition(SVD)`을 활용합니다. `SVD`는 행렬을 대학화하는 방법 중 하나이다.
 
 1. **Homogeneous Coordinates (동차 좌표계)**:
-   - 먼저, 카메라와 3D point 간의 관계를 표현하기 위해 `동차 좌표계`를 사용한다. 3D point는 $(X, Y, Z, 1)^T$와 같이 표현되며, 2D image point는 $(x, y, 1)^T$로 표현된다.
+   - 먼저, 카메라와 3D point 간의 관계를 표현하기 위해 `동차 좌표계`를 사용한다. 3D point는 $$(X, Y, Z, 1)^T$$와 같이 표현되며, 2D image point는 $$(x, y, 1)^T$$로 표현된다.
 
 2. **Homography Equation**:
    - Homography 행렬 H는 다음과 같은 관계를 나타낸다:
@@ -458,10 +460,10 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
       \begin{bmatrix} s \cdot x' \\ s \cdot y' \\ s \end{bmatrix} = s \begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \mathbf{H} \begin{bmatrix} X \\ Y \\ Z \\ 1 \end{bmatrix}
       \end{equation*}
       $$
-   - 여기서 $(x', y')$는 image plane 상의 2D point이고 $(X, Y, Z)$는 3D 공간 상의 3D point이다. $s$는 스케일 요소로, 일반적으로 1로 설정된다.
+   - 여기서 $$(x', y')$$는 image plane 상의 2D point이고 $$(X, Y, Z)$$는 3D 공간 상의 3D point이다. $$s$$는 스케일 요소로, 일반적으로 1로 설정된다.
 
 3. **Homography Decomposition**:
-   - `Homography matrix` $\mathrm{H}$의 분해는 rotational matrix $\mathrm{R}$과 translational vector $\text{tvec}$으로 이루어진다.
+   - `Homography matrix` $$\mathrm{H}$$의 분해는 rotational matrix $$\mathrm{R}$$과 translational vector $$\text{tvec}$$으로 이루어진다.
    - Decomposition 과정은 아래와 같이 수행된다.
     $$
     \begin{equation*}
@@ -472,11 +474,11 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
      \end{array} \right]
     \end{equation*}
     $$
-     여기서 $\mathbf{K}$는 camera intrinsic matrix이고, $r_{ij}$는 회전 행렬 $\mathrm{R}$의 각 요소이다.
+     여기서 $$\mathbf{K}$$는 camera intrinsic matrix이고, $$r_{ij}$$는 회전 행렬 $$\mathrm{R}$$의 각 요소이다.
 
 4. **Polar Decomposition**:
-   - 회전 행렬 $\mathrm{R}$에 대해 `polar decomposition`을 사용하여 `orthonormal matrix`로 분해한다. `polar decomposition`는 $\mathrm{R}$을 `SVD` 과정으로 $\mathrm{R} = \mathrm{U} \cdot \mathrm{V^T}$로 분해한다.
-     - 특이값 분해에서 얻은 $\mathrm{U}$와 $\mathrm{V}$를 사용하여 보정된 $\mathrm{R}$을 계산하며, 보정된 회전 행렬 $\mathrm{R'}$은 다음과 같이 수행된다.
+   - 회전 행렬 $$\mathrm{R}$$에 대해 `polar decomposition`을 사용하여 `orthonormal matrix`로 분해한다. `polar decomposition`는 $$\mathrm{R}$$을 `SVD` 과정으로 $$\mathrm{R} = \mathrm{U} \cdot \mathrm{V^T}$$로 분해한다.
+     - 특이값 분해에서 얻은 $$\mathrm{U}$$와 $$\mathrm{V}$$를 사용하여 보정된 $$\mathrm{R}$$을 계산하며, 보정된 회전 행렬 $$\mathrm{R'}$$은 다음과 같이 수행된다.
     $$
     \begin{equation*}
       \mathrm{R'} = \frac{1}{\text{det}(\mathrm{V^T})} \cdot \mathrm{U}
@@ -484,7 +486,7 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
     $$
 
 5. **Get `rvec`**:
-   - 보정된 회전 행렬 $\mathrm{R'}$을 사용하여 `Rodrigues` 변환을 사용하여 회전 벡터 `rvec`으로 변환한다.
+   - 보정된 회전 행렬 $$\mathrm{R'}$$을 사용하여 `Rodrigues` 변환을 사용하여 회전 벡터 `rvec`으로 변환한다.
 
 
 이렇게 긴 과정을 거쳐, `AprilTag`의 pose가 검출된다. 검출된 tag의 pose는 camera coordinate 기준이며, 이는 각자가 설정한 base(=world) coordinate로 transformation 과정을 마지막으로 수행해주면, tag의 pose를 얻어낼 수 있게 된다.
@@ -493,20 +495,20 @@ Homography matrix로 pose estimation을 하는 과정은 [Multiple View Geometry
     <video src='/assets/video/apriltag/apriltag-real-track.mp4' width="100%" controls></video>
 </div>
 
-검출된 `Tag`의 `center point`를 base(=world) coordinate 기준으로 계산된 $(x,y,z)_{\text{world}}$ 를 실시간으로 우측 상단에 배치하였다. 나는 MuJoCo의 coordination을 world coordinate로 삼았으며, 이는 아래와 같다.
+검출된 `Tag`의 `center point`를 base(=world) coordinate 기준으로 계산된 $$(x,y,z)_{\text{world}}$$ 를 실시간으로 우측 상단에 배치하였다. 나는 MuJoCo의 coordination을 world coordinate로 삼았으며, 이는 아래와 같다.
 <div style="text-align:center">
   <img src="/assets/img/apriltag/coordination.png" alt="Alignment Method Image" width="75%">
   <p>Fig. 4: Coordination</p>
 </div>
 
 * Coordination of MuJoCo Engine
-   * $\mathrm{X}$: Out of the camera
-   * $\mathrm{Y}$: Left
-   * $\mathrm{Z}$ : Up
+   * $$\mathrm{X}$$: Out of the camera
+   * $$\mathrm{Y}$$: Left
+   * $$\mathrm{Z}$$ : Up
  * Coodination of AprilTag
-   * $\mathrm{X}$: Right 
-   * $\mathrm{Y}$: Down
-   * $\mathrm{Z}$ : Into the Tag
+   * $$\mathrm{X}$$: Right 
+   * $$\mathrm{Y}$$: Down
+   * $$\mathrm{Z}$$ : Into the Tag
      * In the [official repository](https://github.com/AprilRobotics/apriltag#coordinate-system),
        > The coordinate system has the origin at the camera center. The z-axis points from the camera center out the camera lens. The x-axis is to the right in the image taken by the camera, and y is down. The tag's coordinate frame is centered at the center of the tag, with x-axis to the right, y-axis down, and z-axis into the tag.
 

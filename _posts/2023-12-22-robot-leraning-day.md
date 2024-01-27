@@ -1,15 +1,18 @@
 ---
+layout: post
 title: "[seminar] Robot Learning Day"
-last_modified_at: 2023-12-22
+date: 2023-12-22
 # header-includes:
 #    - \usepackage{bbm}
 categories:
   - seminar
 tags:
   - Robotics and Learning
-excerpt: "seminar summary about Robot Learning Day"
+description: "seminar summary about Robot Learning Day"
 use_math: true
 classes: wide
+giscus_comments: true
+related_posts: true
 ---
 
 > Robot Learning Day 세미나 내용을 기록했습니다.
@@ -28,7 +31,7 @@ classes: wide
 
 ⇒ Using **transitivity**: 한 번의 feedback으로 많은 양의 preference label을 만들자.
 
-- Transitivity: Set of items $\mathcal{A}$, a > b | b > c ⇒ a > c
+- Transitivity: Set of items $$\mathcal{A}$$, a > b | b > c ⇒ a > c
 - Linear Stochastic Transitivity
     - Bradley-Terry
 
@@ -44,9 +47,9 @@ classes: wide
 #### Is it always beneficial?
 
 - 반드시 data dependency가 생기게 됨.
-- Dependency Graph $G$
+- Dependency Graph $$G$$
     - error bound 유도가 이미 되어 있음.
-    - $\Delta G$: dependency graph
+    - $$\Delta G$$: dependency graph
         - edge의 수가 해당 값인 degree를 의미함.
     - Every M roond 때에 dependency graph를 끊어줌.
 
