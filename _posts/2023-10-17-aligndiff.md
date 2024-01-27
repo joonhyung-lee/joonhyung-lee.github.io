@@ -1,7 +1,7 @@
 ---
 layout: post
 title: [paper-review] AlignDiff: Aligning Diverse Human Preferences via Behavior-customisable Diffusion Model
-date: 2023-10-17 
+date: 2023-10-17 11:12:00-0400
 description: paper review about AlignDiff
 tags: 
   - Diffusion
