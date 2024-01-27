@@ -10,7 +10,7 @@ children:
   - title: divider
   - title: teaching
     permalink: /teaching/
-  # - title: divider
-  # - title: teaching
-  #   permalink: /teaching/
+  - title: divider
+  - title: gallery
+    permalink: /gallery/
 ---
