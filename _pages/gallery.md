@@ -23,6 +23,7 @@ nav_order: 0
 </head>
 <body>
 
+<h3>2023 RSS, Daegu, Korea</h3> 
 <div class="container">
   <div class="image">
     <img src="/assets/img/gallery/2024_rss_talk_joseph_1.jpg" alt="Presentation: Skill Learning, CLVRAI Lab." style="width:100%;">
