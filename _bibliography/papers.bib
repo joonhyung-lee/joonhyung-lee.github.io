@@ -1,36 +1,43 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
+@article{park2024QD-teleop,
+      author={Park, Sangbeom and Yoon, Taerim and Lee, Joonhyung and Park, Sunghyun and Choi, Sungjoon},
+      title={Quality-Diversity based Semi-Autonomous Teleoperation using Reinforcement Learning},
+      journal={Neural Networks (Submitted)},
+      publisher={Elsevier},
+      year={2024},
+      preview={QD-teleop.png},
+      selected={true},
+}
 
-@misc{lee2023spots,
+@article{lee2023spots,
       title={SPOTS: Stable Placement of Objects with Reasoning in Semi-Autonomous Teleoperation Systems}, 
-      author={Joonhyung Lee and Sangbeom Park and Jeongeun Park and Kyungjae Lee and Sungjoon Choi},
-      year={2023},
-      eprint={2309.13937},
-      archivePrefix={arXiv},
+      author={Lee, Joonhyung and Park, Sangbeom and Park, Jeongeun and Lee, Kyungjae and Choi, Sungjoon},
+      journal={IEEE International Conference on Robotics and Automation (ICRA)},
+      publisher={IEEE},
+      year={2024},
       abstract={Pick-and-place is one of the fundamental tasks in robotics research. However, the attention has been mostly focused on the ``pick'' task, leaving the ``place'' task relatively unexplored. In this paper, we address the problem of placing objects in the context of a teleoperation framework. Particularly, we focus on two aspects of the place task: stability robustness and contextual reasonableness of object placements. Our proposed method combines simulation-driven physical stability verification via real-to-sim and the semantic reasoning capability of large language models. In other words, given place context information (e.g., user preferences, object to place, and current scene information), our proposed method outputs a probability distribution over the possible placement candidates, considering the robustness and reasonableness of the place task. Our proposed method is extensively evaluated in two simulation and one real world environments and we show that our method can greatly increase the physical plausibility of the placement as well as contextual soundness while considering user preferences.},
       pdf={https://arxiv.org/pdf/2309.13937.pdf},
       code={https://github.com/joonhyung-lee/spots},
       website={https://joonhyung-lee.github.io/spots/},
-      abbr={ArXiv},
+      abbr={ICRA},
       primaryClass={cs.RO},
       preview={spots.gif},
       selected={true}
 }
 
-@misc{park2023clara,
+@article{park2023clara,
       title={CLARA: Classifying and Disambiguating User Commands for Reliable Interactive Robotic Agents}, 
-      author={Jeongeun Park and Seungwon Lim and Joonhyung Lee and Sangbeom Park and Minsuk Chang and Youngjae Yu and Sungjoon Choi},
+      author={Park, Jeongeun and Lim, Seungwon and Lee, Joonhyung and Park, Sangbeom and Chang, Minsuk and Yu, Youngjae and Choi, Sungjoon},
+      journal={IEEE Robotics and Automation Letters (RA-L)},
+      publisher={IEEE},
       year={2023},
-      eprint={2306.10376},
-      archivePrefix={arXiv},
       abstract={In this paper, we focus on inferring whether the given user command is clear, ambiguous, or infeasible in the context of interactive robotic agents utilizing large language models (LLMs). To tackle this problem, we first present an uncertainty estimation method for LLMs to classify whether the command is certain (i.e., clear) or not (i.e., ambiguous or infeasible). Once the command is classified as uncertain, we further distinguish it between ambiguous or infeasible commands leveraging LLMs with situational aware context in a zero-shot manner. For ambiguous commands, we disambiguate the command by interacting with users via question generation with LLMs. We believe that proper recognition of the given commands could lead to a decrease in malfunction and undesired actions of the robot, enhancing the reliability of interactive robot agents. We present a dataset for robotic situational awareness, consisting pair of high-level commands, scene descriptions, and labels of command type (i.e., clear, ambiguous, or infeasible). We validate the proposed method on the collected dataset, pick-and-place tabletop simulation. Finally, we demonstrate the proposed approach in real-world human-robot interaction experiments, i.e., handover scenarios.},
       pdf={https://arxiv.org/abs/2306.10376},
       code={https://github.com/jeongeun980906/CLARA-SaGC-Code},
       website={https://clararobot.github.io/},
       abbr={RA-L},
-      primaryClass={cs.RO},
       preview={clara.gif},
       selected={true}
 }
