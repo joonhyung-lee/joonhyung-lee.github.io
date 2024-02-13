@@ -21,15 +21,17 @@ social: true # includes social icons at the bottom of the page
 
 Hello everyone! I am a master's student in the [A.I. department at Korea University](https://info.korea.edu/en_info/grad/ai_intro.do), where I am advised by [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). My research is at the intersection of robotics and machine learning.
 
+Previously, I completed my B.S. in Electro-Mechanical System and Engineering at Korea University. My previous internship includes working on reinforcement learning for navigation robots in KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home?authuser=0) and participating in robotics and computer vision projects at HoRSC Lab, including a 3 DOF robot arm and color-based tracking
+
 ##### **Research Topic:** 
 - Robotics Control, Large Language Models, Physics-based Simulation
 
-##### **Education**
+<!-- ##### **Education**
 - **M.S. in Artificial Intelligence**, [Korea University](http://xai.korea.ac.kr/) (Sep. 2022 - Present). Advisor: Prof. [Sungjoon Choi.](https://sites.google.com/view/sungjoon-choi/personal)
-- **B.S. in Electro-Mechanical System and Engineering**, [Korea University](https://www.korea.edu/mbshome/mbs/en/index.do) (Mar. 2018 - Feb. 2022).
+- **B.S. in Electro-Mechanical System and Engineering**, [Korea University](https://www.korea.edu/mbshome/mbs/en/index.do) (Mar. 2018 - Feb. 2022). -->
 
 
-##### **Research Experience:** 
+<!-- ##### **Research Experience:** 
 - 2022.01 ~ 2022.06: [MDI Lab](https://sites.google.com/site/donghwanleehome/), Research Stduent at Machine Decision Intelligence Lab
   - Reinforcement Learning: From basic theory to the latest research (PPO, SAC).
   - Reinforcement Learning for Robot Motion Planning and Navigation.
@@ -42,4 +44,4 @@ Hello everyone! I am a master's student in the [A.I. department at Korea Univers
   - Participated in projects on robot programming, H/W design 
     - Robot programming : Implemented Robot Programming
     - H/W Design : Design Mobile Robot and Robot Arm-gripper
-  - Gave poster presentation on **Rescue Smart Car** at 7<sup>th</sup> Korea University Electro-Mechanical Systems Engineering Fair (the most excellent prize)
+  - Gave poster presentation on **Rescue Smart Car** at 7<sup>th</sup> Korea University Electro-Mechanical Systems Engineering Fair (the most excellent prize) -->
