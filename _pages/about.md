@@ -21,7 +21,7 @@ social: true # includes social icons at the bottom of the page
 
 Hello everyone! I am a master's student in the [A.I. department at Korea University](https://info.korea.edu/en_info/grad/ai_intro.do), where I am advised by [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). My research is at the intersection of robotics and machine learning.
 
-Previously, I completed my B.S. in Electro-Mechanical System and Engineering at Korea University. My previous internship includes working on reinforcement learning for navigation robots in KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home?authuser=0) and participating in robotics and computer vision projects at HoRSC Lab, including a 3 DOF robot arm and color-based tracking
+Previously, I completed my B.S. in Electro-Mechanical System and Engineering at Korea University. My previous internship includes working on reinforcement learning for navigation robots in KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home?authuser=0) and participating in robotics and computer vision projects including a 3 DOF robot arm and color-based tracking algorithm.
 
 ##### **Research Topic:** 
 - Robotics Control, Large Language Models, Physics-based Simulation
