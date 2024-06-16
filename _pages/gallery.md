@@ -57,48 +57,46 @@ nav_order: 0
   </div>
 </div>
 
-</body>
-</html>
+<div class="flex-container">
+  <img src="/assets/img/gallery/icra2024.png" alt="ICRA 2024" class="title-image" style="height: 5em;">
+  <h3>2024 ICRA, Yokohama, Japan</h3>
+</div> 
 
-<!--  -->
-
-<!-- <html>
-<head>
-<style>
-.image-container {
-  position: relative;
-  width: 50%; /* 이미지 컨테이너의 너비를 조정 */
-}
-.image {
-  display: none; /* 초기에는 이미지를 숨김 */
-  width: 100%;
-  height: auto;
-}
-.image.active {
-  display: block; /* 활성 이미지만 보여줌 */
-}
-</style>
-</head>
-<body>
-
-<div class="image-container">
-  <img class="image" src="/assets/img/gallery/2023_rss_talk_joseph_1.jpg" alt="Presentation: Skill Learning, CLVRAI Lab.">
-  <img class="image" src="/assets/img/gallery/2023_rss_talk_joseph_2.jpg" alt="Presentation: Skill Learning, CLVRAI Lab.">
-  <button onclick="toggleImages()">Toggle Images</button>
+<div class="container">
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_paint.jpeg" alt="2024 ICRA paint." style="width:100%;">
+  </div>
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_plenary_talk.jpeg" alt="2024 ICRA Plenary Talk." style="width:100%;">
+  </div>
 </div>
 
-<script>
-var currentImage = 0;
-function toggleImages() {
-  var images = document.getElementsByClassName('image');
-  currentImage = (currentImage + 1) % images.length; // 다음 이미지로 넘어가기
-  for (var i = 0; i < images.length; i++) {
-    images[i].style.display = 'none'; // 모든 이미지 숨김
-  }
-  images[currentImage].style.display = 'block'; // 현재 이미지만 보여줌
-}
-toggleImages(); // 페이지 로드 시 첫 번째 이미지 활성화
-</script>
+<div class="container">
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_talk_shuran.jpeg" alt="Presentation: Learning from Simulation, REAL Lab." style="width:100%;">
+  </div>
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_talk_pulkit.jpeg" alt="Presentation: Agile Learning, Improbable Lab." style="width:100%;">
+  </div>
+</div>
+
+<div class="container">
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_spots_presentation.JPG" alt="SPOTS oral presentation." style="width:100%;">
+  </div>
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_spots_poster_1.jpeg" alt="SPOTS poster session." style="width:100%;">
+  </div>
+</div>
+
+<div class="container">
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_vpi_poster.jpeg" alt="VPI poster session." style="width:100%;">
+  </div>
+  <div class="image">
+    <img src="/assets/img/gallery/2024_icra_smore_poster.jpg" alt="SMORE poster session." style="width:100%;">
+  </div>
+</div>
 
 </body>
-</html> -->
+</html>
