@@ -73,7 +73,10 @@
           {% if forloop.first == false %},&nbsp;{% endif %}
           {% if forloop.last and author_array_limit == author_array_size %}and&nbsp;{% endif %}
         {% endif %}
-        {% if author_is_self %}
+
+        {% if author.first == 'Joonhyung' and author.last == 'Lee' %}
+          <span class="author-name" style="text-decoration: underline;">{{ author.first }} {{ author.last }}</span>
+        {% elsif author_is_self %}
           <em>
             {{- author.first }}
             {{ author.last -}}
