@@ -1,0 +1,39 @@
+---
+layout: post
+title: "How to use Obsidian"
+date: 2024-10-18
+header-includes:
+    - \usepackage{textcomp}
+    - \usepackage{mathtools}
+    - \usepackage{amsmath,amssymb,amsfonts}
+    - \usepackage{graphicx}
+    - \usepackage{textcomp}
+    - \usepackage{xcolor}
+categories:
+  - setup
+  - setup/mac
+tags:
+  - mac
+  - setup
+  - '2024'
+description: "How to use Obsidian"
+use_math: true
+classes: wide
+giscus_comments: true
+related_posts: true
+---
+
+## Install Obsidian
+You can install Obsidian from [here](https://obsidian.md/).
+
+## How to use Obsidian
+We can use Obsidian as a personal knowledge management system.
+For more information, see [here](https://velog.io/@ji-one/9v7aqpip).
+
+I think it is a good tool to manage personal TODO list. It seems like a application of Notion and Figma.
+You can make daily TODO list and manage it like below.
+
+<div align="center">
+  <img src="/assets/img/obsidian/obsidian_todo_list.png" width="95%">
+  <p>Obsidian Todo List</p>
+</div>
