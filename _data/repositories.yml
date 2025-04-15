@@ -3,6 +3,7 @@ github:
 
 github_repos:
   - joonhyung-lee/spots
+  - joonhyung-lee/vpi
   - joonhyung-lee/mujoco-robotics-usage
   - joonhyung-lee/mujoco-py-usage
   - joonhyung-lee/mujoco-ycb-dataset

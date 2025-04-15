@@ -170,9 +170,24 @@ collections:
       layout: post
     output: true
     permalink: /news/:path/
+  # Projects
   projects:
     output: true
     permalink: /projects/:path/
+  atlo_projects:
+    output: true
+    permalink: /projects/atlo_projects/:path/
+  graduate_projects:
+    output: true
+    permalink: /projects/graduate_projects/:path/
+  undergraduate_projects:
+    output: true
+    permalink: /projects/undergraduate_projects/:path/
+  # Teaching
+  teaching:
+    output: true
+    permalink: /teaching/:path/
+
 
 announcements:
   enabled: true
