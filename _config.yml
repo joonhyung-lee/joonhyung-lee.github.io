@@ -287,12 +287,11 @@ display_tags: ["Manipulation", "LLMs", "PBL", "Navigation", "Code"] # these tags
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Lee]
+  first_name: [Joonhyung]
 
   style: apa
   locale: en
-
   source: /_bibliography/
   bibliography: papers.bib
   bibliography_template: bib
@@ -308,7 +307,7 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
+  sort_by: year,month
   group_order: descending
 
 # Display different badges withs stats for your publications

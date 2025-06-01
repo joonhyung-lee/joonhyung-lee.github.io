@@ -10,6 +10,10 @@ nav_order: 1
 <!-- _pages/publications.md -->
 <div class="publications">
 
-{% bibliography %}
+<h2>Thesis</h2>
+{% bibliography --query @thesis %}
+
+<h2>Publications</h2>
+{% bibliography --query @article,@inproceedings %}
 
 </div>
