@@ -407,7 +407,7 @@ medium_zoom:
 
 jekyll_get_json:
   - data: resume
-    json: assets/pdf/joel_cv.pdf
+    json: assets/pdf/joel_cv_ver5.pdf
 jsonresume:
   - General Information
   - Education
