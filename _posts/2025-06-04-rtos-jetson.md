@@ -26,7 +26,7 @@ related_posts: true
 
 ## RTOS란 무엇인가?
 
->  **RTOS (Real-Time Operating System)**는 특정 작업이 **정해진 시간 안에 반드시 실행되어야 하는** 시스템을 위한 운영체제이다.
+> **RTOS (Real-Time Operating System)**는 특정 작업이 **정해진 시간 안에 반드시 실행되어야 하는** 시스템을 위한 운영체제이다.
 > Jetson 플랫폼에서 RTOS를 적용하는 주된 목적은 **지연 시간을 줄이고**, **결정론적(deterministic)** 처리를 보장하는 데 있다.
 
 ### 일반 커널과 RT 커널의 차이

@@ -91,9 +91,9 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
     - $$\boldsymbol{m}^{\alpha}\in\{0,1\}^{k}$$: binary masking 값을 의미함. 즉, 해당하는 interest of attribute를 뜻함.
   - Objective
     - find a policy $$a=\pi(\mathrm{s}|\boldsymbol{v^{\alpha}}_{\text{targ}},\boldsymbol{m^{\alpha}})$$ that minimizes the L1 norm
-    $$
-    ||(\boldsymbol{v^{\alpha}}_{\text{targ}}-\zeta^{\boldsymbol{\alpha}}(\mathop{\mathbb{E}_{\pi}}[\tau^{l}]))~\circ~\boldsymbol{m^{\alpha}}||_{1}
-    $$
+      $$
+      ||(\boldsymbol{v^{\alpha}}_{\text{targ}}-\zeta^{\boldsymbol{\alpha}}(\mathop{\mathbb{E}_{\pi}}[\tau^{l}]))~\circ~\boldsymbol{m^{\alpha}}||_{1}
+      $$
 - PbRL
   - Bradley-Terry objective에 대한 서술.
 - DDIM, Classifier-free Guidance (CFG)
@@ -147,23 +147,24 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
         - 주의할 점은, 여기서 저장되는 trajectory는 모두 고정된 length $$H$$를 가짐. 위 데이터셋 $$D_{G}$$을 통해 diffusion training이 이루어짐. Attribute-Conditioning을 위해 수행한 과정.
 
 3.  Diffusion Training
-    ![Diffusion Training Architecture](/assets/img/aligndiff/aligndiff_architecture.png) - DDIM 구조에 condition으로 $$\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}}$$을 줌. - [Conditioned / Unconditioned] noise predictor $$[\epsilon_{\phi}(\boldsymbol{x}_{t},\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}})$$ / $$\epsilon_{\phi}(\boldsymbol{x}_{t})]$$ - masking $$\boldsymbol{m^{\alpha}}$$가 conditioning을 관여하므로, 한 개의 network를 학습하면 된다. - Diffusion backbone으로는 U-Net 대신에 **DiT** 모델을 사용하였으며, 구조에는 일부 수정이 있음. - [Scalable Diffusion Models with Transformers (DiT)](https://github.com/facebookresearch/DiT) - Transformer-based Backbone.  
-     - 이러한 condition을 잘 활용하기 위해 2개의 requirement가 있다고 함. 1. $$\boldsymbol{m^{\alpha}}$$ should **eliminate** the influence of nonrequested attributes on the model while preserving the effect of **the interested attributes**
-    _ masking vector를 통해 attribute 별로 독립적으로 고려할 수 있게 하겠다의 의미? 2. $$\boldsymbol{v^{\alpha}}$$ cannot be simply multiplied with $$\boldsymbol{m^{\alpha}}$$ and fed into the network, as a value of $$0$$ in $$\boldsymbol{v^{\alpha}}$$ still carries specific meanings.
-    _ 1의 속성으로 인해 masking vector와 단순 곱을 사용하게 되면 잘못된 의미가 된다? 3. 이를 만족하기 위해 attribute-oriented encoder를 제안함. \* $$\boldsymbol{v^{\alpha}}$$를 $$V$$개의 selectable token으로 표현해주기 위함.
-                $$
+    ![Diffusion Training Architecture](/assets/img/aligndiff/aligndiff_architecture.png) - DDIM 구조에 condition으로 $$\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}}$$을 줌. - [Conditioned / Unconditioned] noise predictor $$[\epsilon_{\phi}(\boldsymbol{x}_{t},\boldsymbol{v^{\alpha}},\boldsymbol{m^{\alpha}})$$ / $$\epsilon_{\phi}(\boldsymbol{x}_{t})]$$ - masking $$\boldsymbol{m^{\alpha}}$$가 conditioning을 관여하므로, 한 개의 network를 학습하면 된다. - Diffusion backbone으로는 U-Net 대신에 **DiT** 모델을 사용하였으며, 구조에는 일부 수정이 있음. - [Scalable Diffusion Models with Transformers (DiT)](https://github.com/facebookresearch/DiT) - Transformer-based Backbone.
+
+    - 이러한 condition을 잘 활용하기 위해 2개의 requirement가 있다고 함. 1. $$\boldsymbol{m^{\alpha}}$$ should **eliminate** the influence of nonrequested attributes on the model while preserving the effect of **the interested attributes**
+      _ masking vector를 통해 attribute 별로 독립적으로 고려할 수 있게 하겠다의 의미? 2. $$\boldsymbol{v^{\alpha}}$$ cannot be simply multiplied with $$\boldsymbol{m^{\alpha}}$$ and fed into the network, as a value of $$0$$ in $$\boldsymbol{v^{\alpha}}$$ still carries specific meanings.
+      _ 1의 속성으로 인해 masking vector와 단순 곱을 사용하게 되면 잘못된 의미가 된다? 3. 이를 만족하기 위해 attribute-oriented encoder를 제안함. \* $$\boldsymbol{v^{\alpha}}$$를 $$V$$개의 selectable token으로 표현해주기 위함.
+      $$
                 v^{\alpha_{i}}_{d}=[\text{clip}(v^{\alpha_{i}},0,1-\delta)~\cdot~V]+(i-1)V,~i=i,\cdots,k
                 $$
 
-                - $$\delta$$: small slack variable.
-                    - This ensures that each of the V possible cases for each attribute is assigned a unique token.
-                    - 그렇게 임베딩을 거친 $$\boldsymbol{v^{\alpha}}$$는 both attribute category and strength의 정보를 포함하게 된다.
-                - Loss objective: **Noise predictor loss of Diffusion mode**
-                    $$
-                    \begin{equation*}
-                    \mathcal{L}(\phi) = \mathop{\mathbb{E}}_{(\boldsymbol{x}_{0},\boldsymbol{v}^{\alpha})\sim\mathcal{D}_{G},~t\sim\text{Uniform}(T),~\epsilon\sim\mathcal{N}(0,I),~\boldsymbol{m}^{\alpha}\sim\mathcal{B}(k,p)} \left\| \epsilon - \epsilon_{\phi}(\boldsymbol{x}_{t}, t, \boldsymbol{v}^{\alpha}, \boldsymbol{m}^{\alpha}) \right\|_{2}^{2}
-                    \end{equation*}
-                    $$
+                  - $$\delta$$: small slack variable.
+                      - This ensures that each of the V possible cases for each attribute is assigned a unique token.
+                      - 그렇게 임베딩을 거친 $$\boldsymbol{v^{\alpha}}$$는 both attribute category and strength의 정보를 포함하게 된다.
+                  - Loss objective: **Noise predictor loss of Diffusion mode**
+                      $$
+                      \begin{equation*}
+                      \mathcal{L}(\phi) = \mathop{\mathbb{E}}_{(\boldsymbol{x}_{0},\boldsymbol{v}^{\alpha})\sim\mathcal{D}_{G},~t\sim\text{Uniform}(T),~\epsilon\sim\mathcal{N}(0,I),~\boldsymbol{m}^{\alpha}\sim\mathcal{B}(k,p)} \left\| \epsilon - \epsilon_{\phi}(\boldsymbol{x}_{t}, t, \boldsymbol{v}^{\alpha}, \boldsymbol{m}^{\alpha}) \right\|_{2}^{2}
+                      \end{equation*}
+                      $$
 
 4.  AlginDiff Inference
     - 앞선 과정에서 구한 attribute strength model $$\hat{\zeta}^{\boldsymbol{\alpha}}_{\theta}$$와 noise predictor $$\epsilon_{\phi}$$를 통해 AlginDiff를 소개한다. 저자는 DDIM 모델을 사용했으며, Inpainting 방식처럼 $$\kappa$$를 length $$S$$ 내에서 반복적으로 candidate trajectory를 생성했다.
@@ -221,8 +222,9 @@ $$
   - The mean absolute error(MAE) between the evaluated and target relative strength를 metric으로 삼음.
 
 - Track the changing target attributes:
-  <img src="/assets/img/aligndiff/aligndiff_figure6.png" alt="Diffusion Training Architecture" style="width: 100%;" />  
-   - 총 800번의 simulation step 중, target attribute $$\boldsymbol{v^{\alpha}}_{\text{targ}}$$을 $$(0,200,400,600)$$에서 수정을 함. - 빠르게 tracking 한다는 결과를 보여줌.
+  <img src="/assets/img/aligndiff/aligndiff_figure6.png" alt="Diffusion Training Architecture" style="width: 100%;" />
+
+  - 총 800번의 simulation step 중, target attribute $$\boldsymbol{v^{\alpha}}_{\text{targ}}$$을 $$(0,200,400,600)$$에서 수정을 함. - 빠르게 tracking 한다는 결과를 보여줌.
 
 - Covering attribute strength distribution:
   <img src="/assets/img/aligndiff/aligndiff_figure5.png" alt="Diffusion Training Architecture" style="width: 100%;" />
