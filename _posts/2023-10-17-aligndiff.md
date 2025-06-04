@@ -152,9 +152,10 @@ Human preference를 RL에서 수행해왔지만, Abstractness, Mutability를 해
     - 이러한 condition을 잘 활용하기 위해 2개의 requirement가 있다고 함. 1. $$\boldsymbol{m^{\alpha}}$$ should **eliminate** the influence of nonrequested attributes on the model while preserving the effect of **the interested attributes**
       _ masking vector를 통해 attribute 별로 독립적으로 고려할 수 있게 하겠다의 의미? 2. $$\boldsymbol{v^{\alpha}}$$ cannot be simply multiplied with $$\boldsymbol{m^{\alpha}}$$ and fed into the network, as a value of $$0$$ in $$\boldsymbol{v^{\alpha}}$$ still carries specific meanings.
       _ 1의 속성으로 인해 masking vector와 단순 곱을 사용하게 되면 잘못된 의미가 된다? 3. 이를 만족하기 위해 attribute-oriented encoder를 제안함. \* $$\boldsymbol{v^{\alpha}}$$를 $$V$$개의 selectable token으로 표현해주기 위함.
+
       $$
                 v^{\alpha_{i}}_{d}=[\text{clip}(v^{\alpha_{i}},0,1-\delta)~\cdot~V]+(i-1)V,~i=i,\cdots,k
-                $$
+      $$
 
                   - $$\delta$$: small slack variable.
                       - This ensures that each of the V possible cases for each attribute is assigned a unique token.
