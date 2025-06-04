@@ -188,7 +188,6 @@ collections:
     output: true
     permalink: /teaching/:path/
 
-
 announcements:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items

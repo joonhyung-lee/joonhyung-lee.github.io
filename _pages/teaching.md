@@ -11,6 +11,7 @@ nav_order: 0
 {% assign semester_order = "Spring,Summer,Fall,Winter" | split: "," %}
 
 {% for course in sorted_courses %}
+
 <div class="card mt-3 mb-3">
   <div class="card-body">
     <h5 class="card-title">{{ course.title }}</h5>

@@ -75,7 +75,10 @@
         {% endif %}
 
         {% if author.first == 'Joonhyung' and author.last == 'Lee' %}
-          <span class="author-name" style="text-decoration: underline;">{{ author.first }} {{ author.last }}</span>
+          <span class="author-name" style="text-decoration: underline;">
+            {{- author.first }}
+            {{ author.last -}}
+          </span>
         {% elsif author_is_self %}
           <em>
             {{- author.first }}

@@ -3,19 +3,19 @@ layout: post
 title: "How to Set Up a Python Package"
 date: 2024-10-21
 header-includes:
-    - \usepackage{textcomp}
-    - \usepackage{mathtools}
-    - \usepackage{amsmath,amssymb,amsfonts}
-    - \usepackage{graphicx}
-    - \usepackage{textcomp}
-    - \usepackage{xcolor}
+  - \usepackage{textcomp}
+  - \usepackage{mathtools}
+  - \usepackage{amsmath,amssymb,amsfonts}
+  - \usepackage{graphicx}
+  - \usepackage{textcomp}
+  - \usepackage{xcolor}
 categories:
   - python
 tags:
   - python
   - setup
   - package
-  - '2024'
+  - "2024"
 description: "A comprehensive guide on creating and managing a Python package"
 use_math: true
 classes: wide
@@ -30,6 +30,7 @@ Creating a Python package is an essential skill for any Python developer. It all
 ## Setting Up the Package Structure
 
 1. Create a new directory for your package:
+
    ```bash
    mkdir my_package
    cd my_package
@@ -51,6 +52,7 @@ Creating a Python package is an essential skill for any Python developer. It all
 ## Writing setup.py
 
 The `setup.py` file is crucial for packaging your project. Here's a basic example:
+
 ```python
 from setuptools import setup, find_packages
 
@@ -76,7 +78,6 @@ setup(
     python_requires=">=3.7",
 )
 ```
-
 
 ## Managing Dependencies
 
@@ -111,11 +112,13 @@ scipy
 ## Version Control with Git
 
 1. Initialize a Git repository:
+
    ```bash
    git init
    ```
 
 2. Create a `.gitignore` file:
+
    ```
    __pycache__/
    *.pyc
@@ -134,11 +137,13 @@ scipy
 ## Building and Publishing
 
 1. Install build tools:
+
    ```bash
    pip install build twine
    ```
 
 2. Build your package:
+
    ```bash
    python -m build
    ```
@@ -156,8 +161,8 @@ Once published, you can install your package using pip:
 pip install my_package
 ```
 
-
 For development or to install from GitHub:
+
 ```bash
 pip install git+https://github.com/yourusername/my_package.git
 ```
@@ -178,6 +183,7 @@ pip install --upgrade my_package
 ```
 
 Or for a GitHub-installed package:
+
 ```bash
 pip install --upgrade --force-reinstall git+https://github.com/yourusername/my_package.git
 ```

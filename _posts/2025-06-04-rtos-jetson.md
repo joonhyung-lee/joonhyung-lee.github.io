@@ -26,19 +26,18 @@ related_posts: true
 
 ## RTOS란 무엇인가?
 
-> [!Note]
-> **RTOS (Real-Time Operating System)**는 특정 작업이 **정해진 시간 안에 반드시 실행되어야 하는** 시스템을 위한 운영체제이다. 
+>  **RTOS (Real-Time Operating System)**는 특정 작업이 **정해진 시간 안에 반드시 실행되어야 하는** 시스템을 위한 운영체제이다.
 > Jetson 플랫폼에서 RTOS를 적용하는 주된 목적은 **지연 시간을 줄이고**, **결정론적(deterministic)** 처리를 보장하는 데 있다.
 
 ### 일반 커널과 RT 커널의 차이
 
-| 항목       | 일반 커널        | RT 커널 (PREEMPT\_RT)          |
-| -------- | ------------ | ---------------------------- |
-| 작업 응답 시간 | Best-effort  | 결정론적 (Deterministic)         |
-| 인터럽트 처리  | 대부분 하드 IRQ   | Thread 기반 softirq            |
-| 스케줄링     | CFS (공정성 중심) | FIFO / Round-Robin (우선순위 기반) |
-| 커널 선점성   | 부분적          | 완전 선점 가능                     |
-| 사용 사례    | 데스크탑, 서버     | 로봇 제어, 산업 제어, 자율주행 등         |
+| 항목           | 일반 커널         | RT 커널 (PREEMPT_RT)               |
+| -------------- | ----------------- | ---------------------------------- |
+| 작업 응답 시간 | Best-effort       | 결정론적 (Deterministic)           |
+| 인터럽트 처리  | 대부분 하드 IRQ   | Thread 기반 softirq                |
+| 스케줄링       | CFS (공정성 중심) | FIFO / Round-Robin (우선순위 기반) |
+| 커널 선점성    | 부분적            | 완전 선점 가능                     |
+| 사용 사례      | 데스크탑, 서버    | 로봇 제어, 산업 제어, 자율주행 등  |
 
 ## Jetson에서 RT 커널 설치 방법
 
@@ -50,8 +49,8 @@ Jetson에서는 NVIDIA가 제공하는 RT 커널을 **간단히 패키지 설치
 uname -r
 ```
 
-* 일반 커널: `5.15.148-tegra`
-* RT 커널: `5.15.148-rt-tegra`
+- 일반 커널: `5.15.148-tegra`
+- RT 커널: `5.15.148-rt-tegra`
 
 ### 2. 저장소 등록
 
@@ -126,13 +125,13 @@ LABEL real-time
 
 </details>
 
-* 예시) DEFAULT 값을 `real-time`으로 설정:
+- 예시) DEFAULT 값을 `real-time`으로 설정:
 
 ```
 DEFAULT real-time
 ```
 
-* reboot 후 `uname -r`로 확인
+- reboot 후 `uname -r`로 확인
 
 ### 5. 제거 시
 
@@ -175,10 +174,10 @@ set_realtime_priority()
 
 ## RTOS를 활용한 ROS2 설계 시 고려사항
 
-* `rclcpp::MultiThreadedExecutor`를 활용하여 ROS 콜백 스레드를 분리할 것
-* 실시간 요구가 있는 노드에는 `ReentrantCallbackGroup` 사용
-* 동적 메모리 할당, 동기화 객체 사용을 최소화하여 **RT-safe** 코드로 작성
-* 노드 간 통신은 DDS QoS 설정 (e.g., `reliable`, `deadline`)을 통해 시간 보장
+- `rclcpp::MultiThreadedExecutor`를 활용하여 ROS 콜백 스레드를 분리할 것
+- 실시간 요구가 있는 노드에는 `ReentrantCallbackGroup` 사용
+- 동적 메모리 할당, 동기화 객체 사용을 최소화하여 **RT-safe** 코드로 작성
+- 노드 간 통신은 DDS QoS 설정 (e.g., `reliable`, `deadline`)을 통해 시간 보장
 
 ## 결론
 
@@ -189,7 +188,7 @@ RT 커널 설치 이후에도 Python이나 ROS2 환경에서 적절한 스케줄
 ### References
 
 - [NVIDIA RT Kernel 공식 문서](https://docs.nvidia.com/jetson/archives/r36.3/DeveloperGuide/SD/SoftwarePackagesAndTheUpdateMechanism.html#real-time-kernel-using-ota-update)
-- [Jetson 포럼의 PREEMPT\_RT 적용 사례](https://forums.developer.nvidia.com/t/applying-a-preempt-rt-patch-to-jetpack-4-5-on-jetson-nano/168428/4)
+- [Jetson 포럼의 PREEMPT_RT 적용 사례](https://forums.developer.nvidia.com/t/applying-a-preempt-rt-patch-to-jetpack-4-5-on-jetson-nano/168428/4)
 
 ## 설치방법 (Raspberry PI)
 

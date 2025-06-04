@@ -9,6 +9,7 @@ related_publications: true
 display_categories: [software, hardware]
 horizontal: false
 ---
+
 <!-- # ATLO: Digital Companion
 Brief introduction to the ATLO project... -->
 

@@ -11,18 +11,19 @@ tags:
   - Grsap
   - VAE
   - ICCV
-  - '2019'
+  - "2019"
 description: "paper review about 6-DOF GraspNet"
 use_math: true
 classes: wide
 giscus_comments: true
 related_posts: true
 ---
+
 > ICCV 2019. [[Paper](https://arxiv.org/abs/1905.10520)] [[Github](https://github.com/NVlabs/6dof-graspnet)]
 >
 > Arsalan Mousavian, Clemens Eppner, Dieter Fox
 > NVIDIA
-> 
+>
 > 17 Aug 2019
 
 <div align="center">
@@ -30,10 +31,9 @@ related_posts: true
   <p>Fig. 1: Introduction figure about 6-dof graspnet paper.</p>
 </div>
 
-
 ### Summary
-The paper addresses the challenge of robotic object manipulation, specifically the generation of grasp poses. The author formulates the problem as sampling a set of grasps using a variational autoencoder (VAE) and refining these grasps with a grasp evaluator model. The key contribution of the approach is to generate diverse and stable grasps of unknown objects using 3D point clouds from a depth camera.
 
+The paper addresses the challenge of robotic object manipulation, specifically the generation of grasp poses. The author formulates the problem as sampling a set of grasps using a variational autoencoder (VAE) and refining these grasps with a grasp evaluator model. The key contribution of the approach is to generate diverse and stable grasps of unknown objects using 3D point clouds from a depth camera.
 
 ### Methodology:
 
@@ -58,7 +58,7 @@ Network Architecture: Training is conducted using simulated data for grasp gener
   <p>Fig. 4: Environmental setting about 6-dof graspnet.</p>
 </div>
 
-Simulation-Based Training: The model is trained using data generated from physics simulations, FleX,  ensuring a wide range of object shapes and grasp types.
+Simulation-Based Training: The model is trained using data generated from physics simulations, FleX, ensuring a wide range of object shapes and grasp types.
 Real-World Robot Experiments: The author tests the model in real-world scenarios with a Franka Panda manipulator. The experiments involve picking up various objects, demonstrating the model's ability to generate successful grasps in a physical environment.
 Evaluation Metrics: The success rate and coverage rate of grasps are used as metrics, with the model showing high performance in both aspects.
 
@@ -72,9 +72,10 @@ Evaluation Metrics: The success rate and coverage rate of grasps are used as met
   <p>Fig. 6: Result of Refinement Network.</p>
 </div>
 
+### Conclusion:
 
-### Conclusion: 
-This paper makes a significant step in robotic grasp generation by combining deep learning with physics simulator to obtain efficient, diverse, and successful grasps for object manipulation. The model's success in both simulated and real-world tests underlines its potential for broad applications in robotics. 
+This paper makes a significant step in robotic grasp generation by combining deep learning with physics simulator to obtain efficient, diverse, and successful grasps for object manipulation. The model's success in both simulated and real-world tests underlines its potential for broad applications in robotics.
 
 ### Thoughts:
+
 The author presents an innovative approach to robotic grasp generation using a variational autoencoder and a grasp evaluator to handle a wide range of objects. The paper is the first to introduce both a learning-based method for generating grasp poses (i.e., learned grasp sampler) and a gradient-based optimization technique for improving these grasp poses (i.e., gradient-based refinement process). Trained with simulated data and validated with real-world experiments, the model effectively generates and refines grasp poses using 3D point clouds. Despite its reliance on simulated data, the paper shows a significant advancement in robotic manipulation, demonstrates practical applications.
