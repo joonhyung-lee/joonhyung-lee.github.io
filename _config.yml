@@ -8,7 +8,7 @@ middle_name: # leave blank if you don't have a middle name
 last_name: Lee
 email: dlwnsgud8823@korea.ac.kr
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Robotics Research Master's Student
+  Joel's website
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
