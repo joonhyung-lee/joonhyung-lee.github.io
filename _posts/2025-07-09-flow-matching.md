@@ -1,29 +1,28 @@
 ---
-
 layout: post
 title: "Flow Matching"
 date: 2025-07-09
 header-includes:
-\- \usepackage{textcomp}
-\- \usepackage{mathtools}
-\- \usepackage{amsmath,amssymb,amsfonts}
-\- \usepackage{graphicx}
-\- \usepackage{textcomp}
-\- \usepackage{xcolor}
+    - \usepackage{textcomp}
+    - \usepackage{mathtools}
+    - \usepackage{amsmath,amssymb,amsfonts}
+    - \usepackage{graphicx}
+    - \usepackage{textcomp}
+    - \usepackage{xcolor}
 categories:
 
-* Generative Models
-* Flow Matching
-  tags:
-* Generative Models
-* ICLR
-* '2023'
-  description: "Flow Matching"
-  use\_math: true
-  classes: wide
-  giscus\_comments: true
-  related\_posts: true
-
+categories:
+  - Generative Models
+  - Flow Matching
+tags:
+  - Generative Models
+  - ICLR
+  - '2023'
+description: "Flow Matching"
+use_math: true
+classes: wide
+giscus_comments: true
+related_posts: true
 ---
 
 ## Motivation
