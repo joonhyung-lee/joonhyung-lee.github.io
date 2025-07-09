@@ -12,11 +12,13 @@ header-includes:
 categories:
 
 categories:
-  - Package Manager
+  - LLM
 tags:
-  - Python
-  - Package Manager
-description: "Python Package Manager"
+  - LLM
+  - Generative Agents
+  - UIST
+  - '2023'
+description: "Generatvie Agents"
 use_math: true
 classes: wide
 giscus_comments: true
