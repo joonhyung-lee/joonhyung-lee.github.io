@@ -6,7 +6,7 @@ subtitle: #<a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
-  image: profile.jpg
+  image: profile.jpeg
   image_circular: false # crops the image to make it circular
   # more_info: >
   #   <p>555 your office number</p>
@@ -21,15 +21,15 @@ social: true # includes social icons at the bottom of the page
 
 Hello everyone!
 
-I'm a Robotics Research Engineer working on AI systems that help robots act more safely and reliably in the physical world. My goal is to make robots easier for people to use in everyday life by combining Robotics with LLMs (or VLMs).
+I'm an AI Engineer at [Rebellions](https://rebellions.ai/), working on accelerating AI systems for <u>physical robotics</u> on NPU devices. 
+I founded a start-up and created a multimodal AI agent with an emotion-aware dialogue chatbot. Our product has been deployed on hardware robots, iOS and web platforms. [DITTO](https://apps.apple.com/us/app/ditto-the-friend-who-gets-you/id6743839550)
 
-My research bridges the gap between academic robotics and real-world applications through two key approaches: (1) enhancing <u>physical reliability</u> using simulation-to-real transfer and (2) improving contextual understanding via <u>Large Language Models</u>. It enables robots to perform complex manipulation tasks while maintaining safety and user interpretability (i.e., commonsense).
+My research focuses on (1) improving <u>physical reliability</u> through simulation-to-real transfer and (2) enhancing <u>contextual understanding</u> with Foundation models for complex manipulation tasks.
 
-I completed my M.S. in [Artificial Intelligence](https://info.korea.edu/en_info/grad/ai_intro.do) at Korea University under the supervision of [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). During my academic journey, I also gained valuable experience in reinforcement learning for robot navigation at KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home), where I worked on various robotics and computer vision projects.
+I completed my M.S. in [Artificial Intelligence](https://info.korea.edu/en_info/grad/ai_intro.do) at Korea University under the supervision of [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). I also worked on reinforcement learning for robot navigation at KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home).
 
 ##### **Research Topic:**
 
 - Physics-based Robot Control and Simulation
-- LLM-driven Robotics (e.g, VLA)
-- Multimodal Perception and Reasoning (Vision, Language, Audio)
+- Robot Foundation Models (e.g., VLA) & Contact-based RL
 - Human-Robot Interaction and Preference Learning
