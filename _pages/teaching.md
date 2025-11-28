@@ -17,7 +17,9 @@ nav_order: 0
     <h5 class="card-title">{{ course.title }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ course.semester }} {{ course.year }}</h6>
     <p class="card-text">{{ course.description }}</p>
+    {% if course.url %}
     <a href="{{ course.url | relative_url }}" class="btn btn-primary">Course Details</a>
+    {% endif %}
   </div>
 </div>
 {% endfor %}
