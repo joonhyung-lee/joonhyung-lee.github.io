@@ -2,24 +2,34 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: #<a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile.jpeg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  # more_info: >
+  #   <p>555 your office number</p>
+  #   <p>123 your address street</p>
+  #   <p>Your City, State 12345</p>
 
-news: true # includes a list of news items
+news: false # includes a list of news items
+latest_posts: false # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hello everyone!
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I'm an AI Engineer at [Rebellions](https://rebellions.ai/), working on accelerating AI systems for <u>physical robotics</u> on NPU devices.
+I founded a start-up and created a multimodal AI agent with an emotion-aware dialogue chatbot. Our product has been deployed on hardware robots, iOS and web platforms: [DITTO](https://apps.apple.com/us/app/ditto-the-friend-who-gets-you/id6743839550)
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My research focuses on (1) improving <u>physical reliability</u> through simulation-to-real transfer and (2) enhancing <u>contextual understanding</u> with Foundation models for complex manipulation tasks.
+
+I completed my M.S. in [Artificial Intelligence](https://en_ai.korea.edu/en_ai/index.do) at Korea University under the supervision of [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). I also worked on reinforcement learning for robot navigation at KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home).
+
+##### **Research Topic:**
+
+- Physics-based Robot Control and Simulation
+- Robot Foundation Models (e.g., VLA) & Contact-based RL
+- Human-Robot Interaction and Preference Learning

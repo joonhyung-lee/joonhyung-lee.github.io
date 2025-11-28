@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export RBENV_ROOT="$ROOT/.rbenv"
+export PATH="$RBENV_ROOT/shims:$RBENV_ROOT/bin:/opt/homebrew/bin:$PATH"
+
+if ! command -v rbenv >/dev/null 2>&1; then
+  echo "rbenv is not installed or not on PATH. Install it via Homebrew and rerun." >&2
+  exit 1
+fi
+
+eval "$(rbenv init -)"
+
+if [ ! -f "$ROOT/.ruby-version" ]; then
+  echo "Missing .ruby-version. Create it with 'rbenv local 3.2.4'." >&2
+  exit 1
+fi
+
+if [ -d "$ROOT/.venv" ]; then
+  # shellcheck disable=SC1091
+  source "$ROOT/.venv/bin/activate"
+else
+  echo "Warning: .venv missing. Run 'python3 -m venv .venv && source .venv/bin/activate && pip install jupyter'." >&2
+fi
+
+export BUNDLE_PATH="$ROOT/vendor/bundle"
+cd "$ROOT"
+exec bundle exec jekyll serve "$@"

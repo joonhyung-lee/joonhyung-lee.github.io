@@ -1,42 +1,29 @@
 {
-  "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
-    "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
-    },
+  "General Information": {
+    "name": "Joel Lee",
+    "image": "assets/img/profile.png",
+    "email": "dlwnsgud8823@korea.ac.kr",
     "profiles": [
       {
         "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "username": "joonhyunglee99",
+        "url": "https://twitter.com/joonhyunglee99"
       }
     ]
   },
-  "work": [
+  "Education": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
+      "name": "Department of Artificial Intelligence, Korea University",
+      "position": "Master's Student",
       "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "startDate": "2018-03-02",
+      "endDate": "2022-02-15",
+      "highlights": ["Summa Cum Laude", "Major GPA: 4.31/4.5"]
     }
   ],
-  "volunteer": [
+  "Research Experience": [
     {
       "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
       "position": "Lead Organizer",
       "url": "https://example.com",
       "startDate": "2014-04-01",

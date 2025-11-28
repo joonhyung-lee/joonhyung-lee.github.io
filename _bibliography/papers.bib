@@ -1,115 +1,103 @@
 ---
 ---
-
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
+<!--
+  Thesis:
+-->
+@thesis{lee2024ms_thesis,
+  author={Lee, Joonhyung},
+  title={Towards Physically Reliable and User-Friendly Robot Manipulation},
+  journal={Korea University},
+  type={Master's Thesis},
+  preview={thesis_thumbnail.png},
+  abstract={Robotic systems have become increasingly embedded in various industries and manufacturing processes, expanding their applications into everyday life. However, deploying robots in unstructured environments often requires human-like reasoning for appropriate decision-making and behavior.Recent advances in foundation models have opened new possibilities for enhancing robotic manipulation capabilities and offer a potential solution to bridge the gap between robotic systems and human-like reasoning. 
+In this paper, we propose two types of foundation model-based robotic manipulation methods: semi-autonomous teleoperation and preference learning. First, we propose a method that combines physics-based simulation and semantic reasoning using foundation models. Our approach aims to enhance object placement tasks in complex environments based on scene information and task description. Secondly, we introduce the problem of extracting human preferences from visual observations. To this end, our method describes differences between consecutive images and incorporates texts with image sequences.},
+  pdf={https://library.korea.ac.kr/detail/?cid=CAT000046189760&ctype=t},
+  selected={false},
 }
 
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
+@article{park2024QD-teleop,
+      author={Park, Sangbeom and Yoon, Taerim and Lee, Joonhyung and Park, Sunghyun and Choi, Sungjoon},
+      title={Quality-Diversity based Semi-Autonomous Teleoperation using Reinforcement Learning},
+      journal={Neural Networks},
+      publisher={Elsevier},
+      year={2024},
+      preview={QD-teleop.png},
+      abstract={Recent successes in robot learning have significantly enhanced autonomous systems across a wide range of tasks. However, they are prone to generate similar or the same solutions, limiting the controllability of the robot to behave according to user intentions. These limited robot behaviors may lead to collisions and potential harm to humans. To resolve these limitations, we introduce a semi-autonomous teleoperation framework that enables users to operate a robot by selecting a high-level command, referred to as option. Our approach aims to provide effective and diverse options by a learned policy, thereby enhancing the efficiency of the proposed framework. In this work, we propose a quality-diversity (QD) based sampling method that simultaneously optimizes both the quality and diversity of options using reinforcement learning (RL). Additionally, we present a mixture of latent variable models to learn multiple policy distributions defined as options. In experiments, we show that the proposed method achieves superior performance in terms of the success rate and diversity of the options in simulation environments. We further demonstrate that our method outperforms manual keyboard control for time duration over cluttered real-world environments.},
+      pdf={https://www.sciencedirect.com/science/article/pii/S0893608024004672},
+      code={https://github.com/park-sangbeom/smore},
+      website={https://park-sangbeom.github.io/smore/},
+      selected={true},
 }
 
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
+@article{lee2024vpi,
+      author={Lee, Joonhyung, and Park, Sangbeom and Kwon, Yongin and Lee, Jemin and Ahn, Minwook and Choi, Sungjoon},
+      title={Visual Preference Inference: An Image Sequence-Based Preference Reasoning in Tabletop Object Manipulation},
+      journal={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+      publisher={IEEE},
+      year={2024},
+      abstract={In robotic object manipulation, human preferences can often be influenced by the visual attributes of objects, such as color and shape. These properties play a crucial role in operating a robot to interact with objects and align with human intention. In this paper, we focus on the problem of inferring underlying human preferences from a sequence of raw visual observations in tabletop manipulation environments with a variety of object types, named Visual Preference Inference (VPI). To facilitate visual reasoning in the context of manipulation, we introduce the Chain-of-Visual-Residuals (CoVR) method. CoVR employs a prompting mechanism that describes the difference between the consecutive images (i.e., visual residuals) and incorporates such texts with a sequence of images to infer the user's preference. This approach significantly enhances the ability to understand and adapt to dynamic changes in its visual environment during manipulation tasks. Furthermore, we incorporate such texts along with a sequence of images to infer the user's preferences. Our method outperforms baseline methods in terms of extracting human preferences from visual sequences in both simulation and real-world environments. Code and videos are available at: \href{https://joonhyung-lee.github.io/vpi/}{https://joonhyung-lee.github.io/vpi/}},
+      pdf={https://arxiv.org/abs/2403.11513},
+      code={https://github.com/joonhyung-lee/vpi},
+      website={https://joonhyung-lee.github.io/vpi/},
+      preview={vpi.gif},
+      selected={true},
 }
 
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
-  selected={true},
-  inspirehep_id = {3255}
+@article{lee2023spots,
+      title={SPOTS: Stable Placement of Objects with Reasoning in Semi-Autonomous Teleoperation Systems}, 
+      author={Lee, Joonhyung and Park, Sangbeom and Park, Jeongeun and Lee, Kyungjae and Choi, Sungjoon},
+      journal={IEEE International Conference on Robotics and Automation (ICRA)},
+      publisher={IEEE},
+      year={2024},
+      abstract={Pick-and-place is one of the fundamental tasks in robotics research. However, the attention has been mostly focused on the ``pick'' task, leaving the ``place'' task relatively unexplored. In this paper, we address the problem of placing objects in the context of a teleoperation framework. Particularly, we focus on two aspects of the place task: stability robustness and contextual reasonableness of object placements. Our proposed method combines simulation-driven physical stability verification via real-to-sim and the semantic reasoning capability of large language models. In other words, given place context information (e.g., user preferences, object to place, and current scene information), our proposed method outputs a probability distribution over the possible placement candidates, considering the robustness and reasonableness of the place task. Our proposed method is extensively evaluated in two simulation and one real world environments and we show that our method can greatly increase the physical plausibility of the placement as well as contextual soundness while considering user preferences.},
+      pdf={https://arxiv.org/pdf/2309.13937.pdf},
+      code={https://github.com/joonhyung-lee/spots},
+      website={https://joonhyung-lee.github.io/spots/},
+      abbr={ICRA},
+      primaryClass={cs.RO},
+      preview={spots.gif},
+      selected={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+@article{park2023clara,
+      title={CLARA: Classifying and Disambiguating User Commands for Reliable Interactive Robotic Agents}, 
+      author={Park, Jeongeun and Lim, Seungwon and Lee, Joonhyung and Park, Sangbeom and Chang, Minsuk and Yu, Youngjae and Choi, Sungjoon},
+      journal={IEEE Robotics and Automation Letters (RA-L)},
+      publisher={IEEE},
+      year={2023},
+      abstract={In this paper, we focus on inferring whether the given user command is clear, ambiguous, or infeasible in the context of interactive robotic agents utilizing large language models (LLMs). To tackle this problem, we first present an uncertainty estimation method for LLMs to classify whether the command is certain (i.e., clear) or not (i.e., ambiguous or infeasible). Once the command is classified as uncertain, we further distinguish it between ambiguous or infeasible commands leveraging LLMs with situational aware context in a zero-shot manner. For ambiguous commands, we disambiguate the command by interacting with users via question generation with LLMs. We believe that proper recognition of the given commands could lead to a decrease in malfunction and undesired actions of the robot, enhancing the reliability of interactive robot agents. We present a dataset for robotic situational awareness, consisting pair of high-level commands, scene descriptions, and labels of command type (i.e., clear, ambiguous, or infeasible). We validate the proposed method on the collected dataset, pick-and-place tabletop simulation. Finally, we demonstrate the proposed approach in real-world human-robot interaction experiments, i.e., handover scenarios.},
+      pdf={https://arxiv.org/abs/2306.10376},
+      code={https://github.com/jeongeun980906/CLARA-SaGC-Code},
+      website={https://clararobot.github.io/},
+      abbr={RA-L},
+      preview={clara.gif},
+      selected={true}
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+@article{shin2023boarding,
+author="Shin, Seungyoun
+and Lee, Joonhyung
+and Noh, Junhyug
+and Choi, Sungjoon",
+editor="Lu, Huimin
+and Blumenstein, Michael
+and Cho, Sung-Bae
+and Liu, Cheng-Lin
+and Yagi, Yasushi
+and Kamiya, Tohru",
+title="Robust Detection for Autonomous Elevator Boarding Using a Mobile Manipulator",
+booktitle="Asian Conference on Pattern Recognition",
+year="2023",
+publisher="Springer Nature Switzerland",
+address="Cham",
+abstract={Indoor robots are becoming increasingly prevalent across a range of sectors, but the challenge of navigating multi-level structures through elevators remains largely uncharted. For a robot to operate successfully, it's pivotal to have an accurate perception of elevator states. This paper presents a robust robotic system, tailored to interact adeptly with elevators by discerning their status, actuating buttons, and boarding seamlessly. Given the inherent issues of class imbalance and limited data, we utilize the YOLOv7 model and adopt specific strategies to counteract the potential decline in object detection performance. Our method effectively confronts the class imbalance and label dependency observed in real-world datasets, Our method effectively confronts the class imbalance and label dependency observed in real-world datasets, offering a promising approach to improve indoor robotic navigation systems.},
+pdf={https://link.springer.com/chapter/10.1007/978-3-031-47634-1_2},
+journal={Asian Conference on Pattern Recognition (ACPR)},
+code={https://github.com/joonhyung-lee/robust-detection-for-elevator-boarding},
+website={https://joonhyung-lee.github.io/robust-detection-for-elevator-boarding/},
+abbr={ACPR},
+pages="15--28",
+isbn="978-3-031-47634-1",
+preview={elevator-boarding.gif},
+selected={true}
 }

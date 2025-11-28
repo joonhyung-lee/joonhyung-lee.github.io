@@ -1,14 +1,14 @@
-github_users:
-  - torvalds
-  - alshedivat
-
-repo_description_lines_max: 2
+github:
+  - joonhyung-lee
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - joonhyung-lee/spots
+  - joonhyung-lee/vpi
+  - joonhyung-lee/mujoco-robotics-usage
+  - joonhyung-lee/mujoco-py-usage
+  - joonhyung-lee/mujoco-ycb-dataset
+  - joonhyung-lee/mujoco-nonprehensile
+
+teaching_assistant:
+  - joonhyung-lee/xai615-code
+  - joonhyung-lee/xai615-realworld
