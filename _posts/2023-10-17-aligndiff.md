@@ -6,11 +6,11 @@ description: paper review about AlignDiff
 tags:
   - Diffusion
   - Preference-Based Learning
-  - Arxiv
+  - arXiv
   - "2023"
 categories:
   - paper-review
-  - paper-review/PBL
+  - paper-review/pbl
 use_math: true
 giscus_comments: true
 related_posts: true

@@ -14,7 +14,7 @@ header-includes:
   - \usepackage{xcolor}
 categories:
   - paper-review
-  - paper-review/PBL
+  - paper-review/pbl
 tags:
   - PBL
   - LLM

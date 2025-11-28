@@ -21,7 +21,6 @@ group :jekyll_plugins do
     gem 'unicode_utils'
     gem 'webrick'
     gem 'jekyll-redirect-from'
-    gem 'jekyll-archives'
 end
 group :other_plugins do
     gem 'feedjira'

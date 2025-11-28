@@ -10,9 +10,9 @@ header-includes:
   - \usepackage{textcomp}
   - \usepackage{xcolor}
 categories:
-  - python
+  - Python
 tags:
-  - python
+  - Python
   - setup
   - package
   - "2024"
