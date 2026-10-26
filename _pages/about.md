@@ -26,7 +26,7 @@ I founded a start-up and created a multimodal AI agent with an emotion-aware dia
 
 My research focuses on (1) improving <u>physical reliability</u> through simulation-to-real transfer and (2) enhancing <u>contextual understanding</u> with Foundation models for complex manipulation tasks.
 
-I completed my M.S. in [Artificial Intelligence](https://en_ai.korea.edu/en_ai/index.do) at Korea University under the supervision of [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). I also worked on reinforcement learning for robot navigation at KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home).
+I completed my M.S. in [Artificial Intelligence](https://en-ai.korea.edu/en_ai/index.do) at Korea University under the supervision of [Sungjoon Choi](https://sites.google.com/view/sungjoon-choi). I also worked on reinforcement learning for robot navigation at KAIST [MDI Lab](https://sites.google.com/site/donghwanleehome/home).
 
 ##### **Research Topic:**
 

@@ -14,5 +14,12 @@ jobs:
         uses: lycheeverse/lychee-action@v1.9.0
         with:
           fail: true
-          # removed md files that include liquid tags
-          args: --exclude-path README.md --exclude-path _pages/404.md --exclude-path _pages/blog.md --exclude-path _posts/2018-12-22-distill.md --verbose --no-progress './**/*.md' './**/*.html'
+          # Liquid-generated paths are validated after rendering by broken-links-site.yml.
+          # Exclude only unresolved Liquid URLs, preserving other links in the same file.
+          args: >-
+            --exclude-path README.md
+            --exclude-path _pages/404.md
+            --exclude-path _pages/blog.md
+            --exclude-path _posts/2018-12-22-distill.md
+            --exclude '^file://.*(\{\{|%7[Bb]%7[Bb])'
+            --verbose --no-progress './**/*.md' './**/*.html'
