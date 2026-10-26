@@ -708,6 +708,16 @@ footer.sticky-bottom {
         font-weight: bolder;
       }
 
+      .publication-venue {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .journal-separator {
+        display: inline-block;
+        transform: scale(1.5);
+      }
+
       .author {
         a {
           border-bottom: 1px dashed var(--global-theme-color);
@@ -805,6 +815,18 @@ footer.sticky-bottom {
 
       div.abstract.hidden.open {
         border-color: var(--global-text-color);
+      }
+
+      .publication-video {
+        figure {
+          margin: 0;
+        }
+
+        video {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
