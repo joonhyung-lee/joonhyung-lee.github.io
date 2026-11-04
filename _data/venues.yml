@@ -1,14 +1,37 @@
 "ACPR":
   url: https://link.springer.com/conference/acpr
   color: "#00369f"
+  logo: iapr.png
+  logo_size: large
+  logo_alt: International Association for Pattern Recognition
 
 "RA-L":
   url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7083369
   color: "#ff6600"
+  logo: ral.png
+  logo_size: large
+  logo_alt: IEEE Robotics and Automation Society
 
 "ICRA":
   url: https://ieeexplore.ieee.org/xpl/conhome.jsp?punumber=1000639
   color: "#0173b2"
+  logo: icra-2024.png
+  logo_size: xlarge
+  logo_alt: ICRA 2024
+
+"IROS":
+  logo: iros-2024.png
+  logo_size: xlarge
+  logo_alt: IROS 2024 Abu Dhabi
+
+"CoRL Workshop":
+  logo: corl-2026.png
+  logo_alt: CoRL 2026
+
+"Neural Networks":
+  logo: neural-networks.png
+  logo_size: medium
+  logo_alt: Neural Networks
 
 "ArXiv":
   url: https://arxiv.org/
